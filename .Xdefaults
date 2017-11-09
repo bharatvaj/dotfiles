@@ -20,7 +20,7 @@ Xft.dpi: 96
 
 URxvt.depth:                32
 URxvt.geometry:             90x30
-URxvt.transparent:          true
+URxvt.transparent:          false
 URxvt.fading:               0
 !URxvt.urgentOnBell:        false
 !URxvt.visualBell:          false
@@ -38,7 +38,7 @@ URxvt.scrollBar:            false
 ! Perl extensions
 URxvt.perl-ext-common:      default,matcher
 URxvt.matcher.button:       1
-URxvt.urlLauncher:          chromium
+URxvt.url-launcher:          surf
 
 ! Cursor
 URxvt.cursorBlink:          true
