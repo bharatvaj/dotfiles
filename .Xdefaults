@@ -20,32 +20,25 @@ Xft.dpi: 96
 
 URxvt.depth:                32
 URxvt.geometry:             90x30
-URxvt.transparent:          false
+URxvt.transparent:          true
 URxvt.fading:               0
-! URxvt.urgentOnBell:         true
-! URxvt.visualBell:           true
+!URxvt.urgentOnBell:        false
+!URxvt.visualBell:          false
 URxvt.loginShell:           true
-! URxvt.saveLines:            50
 URxvt.internalBorder:       3
 URxvt.lineSpace:            0
 
 ! Fonts
-/*URxvt.allow_bold:           false*/
-/*URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
-URxvt*font: xft:Fira Mono:pixelsize=11
-/*URxvt*boldFont: xft:Monospace:pixelsize=14*/
-
-! Fix font space
-/*URxvt*letterSpace: -1*/
+URxvt.font: xft:Fira Mono:pixelsize=11
 
 ! Scrollbar
-URxvt.scrollStyle:          rxvt
+!URxvt.scrollStyle:          rxvt
 URxvt.scrollBar:            false
 
 ! Perl extensions
 URxvt.perl-ext-common:      default,matcher
 URxvt.matcher.button:       1
-URxvt.urlLauncher:          firefox
+URxvt.urlLauncher:          chromium
 
 ! Cursor
 URxvt.cursorBlink:          true
@@ -58,7 +51,7 @@ URxvt.pointerBlank:         true
 !!Source http://github.com/altercation/solarized
 
 *.foreground: #F8F8F2
-*.background: #282A36
+*.background: #000000
 *.color0:     #000000
 *.color8:     #4D4D4D
 *.color1:     #FF5555
