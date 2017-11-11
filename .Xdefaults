@@ -20,16 +20,18 @@ Xft.dpi: 96
 
 URxvt.depth:                32
 URxvt.geometry:             90x30
-URxvt.transparent:          false
-URxvt.fading:               0
-!URxvt.urgentOnBell:        false
-!URxvt.visualBell:          false
+URxvt*transparent:          true
+URxvt*shading:              35
+!URxvt*tintColor:            #ffffff
+URxvt*blurRadius:           15
+!URxvt.urgentOnBell:         false
+!URxvt.visualBell:           false
 URxvt.loginShell:           true
-URxvt.internalBorder:       3
+URxvt.internalBorder:       5
 URxvt.lineSpace:            0
 
 ! Fonts
-URxvt.font: xft:Fira Mono:pixelsize=11
+URxvt.font: xft:Uni Mono:pixelsize=12
 
 ! Scrollbar
 !URxvt.scrollStyle:          rxvt
@@ -42,29 +44,44 @@ URxvt.url-launcher:          surf
 
 ! Cursor
 URxvt.cursorBlink:          true
-URxvt.cursorColor:          #657b83
 URxvt.cursorUnderline:      false
 
 ! Pointer
 URxvt.pointerBlank:         true
+! special
+*.foreground:   #d0d0d0
+*.background:   #000000
+*.cursorColor:  #d0d0d0
 
-!!Source http://github.com/altercation/solarized
+! black
+*.color0:       #000000
+*.color8:       #808080
 
-*.foreground: #F8F8F2
-*.background: #000000
-*.color0:     #000000
-*.color8:     #4D4D4D
-*.color1:     #FF5555
-*.color9:     #FF6E67
-*.color2:     #50FA7B
-*.color10:    #5AF78E
-*.color3:     #F1FA8C
-*.color11:    #F4F99D
-*.color4:     #BD93F9
-*.color12:    #CAA9FA
-*.color5:     #FF79C6
-*.color13:    #FF92D0
-*.color6:     #8BE9FD
-*.color14:    #9AEDFE
-*.color7:     #BFBFBF
-*.color15:    #E6E6E6
+! red
+*.color1:       #ff0000
+*.color9:       #ff0000
+
+! green
+*.color2:       #33ff00
+*.color10:      #33ff00
+
+! yellow
+*.color3:       #ff0099
+*.color11:      #ff0099
+
+! blue
+*.color4:       #0066ff
+*.color12:      #0066ff
+
+! magenta
+*.color5:       #cc00ff
+*.color13:      #cc00ff
+
+! cyan
+*.color6:       #00ffff
+*.color14:      #00ffff
+
+! white
+*.color7:       #d0d0d0
+*.color15:      #ffffff
+
