@@ -51,7 +51,7 @@ URxvt.keysym.C-N: exec urxvtc
 
 ! special
 *.foreground:   #d0d0d0
-*.background:   rgba:0000/0000/0200/c800
+*.background:   rgba:0000/0000/0000/f000
 *.cursorColor:  #d0d0d0
 
 ! black
