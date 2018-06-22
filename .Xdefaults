@@ -1,15 +1,13 @@
 !-------------------------------------------------------------------------------
 ! Xft settings
 !-------------------------------------------------------------------------------
-
+Xft.autohint:		    0
 Xft.dpi:                    96
 Xft.antialias:              true
 Xft.rgba:                   rgb
 Xft.hinting:                true
 Xft.hintstyle:              hintslight
-Xft.lcdfilter:lcddefault
-Xft.autohint: 0
-Xft.dpi: 96
+Xft.lcdfilter:		    lcddefault
 
 !-------------------------------------------------------------------------------
 ! URxvt settings
@@ -18,11 +16,11 @@ Xft.dpi: 96
 ! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
 !-------------------------------------------------------------------------------
 
-URxvt.depth:                14
-URxvt.geometry:             200x100
+URxvt.depth:                32
+URxvt.geometry:             70x20
 URxvt*transparent:          false
-URxvt*shading:              5
-!URxvt*tintColor:            #ffffff
+!URxvt*shading:              30
+URxvt*tintColor:            #ffffff
 URxvt*blurRadius:           0
 !URxvt.urgentOnBell:         false
 URxvt.visualBell:           false
@@ -34,7 +32,7 @@ URxvt.lineSpace:            0
 URxvt.font: xft:Fira Mono:pixelsize=11
 
 ! Scrollbar
-!URxvt.scrollStyle:          rxvt
+URxvt.scrollStyle:          rxvt
 URxvt.scrollBar:            false
 
 ! Perl extensions
@@ -48,9 +46,12 @@ URxvt.cursorUnderline:      false
 
 ! Pointer
 URxvt.pointerBlank:         true
+
+URxvt.keysym.C-N: exec urxvtc
+
 ! special
 *.foreground:   #d0d0d0
-*.background:   #000000
+*.background:   rgba:0000/0000/0200/c800
 *.cursorColor:  #d0d0d0
 
 ! black
