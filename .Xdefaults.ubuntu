@@ -5,8 +5,9 @@ URxvt*boldFont: xft:Fira Mono:bolf:pixelsize=14
 URxvt*saveLines: 12000
 URxvt*scrollBar: false
 URxvt*scrollstyle: rxvt
-URxvt*perl-ext-common: default,matcher
-URxvt*urlLauncher: firefox
+URxvt*perl-ext-common: default,matcher,new-window
+URxvt*urlLauncher: chromium
+URxvt.keysym.C-N: perl:new-window
 URxvt*matcher.button: 1
 
 URxvt*colorUL: #86a2be
