@@ -1,3 +1,3 @@
 exec i3 &
-feh --bg-scale .config/bg.png &
-exec compton --blur-background
+exec hsetroot -solid "#000000" &
+exec compton
