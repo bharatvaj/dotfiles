@@ -29,7 +29,7 @@ URxvt.internalBorder:       6
 URxvt.lineSpace:            0
 
 ! Fonts
-URxvt.font: xft:Noto:pixelsize=14
+!URxvt.font: xft:Noto:pixelsize=14
 
 ! Scrollbar
 URxvt.scrollStyle:          rxvt
