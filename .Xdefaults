@@ -1,90 +1,38 @@
-!-------------------------------------------------------------------------------
-! Xft settings
-!-------------------------------------------------------------------------------
-Xft.autohint:		    0
-Xft.dpi:                    96
-Xft.antialias:              true
-Xft.rgba:                   rgb
-Xft.hinting:                true
-Xft.hintstyle:              hintslight
-Xft.lcdfilter:		    lcddefault
+URxvt*background: #000000
+URxvt*foreground: #FFFFFF
+URxvt*font: xft:Fira Mono:pixelsize=14
+URxvt*boldFont: xft:Fira Mono:bold:pixelsize=14
+URxvt*saveLines: 12000
+URxvt*scrollBar: false
+URxvt*scrollstyle: rxvt
+URxvt*perl-ext-common: default,matcher,new-window
+URxvt*urlLauncher: firefox
+URxvt.internalBorder: 6
+URxvt.keysym.C-N: perl:new-window
+URxvt*matcher.button: 1
 
-!-------------------------------------------------------------------------------
-! URxvt settings
-! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
-! More info at:
-! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
-!-------------------------------------------------------------------------------
-
-URxvt.depth:                32
-URxvt.geometry:             70x20
-URxvt*transparent:          false
-!URxvt*shading:              30
-URxvt*tintColor:            #ffffff
-URxvt*blurRadius:           0
-!URxvt.urgentOnBell:         false
-URxvt.visualBell:           false
-URxvt.loginShell:           true
-URxvt.internalBorder:       6
-URxvt.lineSpace:            0
-
-! Fonts
-URxvt.font: xft:Noto:pixelsize=14
-
-! Scrollbar
-URxvt.scrollStyle:          rxvt
-URxvt.scrollBar:            false
-
-! Perl extensions
-URxvt.perl-ext-common:      default,matcher
-URxvt.matcher.button:       1
-URxvt.url-launcher:         surf
-
-! Cursor
-URxvt.cursorBlink:          true
-URxv.cursorUnderlinurxvtc:      false
-
-! Pointer
-URxvt.pointerBlank:         true
-
-URxvt.keysym.C-N: exec urxvtc
-
-! special
-#*.foreground:   #d0d0d0
-#*.background:   rgba:0000/0000/0000/f000
-*.cursorColor:  #d0d0d0
-URxvt.foreground: #4D4D4C
-URxvt.background: #FFFFFF
-
+URxvt*colorUL: #86a2be
 ! black
-URxvt.color0: #EDEDED
-URxvt.color8: #969694
-
+URxvt*color0  : #2E3436
+URxvt*color8  : #555753
 ! red
-URxvt.color1: #D7005F
-URxvt.color9: #D7005F
-
+URxvt*color1  : #CC0000
+URxvt*color9  : #EF2929
 ! green
-URxvt.color2: #718C00
-URxvt.color10: #718C00
-
-! yellow / orange
-URxvt.color3: #D75F00
-URxvt.color11: #D75F00
-
+URxvt*color2  : #4E9A06
+URxvt*color10 : #8AE234
+! yellow
+URxvt*color3  : #C4A000
+URxvt*color11 : #FCE94F
 ! blue
-
-URxvt.color4: #4271AE
-URxvt.color12: #4271AE
-
+URxvt*color4  : #3465A4
+URxvt*color12 : #729FCF
 ! magenta
-URxvt.color5: #8959A8
-URxvt.color13: #8959A8
-
+URxvt*color5  : #75507B
+URxvt*color13 : #AD7FA8
 ! cyan
-URxvt.color6: #3E999F
-URxvt.color14: #3E999F
-
+URxvt*color6  : #06989A
+URxvt*color14 : #34E2E2
 ! white
-URxvt.color7: #4D4D4C
-URxvt.color15: #F5F5F5
+URxvt*color7  : #D3D7CF
+URxvt*color15 : #EEEEEC
