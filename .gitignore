@@ -1,0 +1,13 @@
+# Ignore everything by default.
+*
+
+# Git
+!.gitignore
+
+# Bash
+!.bashrc
+!.bash_local
+!.bash_logout
+!.profile
+
+
