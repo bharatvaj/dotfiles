@@ -1,10 +1,9 @@
-#
-# ~/.bash_profile
-#
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
 
-export BASH_SILENCE_DEPRECATION_WARNING=1
-[[ -f ~/.bashrc ]] && . ~/.bashrc
-[[ -f ~/.profile ]] && . ~/.profile
-if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  exec startx -logverbose 1
-fi
+[ -f ~/.profile ] && . ~/.profile
+[ -f ~/.personal/config ] && . ~/.personal/config
+[ -f ~/.bashrc ] && . ~/.bashrc
+
+# Zoho
+[ -f ~/.zoho/zoho ] && . ~/.zoho/zoho
