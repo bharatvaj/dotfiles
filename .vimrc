@@ -18,6 +18,11 @@ let g:netrw_banner = 0
 
 
 " Plugin Management
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 call plug#begin('~/.vim/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
@@ -35,9 +40,10 @@ nmap <Leader>f :GFiles<CR>
 nmap <Leader>F :Files<CR>
 nnoremap <leader>t :tabnew<cr>
 
-" Theming
+" Theming Begin
+" Git Gutter
 highlight GitGutterAdd ctermfg=green
 highlight GitGutterChange ctermfg=yellow
 highlight GitGutterDelete ctermfg=red
 highlight GitGutterChangeDelete ctermfg=yellow
-
+" Theming End
