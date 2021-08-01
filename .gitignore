@@ -4,10 +4,16 @@
 # Git
 !.gitignore
 
+# Shell
+!.profile
+
 # Bash
 !.bashrc
 !.bash_local
 !.bash_logout
-!.profile
+!.bash_aliases
+
+# Config
+!.config/
 
 
