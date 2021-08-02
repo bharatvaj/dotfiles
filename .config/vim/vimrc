@@ -17,7 +17,15 @@ set undodir=$XDG_CACHE_HOME/vim/undo     | call mkdir(&undodir,   'p')
 if !has('nvim') | set viminfofile=$XDG_CACHE_HOME/vim/viminfo | endif
 
 " General
-set number! relativenumber!
+
+"Adapted from https://jeffkreeftmeijer.com/vim-number/
+:set number
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+:  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+:augroup END
+
 set mouse=a
 syntax on
 set exrc
