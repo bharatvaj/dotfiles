@@ -1,0 +1,11 @@
+Ignore everything by default.
+*
+
+!.gitignore
+!i3
+!nvim
+!vim/
+!vim/*
+!X11
+!wgetrc
+!user-dirs.dirs
