@@ -16,7 +16,7 @@ set undodir=$XDG_CACHE_HOME/vim/undo     | call mkdir(&undodir,   'p')
 
 if !has('nvim') | set viminfofile=$XDG_CACHE_HOME/vim/viminfo | endif
 
-set number
+set number! relativenumber!
 set mouse=a
 syntax on
 set exrc
