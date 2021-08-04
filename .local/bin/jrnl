@@ -1,0 +1,7 @@
+#!/bin/sh
+
+ jrnl_path="${XDG_DATA_HOME}/notes/content"
+
+# TODO if ranger is not found, cd into that dir
+[ -d "${jrnl_path}" ] && ranger "${jrnl_path}"
+
