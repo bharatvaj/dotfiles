@@ -22,7 +22,9 @@ export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority 
 export ATOM_HOME="$XDG_DATA_HOME"/atom 
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 
 # Setup editor
 export EDITOR=vim
+export VISUAL=vim
 

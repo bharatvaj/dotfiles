@@ -3,8 +3,8 @@
 
 [ -f ~/.profile ] && . ~/.profile
 [ -f ~/.personal/config ] && . ~/.personal/config
-[ -f ~/.bashrc ] && . ~/.bashrc
-[ -f ~/.bash_aliases ] && . ~/.bash_aliases
+[ -f "${XDG_CONFIG_HOME}/bash/bashrc" ] && . "${XDG_CONFIG_HOME}"/bash/bashrc
+[ -f "${XDG_CONFIG_HOME}/bash/aliases" ] && . "${XDG_CONFIG_HOME}"/bash/aliases
 
 # Zoho
 [ -f ~/.zoho/zoho ] && . ~/.zoho/zoho
