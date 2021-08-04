@@ -2,6 +2,3 @@ which startx >&/dev/null && alias startx="startx \"$XDG_CONFIG_HOME/X11/xinitrc\
 which wget >&/dev/null && alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 which nvim >&/dev/null && alias vim="nvim" && alias vi="nvim" 
 
-# jrnl
-[ -d "${XDG_DATA_HOME}/notes/content" ] && alias jrnl="ranger \"${XDG_DATA_HOME}/notes/content\""
-
