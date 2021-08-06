@@ -1,0 +1,7 @@
+font:
+  size: 16
+shell:
+  program: /usr/local/bin/bash
+  args:
+    - --login
+

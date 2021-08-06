@@ -1,0 +1,15 @@
+Ignore everything by default.
+*
+
+!.gitignore
+!alacritty/
+!alacritty/*
+!bash/
+!bash/*
+!i3
+!nvim
+!vim/
+!vim/*
+!X11
+!wgetrc
+!user-dirs.dirs
