@@ -8,6 +8,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export VIMINIT='source $XDG_CONFIG_HOME/vim/vimrc'
 export LESSHISTFILE=-
+export LYNX_CFG="$XDG_CONFIG_HOME/lynx/lynx.cfg"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
