@@ -15,8 +15,8 @@ done
 
 export PS1="\w $ "
 
-# Source plugin index
-source "${XDG_CONFIG_HOME}/bash/plugin/index"
+# Plugins
+[ -f "${XDG_CONFIG_HOME}/bash/plugin/index" ] && . "${XDG_CONFIG_HOME}/bash/plugin/index"
 
 # Aliases
 [ -f "${XDG_CONFIG_HOME}/bash/aliases" ] && . "${XDG_CONFIG_HOME}"/bash/aliases
