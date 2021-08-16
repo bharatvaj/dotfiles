@@ -30,6 +30,10 @@ set mouse=a
 syntax on
 set exrc
 
+" Disable auto fixing end of line
+" Useful when opening binary files
+set nofixendofline
+
 " Disable vim intro message
 set shortmess=I
 
@@ -70,6 +74,8 @@ call plug#end()
 
 " Plugin customizations
 " fzf
+" BUG remove bashism
+" TODO - Files are repeated twice in some cases
 command! GFAll call fzf#run(fzf#wrap({'source': "comm <(git ls-files --exclude-standard --cached --cached --recurse-submodules) <(git ls-files --exclude-standard --cached --others) | awk '{$1=$1;print}'"}))
 
 " Plugin Keybindings
