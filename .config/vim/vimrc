@@ -30,6 +30,10 @@ set mouse=a
 syntax on
 set exrc
 
+" Map leader to space
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
 " Disable auto fixing end of line
 " Useful when opening binary files
 set nofixendofline
