@@ -35,7 +35,7 @@ set exrc
 set nofixendofline
 
 " Disable vim intro message
-set shortmess=I
+set shortmess=Iat
 
 " Search
 set hlsearch
@@ -70,6 +70,7 @@ call plug#begin($XDG_DATA_HOME."/vim/plugged")
     Plug 'editorconfig/editorconfig-vim'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
 call plug#end()
 
 " Plugin customizations
@@ -84,6 +85,7 @@ nmap <leader>F :Files<cr>
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>p :Rg<cr>
 nnoremap <leader>s :source ~/.config/vim/vimrc<cr>
+nnoremap <leader>cc :ChecklistToggleCheckbox<cr>
 
 " Theming Begin
 " Theming End
