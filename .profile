@@ -30,3 +30,6 @@ export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 # Setup editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
+
+# Local executables
+export PATH=${PATH}:~/.local/bin
