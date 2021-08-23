@@ -17,6 +17,8 @@ export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
 export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
 export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export TASKRC="${XDG_CONFIG_HOME}/task/taskrc"
+export TASKDATA="${XDG_DATA_HOME}/task"
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
@@ -26,6 +28,5 @@ export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 
 # Setup editor
-export EDITOR=vim
 export VISUAL=vim
-
+export EDITOR="$VISUAL"
