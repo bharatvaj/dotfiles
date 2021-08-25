@@ -75,6 +75,7 @@ call plug#begin($XDG_DATA_HOME."/vim/plugged")
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
+    Plug 'itchyny/lightline.vim'
 call plug#end()
 
 " Plugin customizations
