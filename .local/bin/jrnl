@@ -1,7 +1,11 @@
 #!/bin/sh
 
- jrnl_path="${XDG_DATA_HOME}/notes/content"
+ jrnl_path="${XDG_DATA_HOME}/notes"
 
-# TODO if ranger is not found, cd into that dir
-[ -d "${jrnl_path}" ] && ranger "${jrnl_path}"
+if [ -d "${jrnl_path}" ]; then
+    ranger "${jrnl_path}"
+else
+    cd "${jrnl_path}"
+    vim "$(fzf --preview 'cat {}')"
+fi
 
