@@ -3,13 +3,13 @@
 
 !.gitignore
 !alacritty/
-!alacritty/*
+!alacritty/**
 !bash/
-!bash/*
+!bash/**
 !i3
 !nvim
 !vim/
-!vim/*
+!vim/**
 !X11
 !wgetrc
 !user-dirs.dirs
