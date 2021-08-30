@@ -1,0 +1,5 @@
+Plug 'editorconfig/editorconfig-vim'
+Plug 'cdelledonne/vim-cmake'
+Plug 'puremourning/vimspector'
+Plug 'vim-syntastic/syntastic'
+Plug 'rust-lang/rust.vim'
