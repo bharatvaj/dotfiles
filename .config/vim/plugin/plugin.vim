@@ -1,9 +1,11 @@
 " Plugin Management
-let data_dir = has('nvim') ? stdpath('data') . '/site' : "${XDG_DATA_HOME}/vim"
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+function DownloadPlug()
+    let data_dir = has('nvim') ? stdpath('data') . '/site' : "${XDG_DATA_HOME}/vim"
+    if empty(glob(data_dir . '/autoload/plug.vim'))
+      silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      PlugInstall --sync | source $MYVIMRC
+    endif
+endfunction
 
 call plug#begin($XDG_DATA_HOME."/vim/plugged")
     Plug 'tpope/vim-commentary'
@@ -18,7 +20,7 @@ call plug#end()
 " Plugin Keybindings
 
 " fzf
-nmap <leader>F :GFAll<cr>
+nmap <leader>F :GFiles<cr>
 nmap <leader>f :Files<cr>
 
 nnoremap <leader>cc :ChecklistToggleCheckbox<cr>
