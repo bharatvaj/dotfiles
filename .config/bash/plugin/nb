@@ -1,0 +1,9 @@
+# nb - notebook
+NB_PATH="${XDG_DATA_HOME}/notes"
+
+nb() {
+    cd "${NB_PATH}"
+    file="$(fzf --preview='cat {}')"
+    [ "${file}" != "" ] && vim "${file}"
+}
+

@@ -11,3 +11,5 @@ function bashplug() {
 
 # Enable this plugin if 'git' is installed
 which git >&/dev/null && bashplug git
+which ranger >&/dev/null && bashplug nb
+bashplug shorthand
