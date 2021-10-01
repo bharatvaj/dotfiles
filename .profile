@@ -25,6 +25,8 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export ATOM_HOME="$XDG_DATA_HOME"/atom 
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
 
 # Setup editor
 export VISUAL=vim
