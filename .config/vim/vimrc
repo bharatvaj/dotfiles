@@ -61,35 +61,9 @@ for key in ['<Up>', '<Down>', '<Left>', '<Right>']
   exec 'cnoremap' key '<Nop>'
 endfor
 
-" Plugin Management
-"let data_dir = has('nvim') ? stdpath('data') . '/site' : "${XDG_DATA_HOME}/vim"
-"if empty(glob(data_dir . '/autoload/plug.vim'))
-"  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-"  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-"endif
-call plug#begin($XDG_DATA_HOME."/vim/plugged")
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    Plug 'cdelledonne/vim-cmake'
-    Plug 'editorconfig/editorconfig-vim'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-commentary'
-call plug#end()
+" Plugins
+source $XDG_CONFIG_HOME/vim/plugin/plugin.vim
 
-" Plugin customizations
-" fzf
-" BUG remove bashism
-" TODO - Files are repeated twice in some cases
-command! GFAll call fzf#run(fzf#wrap({'source': "comm <(git ls-files --exclude-standard --cached --cached --recurse-submodules) <(git ls-files --exclude-standard --cached --others) | awk '{$1=$1;print}'"}))
+" Keybindings
+source $XDG_CONFIG_HOME/vim/keybindings/keybindings.vim
 
-" Plugin Keybindings
-nmap <leader>f :GFAll<cr>
-nmap <leader>F :Files<cr>
-nnoremap <leader>t :tabnew<cr>
-nnoremap <leader>p :Rg<cr>
-nnoremap <leader>s :source ~/.config/vim/vimrc<cr>
-nnoremap <leader>cc :ChecklistToggleCheckbox<cr>
-
-" Theming Begin
-" Theming End

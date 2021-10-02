@@ -17,8 +17,7 @@ export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
 export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
 export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
-export TASKRC="${XDG_CONFIG_HOME}/task/taskrc"
-export TASKDATA="${XDG_DATA_HOME}/task"
+export TASKRC="$XDG_CONFIG_HOME/task/taskrc"
 export HISTFILE="$XDG_DATA_HOME"/bash/history
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
@@ -26,6 +25,8 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export ATOM_HOME="$XDG_DATA_HOME"/atom 
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
 
 # Setup editor
 export VISUAL=vim
