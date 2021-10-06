@@ -1,0 +1,18 @@
+mich git || return
+# ----------------------
+# Git Aliases
+# ----------------------
+alias ga='git add'
+alias gb='git branch'
+alias gcm='git commit --message'
+alias gco='git checkout'
+alias gd='git diff'
+alias glg='git log --graph --oneline --decorate --all'
+alias gld='git log --pretty=format:"%h %ad %s" --date=short --all'
+
+# ----------------------
+# Git Functions
+# ----------------------
+# Git log find by commit message
+glf() { git log --all --grep="$1"; }
+

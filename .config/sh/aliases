@@ -1,0 +1,3 @@
+mich startx && alias startx="startx \"$XDG_CONFIG_HOME/X11/xinitrc\" vt1"
+mich wget && alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
+

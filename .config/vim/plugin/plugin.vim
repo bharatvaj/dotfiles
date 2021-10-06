@@ -10,8 +10,9 @@ endfunction
 call plug#begin($XDG_DATA_HOME."/vim/plugged")
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
-    Plug 'itchyny/lightline.vim'
     Plug 'tpope/vim-fugitive'
+    Plug 'ap/vim-css-color'
+    Plug 'itchyny/lightline.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     source $XDG_CONFIG_HOME/vim/plugin/development.vim
