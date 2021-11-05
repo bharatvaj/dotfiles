@@ -36,10 +36,6 @@ export NB_PATH="$XDG_DATA_HOME/notebook"
 # Make `history` print timestamp
 HISTTIMEFORMAT="%F %T "
 
-# Setup editor
-export VISUAL=vi
-export EDITOR="$VISUAL"
-
 # Local executables
 export PATH=${PATH}:~/.local/bin
 
@@ -52,6 +48,11 @@ mich() {
     # Muted which
     which "$@" >/dev/null 2>/dev/null
 }
+
+# Setup editor
+
+export VISUAL=$(mich nvim && echo nvim || echo vim )
+export EDITOR="$VISUAL"
 
 chance "${XDG_CONFIG_HOME}/sh/aliases"
 chance "${XDG_CONFIG_HOME}/sh/plugin/index"
