@@ -1,0 +1,13 @@
+# Plugins should be sourced from this file
+# Instead of hardcoding in bashrc file
+
+SH_PLUGIN_DIR="${XDG_CONFIG_HOME}/sh/plugin"
+
+shplug() {
+    PLUGIN_FILE="${SH_PLUGIN_DIR}/${1}"
+    chance "${PLUGIN_FILE}"
+}
+
+shplug git
+shplug nb
+shplug shorthand

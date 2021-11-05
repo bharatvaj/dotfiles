@@ -6,6 +6,8 @@
 !alacritty/**
 !bash/
 !bash/**
+!sh/
+!sh/**
 !i3
 !nvim
 !vim/

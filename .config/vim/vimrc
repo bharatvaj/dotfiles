@@ -16,8 +16,7 @@ set undodir=$XDG_CACHE_HOME/vim/undo     | call mkdir(&undodir,   'p')
 
 if !has('nvim') | set viminfofile=$XDG_CACHE_HOME/vim/viminfo | endif
 
-" General
-
+" Line number
 "Adapted from https://jeffkreeftmeijer.com/vim-number/
 :set number
 :augroup numbertoggle
@@ -26,13 +25,22 @@ if !has('nvim') | set viminfofile=$XDG_CACHE_HOME/vim/viminfo | endif
 :  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
 :augroup END
 
+" General
 set mouse=a
+set cursorline
 syntax on
 set exrc
+" Turn backup off
+set nobackup
+set nowb
+set noswapfile
 
 " Map leader to space
 nnoremap <SPACE> <Nop>
 let mapleader = " "
+
+" Enable hidden buffers
+set hidden
 
 " Disable auto fixing end of line
 " Useful when opening binary files
@@ -44,22 +52,37 @@ set shortmess=Iat
 " Search
 set hlsearch
 set incsearch
+" Disable highlight after a search
+augroup vimrc-incsearch-highlight
+	autocmd!
+	autocmd CmdlineEnter /,\? :set hlsearch
+	autocmd CmdlineLeave /,\? :set nohlsearch
+augroup END
 
-" Anti-tab
+" Pro tab
 filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
-set expandtab
 
 " Netrw customization
 let g:netrw_banner = 0
 
-" Hard vim
+" Harder vim
+" Disable arrow keys
 for key in ['<Up>', '<Down>', '<Left>', '<Right>']
   exec 'noremap' key '<Nop>'
   exec 'inoremap' key '<Nop>'
   exec 'cnoremap' key '<Nop>'
 endfor
+" Disable h and l
+for key in ['h', 'l']
+  exec 'noremap' key '<Nop>'
+endfor
+
+" Visual Tweaks
+" Remove the ugly splits separator
+set fillchars=vert:\│
+hi VertSplit term=NONE cterm=NONE gui=NONE
 
 " Plugins
 source $XDG_CONFIG_HOME/vim/plugin/plugin.vim

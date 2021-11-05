@@ -2,26 +2,6 @@
 # ~/.bashrc
 #
 
-# Make `history` print timestamp
-HISTTIMEFORMAT="%F %T "
-
 PATH_EXPORTS=( "${ESSENTIAL_PATH_EXPORTS[@]}" "${OTHER_PATH_EXPORTS[@]}" )
 
-# Include one by one even if it affects performance
-# If something fails, atleast others will be added to path
-for PATH_EXPORT in ${PATH_EXPORTS}; do
-    export PATH="${PATH_EXPORT}:${PATH}"
-done
-
-export PS1="\w $ "
-
-shopt -s autocd
-
-# Plugins
-[ -f "${XDG_CONFIG_HOME}/bash/plugin/index" ] && . "${XDG_CONFIG_HOME}/bash/plugin/index"
-
-# Aliases
-[ -f "${XDG_CONFIG_HOME}/bash/aliases" ] && . "${XDG_CONFIG_HOME}"/bash/aliases
-
-# Unstaged
-[ -f ~/.config/bash/unstaged ] && . ~/.config/bash/unstaged
+export PATH="${PATH}:${PATH_EXPORTS[*]}"
