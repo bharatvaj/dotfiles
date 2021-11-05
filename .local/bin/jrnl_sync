@@ -1,5 +1,0 @@
-#!/bin/sh
-
- jrnl_path="${XDG_DATA_HOME}/notes"
-
-git --git-dir="${jrnl_path}/.git" add "${jrnl_path}/contents" && git --git-dir="${jrnl_path}/.git" commit "$(date)"
