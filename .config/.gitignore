@@ -14,4 +14,6 @@
 !vim/**
 !X11
 !wgetrc
+!lynx/
+!lynx/lynx.cfg
 !user-dirs.dirs
