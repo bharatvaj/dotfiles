@@ -11,6 +11,7 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 export LESSHISTFILE=-
 export LYNX_CFG="$XDG_CONFIG_HOME/lynx/lynx.cfg"
+export LYNX_LSS="$XDG_CONFIG_HOME/lynx/lynx.lss"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export NPM_CONFIG_USERCONFIG=$XDG_CONFIG_HOME/npm/npmrc
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
@@ -29,6 +30,8 @@ export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
+
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/config"
 
 # Local programs
 export NB_PATH="$XDG_DATA_HOME/notebook"
