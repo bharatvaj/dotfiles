@@ -14,6 +14,7 @@ nnoremap <Leader>v :vsplit<enter>
 nnoremap <Leader>s :split<enter>
 
 " Quick save and write
+nnoremap <leader>wq :wq<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 

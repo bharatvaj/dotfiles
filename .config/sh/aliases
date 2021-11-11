@@ -3,5 +3,5 @@ mich wget && alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
 mich nvim && alias vim=nvim
 
 # ls conditioning
-mich sl && alias lls=sl && alias llls=sl && alias sls=sl
+mich sl && alias lls=sl && alias llls=sl && alias sls=sl && alias lsl=sl
 
