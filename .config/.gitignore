@@ -17,4 +17,6 @@
 !lynx/
 !lynx/lynx.cfg
 !lynx/lynx.lss
+!tmux/
+!tmux/*
 !user-dirs.dirs
