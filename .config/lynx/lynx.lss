@@ -12,7 +12,7 @@ ul:		normal:	brown
 address:	normal:	magenta
 title:	normal:	magenta
 tt:		dim:	brightmagenta:	black
-h1:		bold:	yellow:	blue
+h1:		bold:	black:	white
 label:	normal:	magenta
 q:		normal:	yellow:	magenta
 small:	dim:	default
@@ -28,7 +28,7 @@ tr:		bold:	brown
 td:		normal:	default
 br:		normal:	default
 
-alink:		reverse:		black:		white
+alink:		normal:		black:		lightgray
 status:		reverse:		black:		lightgray
 alert:		bold:			yellow:		red
 whereis:	reverse+underline:	magenta:	cyan
