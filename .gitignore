@@ -15,5 +15,6 @@
 !.config/
 
 # Local shell scripts
+!.local/
 !.local/bin/
 !.local/bin/*

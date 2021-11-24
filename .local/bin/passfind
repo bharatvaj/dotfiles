@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Adapted from https://gist.github.com/heywoodlh/4c1e27f477a896bc3b0f6d55e2748d26
+
+## Assumes that the user is using otp plugin
+## Install fzf and make sure pass is configured beforehand
+
+## If you want to grab the totp code, use like so: `pass-fzf.sh otp`, otherwise script will assume you want password
+
+type="${1}"
+
+PASS_DIR=${XDG_DATA_HOME}/pass
+selection="$(find -L ${PASS_DIR} -name '*.gpg' -exec  realpath --relative-to=${PASS_DIR}  {} | sed -e 's/.gpg//' | fzf --layout=reverse)"
+
+if [ "${type}" == "otp" ]
+then
+	pass otp show "${selection}"
+else
+	pass show "${selection}"
+fi
+
