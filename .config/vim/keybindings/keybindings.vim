@@ -15,7 +15,7 @@ nnoremap <Leader>s :split<enter>
 
 " Quick save and write
 nnoremap <leader>wq :wq<cr>
-nnoremap <leader>w :w<cr>
+nnoremap <leader>ww :w<cr>
 nnoremap <leader>q :q<cr>
 
 " Plugin keybindings

@@ -5,3 +5,4 @@ if has('nvim')
 endif
 Plug 'vim-syntastic/syntastic'
 Plug 'rust-lang/rust.vim'
+Plug 'mattn/emmet-vim'
