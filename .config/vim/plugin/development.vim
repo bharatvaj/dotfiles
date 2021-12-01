@@ -1,7 +1,9 @@
 Plug 'editorconfig/editorconfig-vim'
 Plug 'cdelledonne/vim-cmake'
-if has('nvim')
-    Plug 'puremourning/vimspector'
-endif
 Plug 'vim-syntastic/syntastic'
 Plug 'rust-lang/rust.vim'
+
+if has('nvim')
+	" Enable if required, manually
+    " Plug 'puremourning/vimspector'
+endif
