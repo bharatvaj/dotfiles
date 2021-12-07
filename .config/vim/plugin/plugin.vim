@@ -14,7 +14,6 @@ call plug#begin($XDG_DATA_HOME."/vim/plugged")
 	Plug 'tpope/vim-repeat'
 	Plug 'tommcdo/vim-ninja-feet'
 	Plug 'ap/vim-css-color'
-	Plug 'itchyny/lightline.vim'
 	Plug 'wellle/context.vim'
 	Plug 'easymotion/vim-easymotion'
 	Plug 'SirVer/ultisnips'
@@ -22,6 +21,7 @@ call plug#begin($XDG_DATA_HOME."/vim/plugged")
 	Plug 'ntpeters/vim-better-whitespace'
 	Plug 'lpinilla/vim-codepainter'
 	Plug '907th/vim-auto-save'
+	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
     source $XDG_CONFIG_HOME/vim/plugin/development.vim
