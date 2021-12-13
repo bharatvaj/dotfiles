@@ -52,12 +52,6 @@ set shortmess=Iat
 " Search
 set hlsearch
 set incsearch
-" Disable highlight after a search
-augroup vimrc-incsearch-highlight
-	autocmd!
-	autocmd CmdlineEnter /,\? :set hlsearch
-	autocmd CmdlineLeave /,\? :set nohlsearch
-augroup END
 
 " Pro tab
 filetype plugin indent on
