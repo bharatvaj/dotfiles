@@ -1,7 +1,15 @@
-mich startx && alias startx="startx \"$XDG_CONFIG_HOME/X11/xinitrc\" vt1"
-mich wget && alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
+mich startx && alias startx='startx "$XDG_CONFIG_HOME/X11/xinitrc" vt1'
+mich wget && alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+mich mbsync && alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 mich nvim && alias vim=nvim
 
-# ls conditioning
-mich sl && alias lls=sl && alias llls=sl && alias sls=sl && alias lsl=sl
+# conditioning
+## ls conditioning
+mich sl && alias lls=sl && alias llls=sl && alias sls=sl && alias lsl=sl && alias lss=sl
 
+## cd conditioning
+mich sl && alias cdd=sl
+
+# ip
+mich ifconfig && alias lip="ifconfig | grep -w inet  | cut -d ' ' -f2"
+mich curl && alias gip="curl ifconfig.co"

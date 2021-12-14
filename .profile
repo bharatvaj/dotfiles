@@ -57,6 +57,8 @@ mich() {
 export VISUAL=$(mich nvim && echo nvim || echo vim )
 export EDITOR="$VISUAL"
 
+export BROWSER=$(mich lynx && echo lynx)
+
 chance "${XDG_CONFIG_HOME}/sh/aliases"
 chance "${XDG_CONFIG_HOME}/sh/plugin/index"
 chance "${XDG_CONFIG_HOME}/sh/unstaged"
