@@ -14,7 +14,6 @@ call plug#begin($XDG_DATA_HOME."/vim/plugged")
 	Plug 'tpope/vim-repeat'
 	Plug 'tommcdo/vim-ninja-feet'
 	Plug 'ap/vim-css-color'
-	Plug 'itchyny/lightline.vim'
 	Plug 'wellle/context.vim'
 	Plug 'easymotion/vim-easymotion'
 	Plug 'kana/vim-textobj-user' | Plug 'whatyouhide/vim-textobj-xmlattr'

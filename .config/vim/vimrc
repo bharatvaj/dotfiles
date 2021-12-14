@@ -53,12 +53,6 @@ set shortmess=Iat
 " Search
 set hlsearch
 set incsearch
-" Disable highlight after a search
-augroup vimrc-incsearch-highlight
-	autocmd!
-	autocmd CmdlineEnter /,\? :set hlsearch
-	autocmd CmdlineLeave /,\? :set nohlsearch
-augroup END
 
 " Pro tab
 filetype plugin indent on
@@ -84,6 +78,15 @@ endfor
 " Remove the ugly splits separator
 set fillchars=vert:\│
 hi VertSplit term=NONE cterm=NONE gui=NONE
+
+"TODO use inverse colors from fg and bg instead of hardcoding black and white values
+hi LineNr ctermbg=Black ctermfg=White
+
+" Prominent Cursor Line
+hi CursorLineNr ctermbg=White ctermfg=Black
+
+" Disable status
+set laststatus=0
 
 " Plugins
 source $XDG_CONFIG_HOME/vim/plugin/plugin.vim
