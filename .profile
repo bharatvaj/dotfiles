@@ -50,7 +50,7 @@ export PATH=${PATH}:~/.local/bin
 
 chance() {
     # Hit or miss
-    [ -f "${1}" ] && . "${1}" 
+    [ -f "${1}" ] && . "${1}"
 }
 
 mich() {
