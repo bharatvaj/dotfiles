@@ -30,6 +30,7 @@ set mouse=a
 set cursorline
 syntax on
 set exrc
+set scrolloff=8
 " Turn backup off
 set nobackup
 set nowb
