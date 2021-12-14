@@ -2,6 +2,7 @@
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>p :Rg<cr>
 nnoremap <leader>f :find 
+nmap <leader>F :GFiles<cr>
 
 " Buffer Navigation
 nnoremap <C-J> <C-W><C-J>

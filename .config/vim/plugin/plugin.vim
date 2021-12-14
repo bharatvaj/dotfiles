@@ -17,13 +17,12 @@ call plug#begin($XDG_DATA_HOME."/vim/plugged")
 	Plug 'itchyny/lightline.vim'
 	Plug 'wellle/context.vim'
 	Plug 'easymotion/vim-easymotion'
-	Plug 'SirVer/ultisnips'
+	Plug 'kana/vim-textobj-user' | Plug 'whatyouhide/vim-textobj-xmlattr'
+	Plug 'msanders/snipmate.vim'
 	Plug 'sainnhe/gruvbox-material'
 	Plug 'ntpeters/vim-better-whitespace'
 	Plug 'lpinilla/vim-codepainter'
 	Plug '907th/vim-auto-save'
-	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'junegunn/fzf.vim'
     source $XDG_CONFIG_HOME/vim/plugin/development.vim
 call plug#end()
 
@@ -33,8 +32,4 @@ if exists("nowb")
 endif
 
 " Plugin Keybindings
-
-" fzf
-nmap <leader>F :GFiles<cr>
-
 nnoremap <leader>cc :ChecklistToggleCheckbox<cr>

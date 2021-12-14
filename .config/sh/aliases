@@ -1,7 +1,10 @@
+mich abook && alias abook='abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/abook/addressbook'
 mich startx && alias startx='startx "$XDG_CONFIG_HOME/X11/xinitrc" vt1'
 mich wget && alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 mich mbsync && alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 mich nvim && alias vim=nvim
+mich emcc && alias emcc='emcc --em-config "$XDG_CONFIG_HOME"/emscripten/config --em-cache "$XDG_CACHE_HOME"/emscripten/cache'
+mich dict && alias dict='dict -c "$XDG_CONFIG_HOME"/dict/dictrc'
 
 # conditioning
 ## ls conditioning
