@@ -1,3 +1,5 @@
+set -o vi
+
 PATH_EXPORTS=( "${ESSENTIAL_PATH_EXPORTS[@]}" "${OTHER_PATH_EXPORTS[@]}" )
 
 export PATH="${PATH}:${PATH_EXPORTS[*]}"
