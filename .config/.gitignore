@@ -3,6 +3,7 @@
 
 !.gitignore
 !X11
+!X11
 !alacritty/
 !alacritty/**
 !bash/
@@ -14,6 +15,8 @@
 !lynx/lynx.cfg
 !lynx/lynx.lss
 !nvim
+!nvim
+!nvim/**
 !sh/
 !sh/**
 !tmux/

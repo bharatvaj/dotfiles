@@ -1,20 +1,19 @@
 " Use XDG Paths for vim
-set runtimepath^=$XDG_CONFIG_HOME/vim
-set runtimepath+=$XDG_DATA_HOME/vim
-set runtimepath+=$XDG_CONFIG_HOME/vim/after
+set runtimepath^='$XDG_CONFIG_HOME/vim'
+set runtimepath+='$XDG_DATA_HOME/vim'
+set runtimepath+='$XDG_CONFIG_HOME/vim/after'
 
-set packpath^=$XDG_DATA_HOME/vim,$XDG_CONFIG_HOME/vim
-set packpath+=$XDG_CONFIG_HOME/vim/after,$XDG_DATA_HOME/vim/after
+set packpath^=$XDG_DATA_HOME/vim
 
-let g:netrw_home = $XDG_DATA_HOME."/vim"
-call mkdir($XDG_DATA_HOME."/vim/spell", 'p')
+let g:netrw_home = $XDG_DATA_HOME . "/vim"
+call mkdir($XDG_DATA_HOME . "/vim/spell", 'p')
 set viewdir=$XDG_DATA_HOME/vim/view | call mkdir(&viewdir, 'p')
 
 set backupdir=$XDG_CACHE_HOME/vim/backup | call mkdir(&backupdir, 'p')
 set directory=$XDG_CACHE_HOME/vim/swap   | call mkdir(&directory, 'p')
 set undodir=$XDG_CACHE_HOME/vim/undo     | call mkdir(&undodir,   'p')
 
-if !has('nvim') | set viminfofile=$XDG_CACHE_HOME/vim/viminfo | endif
+if !has('nvim') | set viminfofile=$XDG_CACHE_DIR/vim/viminfo | endif
 
 " Line number
 "Adapted from https://jeffkreeftmeijer.com/vim-number/
@@ -62,33 +61,18 @@ set shiftwidth=4
 " Netrw customization
 let g:netrw_banner = 0
 
-" Harder vim
-" Disable arrow keys
-for key in ['<Up>', '<Down>', '<Left>', '<Right>']
-  exec 'noremap' key '<Nop>'
-  exec 'inoremap' key '<Nop>'
-  exec 'cnoremap' key '<Nop>'
-endfor
-" Disable h and l
-for key in ['h', 'l']
-  exec 'noremap' key '<Nop>'
-endfor
-
-" Visual Tweaks
-hi VertSplit term=NONE cterm=NONE gui=NONE
-
-"TODO use inverse colors from fg and bg instead of hardcoding black and white values
-hi LineNr ctermbg=Black ctermfg=White
-
-" Prominent Cursor Line
-hi CursorLineNr ctermbg=White ctermfg=Black
-
 " Disable status
-set laststatus=0
-set nowrapscan
-
-" Plugins
-source $XDG_CONFIG_HOME/vim/plugin/plugin.vim
+set laststatus=1
 
 " Keybindings
 source $XDG_CONFIG_HOME/vim/keybindings/keybindings.vim
+
+if has("win32")
+	if executable("pwsh")
+		set shell=pwsh
+		set shellcmdflag=-ExecutionPolicy\ RemoteSigned\ -Command
+		set shellquote=\" 
+		" shellxquote must be a literal space character.
+		set shellxquote=  
+	endif
+endif
