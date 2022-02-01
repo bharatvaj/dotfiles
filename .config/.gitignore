@@ -10,6 +10,7 @@
 !sh/**
 !i3
 !nvim
+!nvim/**
 !vim/
 !vim/**
 !X11
