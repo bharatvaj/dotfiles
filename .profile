@@ -64,9 +64,9 @@ chance() {
     [ -f "${1}" ] && . "${1}"
 }
 
+# TODO refactor function name
 mich() {
-    # Muted which
-    which "$@" >/dev/null 2>/dev/null
+    type "$@" >/dev/null 2>/dev/null
 }
 
 # Setup editor
