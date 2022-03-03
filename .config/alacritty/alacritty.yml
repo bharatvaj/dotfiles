@@ -5,13 +5,4 @@ import:
   - ~/.config/alacritty/theme.yml
   - ~/.config/alacritty/font.yml
 
-cursor:
-  style:
-    shape: Beam
-
 live_config_reload: true
-
-shell:
-  program: bash
-  args:
-    - --login
