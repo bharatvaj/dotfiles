@@ -46,3 +46,6 @@
 [submodule ".local/share/vim/pack/themes/start/gruvbox-material"]
 	path = .local/share/vim/pack/themes/start/gruvbox-material
 	url = https://git::@github.com/sainnhe/gruvbox-material.git
+[submodule ".local/share/vim/pack/general/start/vim-tmux-navigator"]
+	path = .local/share/vim/pack/general/start/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator
