@@ -75,7 +75,8 @@ mich() {
 export VISUAL=nvi
 export EDITOR="$VISUAL"
 
-export BROWSER=$(mich lynx && echo lynx)
+export BROWSER="$(mich lynx && echo lynx)"
+export SURFRAW_browser="$BROWSER"
 
 chance "${XDG_CONFIG_HOME}/sh/aliases"
 chance "${XDG_CONFIG_HOME}/sh/plugin/index"
