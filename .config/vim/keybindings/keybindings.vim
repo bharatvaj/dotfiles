@@ -5,12 +5,6 @@ nnoremap <leader>f :find
 nnoremap <Leader>l :ls<CR>:b<space>
 nmap <leader>F :GFiles<cr>
 
-" Buffer Navigation
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 " Buffer Creation
 nnoremap <Leader>v :vsplit<enter>
 nnoremap <Leader>s :split<enter>
