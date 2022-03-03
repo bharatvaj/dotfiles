@@ -14,6 +14,9 @@ nnoremap <leader>wq :wq<cr>
 nnoremap <leader>ww :w<cr>
 nnoremap <leader>qq :q<cr>
 
+" Run Make
+nnoremap <leader>bb :make<CR>
+
 nnoremap <CR> :noh<CR><CR>:<backspace>
 
 " Plugin keybindings
