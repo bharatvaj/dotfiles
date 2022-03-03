@@ -6,6 +6,8 @@ mich emcc && alias emcc='emcc --em-config "$XDG_CONFIG_HOME"/emscripten/config -
 mich dict && alias dict='dict -c "$XDG_CONFIG_HOME"/dict/dictrc'
 mich btpd && alias btpd='btpd -d "$XDG_DATA_HOME"/btpd'
 mich abook && alias abook='abook -C "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/abook/addressbook'
+mich vim && alias v='vim'
+mich nvim && alias n='nvim'
 
 # conditioning
 ## ls conditioning
@@ -18,8 +20,4 @@ mich sl && alias cdd=sl
 mich ifconfig && alias lip="ifconfig | grep -w inet  | cut -d ' ' -f2"
 mich curl && alias gip="curl ifconfig.co"
 
-duck() {
-	url="$*"
-	lynx "https://duckduckgo.com/lite?q=$url"
-}
-alias '?'='duck'
+alias '?d'='sr duckduckgo'
