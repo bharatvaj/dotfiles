@@ -71,8 +71,7 @@ mich() {
 
 # Setup editor
 
-# export VISUAL=$(mich nvim && echo nvim || echo vim )
-export VISUAL=nvi
+export VISUAL=$(mich nvim && echo nvim || echo vim )
 export EDITOR="$VISUAL"
 
 export BROWSER="$(mich lynx && echo lynx)"
