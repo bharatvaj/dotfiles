@@ -10,7 +10,9 @@
 	ld = log --pretty=format:"%h %ad %s" --date=short --all
 	lg = log --graph --oneline --decorate --all
 	p = pull
+	r = reset
 	st = status
+	suir = submodule update --init --recursive
 	wt = worktree
 
 [difftool]

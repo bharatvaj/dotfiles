@@ -64,15 +64,14 @@ chance() {
     [ -f "${1}" ] && . "${1}"
 }
 
+# TODO refactor function name
 mich() {
-    # Muted which
-    which "$@" >/dev/null 2>/dev/null
+    type "$@" >/dev/null 2>/dev/null
 }
 
 # Setup editor
 
-# export VISUAL=$(mich nvim && echo nvim || echo vim )
-export VISUAL=nvi
+export VISUAL=$(mich nvim && echo nvim || echo vim )
 export EDITOR="$VISUAL"
 
 export BROWSER="$(mich lynx && echo lynx)"
