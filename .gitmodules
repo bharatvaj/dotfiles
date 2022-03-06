@@ -49,3 +49,6 @@
 [submodule ".local/share/vim/pack/general/start/vim-tmux-navigator"]
 	path = .local/share/vim/pack/general/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule ".local/share/nvim/pack/general/start/nvim-lspconfig"]
+	path = .local/share/nvim/pack/general/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
