@@ -17,6 +17,9 @@ nnoremap <leader>qq :q<cr>
 " Run Make
 nnoremap <leader>bb :make<CR>
 
+" Generate ctags
+map <leader>c :!ctags -R -f ./.git/tags .<CR>
+
 nnoremap <CR> :noh<CR><CR>:<backspace>
 
 " Plugin keybindings
