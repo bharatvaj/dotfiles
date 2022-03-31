@@ -4,7 +4,9 @@
 	ba = branch --all
 	c = commit
 	cm = commit --message
+	ca = commit --amend
 	co = checkout
+	con = config
 	d = diff
 	ds = diff --staged
 	ld = log --pretty=format:"%h %ad %s" --date=short --all

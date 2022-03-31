@@ -7,7 +7,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 
 # Global programs
-export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
+export VIMINIT="if !has('nvim')
+source $XDG_CONFIG_HOME/vim/vimrc
+endif"
 export LESSHISTFILE=-
 export LYNX_CFG="$XDG_CONFIG_HOME/lynx/lynx.cfg"
 export LYNX_LSS="$XDG_CONFIG_HOME/lynx/lynx.lss"
@@ -57,7 +59,7 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 HISTTIMEFORMAT="%F %T "
 
 # Local executables
-export PATH=${PATH}:~/.local/bin
+export PATH=${PATH}:${HOME}/.local/bin:${XDG_DATA_HOME}/npm/bin:${XDG_DATA_HOME}/.cargo/bin
 
 chance() {
     # Hit or miss

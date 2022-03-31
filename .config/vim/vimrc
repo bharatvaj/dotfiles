@@ -25,7 +25,7 @@ augroup numbertoggle
 augroup END
 
 " General
-set mouse=a
+set mouse=
 set nocursorline
 syntax on
 set exrc
@@ -61,18 +61,6 @@ set shiftwidth=4
 " Netrw customization
 let g:netrw_banner = 0
 
-" Harder vim
-" Disable arrow keys
-for key in ['<Up>', '<Down>', '<Left>', '<Right>']
-  exec 'noremap' key '<Nop>'
-  exec 'inoremap' key '<Nop>'
-  exec 'cnoremap' key '<Nop>'
-endfor
-" Disable h and l
-for key in ['h', 'l']
-  exec 'noremap' key '<Nop>'
-endfor
-
 " Visual Tweaks
 hi VertSplit term=NONE cterm=NONE gui=NONE
 
@@ -101,3 +89,5 @@ if has("win32")
 		set shellxquote=  
 	endif
 endif
+
+set path+=**
