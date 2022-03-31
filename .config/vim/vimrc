@@ -28,7 +28,7 @@ augroup END
 set mouse=
 set nocursorline
 syntax on
-set noexrc
+set exrc
 set scrolloff=8
 " Turn backup off
 set nobackup
@@ -89,3 +89,5 @@ if has("win32")
 		set shellxquote=  
 	endif
 endif
+
+set path+=**

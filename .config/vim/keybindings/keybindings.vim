@@ -4,6 +4,19 @@ nnoremap <leader>p :Rg<cr>
 nnoremap <leader>f :find 
 nnoremap <Leader>l :ls<CR>:b<space>
 nmap <leader>F :GFiles<cr>
+nnoremap <leader>co :copen<cr>
+nnoremap <leader>g :grep 
+nnoremap Y y$
+
+function! ToggleList()
+	if &list == "nolist"
+		set list
+	else
+		set nolist
+	endif
+endfunction
+
+nnoremap <leader>tl :call ToggleList()<CR>
 
 " Buffer Creation
 nnoremap <Leader>v :vsplit<enter>
