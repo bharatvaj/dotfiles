@@ -59,7 +59,7 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 HISTTIMEFORMAT="%F %T "
 
 # Local executables
-export PATH=${PATH}:${HOME}./local/bin:${XDG_DATA_HOME}/npm/bin
+export PATH=${PATH}:${HOME}/.local/bin:${XDG_DATA_HOME}/npm/bin:${XDG_DATA_HOME}/.cargo/bin
 
 chance() {
     # Hit or miss
