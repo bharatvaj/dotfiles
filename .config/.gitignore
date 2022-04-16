@@ -11,6 +11,7 @@
 !git/config
 !i3
 !lf
+!lf/**
 !lynx/
 !lynx/lynx.cfg
 !lynx/lynx.lss
