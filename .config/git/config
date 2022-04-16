@@ -3,16 +3,19 @@
 	b = branch
 	ba = branch --all
 	c = commit
-	cm = commit --message
 	ca = commit --amend
+	cl = clone
+	cm = commit --message
 	co = checkout
 	con = config
 	d = diff
 	ds = diff --staged
+	l = log
 	ld = log --pretty=format:"%h %ad %s" --date=short --all
 	lg = log --graph --oneline --decorate --all
 	p = pull
-	r = reset
+	pu = push
+	rv = remote --verbose
 	st = status
 	suir = submodule update --init --recursive
 	wt = worktree
