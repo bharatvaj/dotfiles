@@ -8,6 +8,14 @@ nnoremap <leader>co :copen<cr>
 nnoremap <leader>g :grep 
 nnoremap Y y$
 
+fun! SetupCommandAlias(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() is# ":" && getcmdline() is# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfun
+call SetupCommandAlias("W","w")
+call SetupCommandAlias("Wq","wq")
+
 function! ToggleList()
 	if &list == "nolist"
 		set list
