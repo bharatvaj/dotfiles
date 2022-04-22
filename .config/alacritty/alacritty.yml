@@ -1,7 +1,11 @@
-font:
-  size: 16
-shell:
-  program: /usr/local/bin/bash
-  args:
-    - --login
+mouse:
+  hide_when_typing: true
 
+import:
+  - ~/.config/alacritty/theme.yml
+  - ~/.config/alacritty/font.yml
+
+live_config_reload: true
+
+shell:
+  program: cmd
