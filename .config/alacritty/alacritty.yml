@@ -7,3 +7,6 @@ import:
   - ~/.config/alacritty/unix.yml
 
 live_config_reload: true
+
+shell:
+  program: cmd
