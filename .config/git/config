@@ -16,6 +16,7 @@
 	p = pull
 	pu = push
 	rv = remote --verbose
+	sm = submodule
 	st = status
 	suir = submodule update --init --recursive
 	wt = worktree

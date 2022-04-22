@@ -16,8 +16,7 @@
 !lynx/
 !lynx/lynx.cfg
 !lynx/lynx.lss
-!nvim
-!nvim
+!nvim/
 !nvim/**
 !sh/
 !sh/**
