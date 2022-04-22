@@ -1,0 +1,3 @@
+map . set hidden!
+map v :toggle; down
+map V :invert
