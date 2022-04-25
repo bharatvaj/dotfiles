@@ -19,4 +19,5 @@
 !.local/bin/
 !.local/bin/*
 
-!.local/share/vim/pack/**/start/**
+# !.local/share/vim/pack/**/start/**
+# !.local/share/vim/pack/**/opt/**
