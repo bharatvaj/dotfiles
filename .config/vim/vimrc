@@ -50,7 +50,8 @@ source $XDG_CONFIG_HOME/vim/plugin/plugin.vim
 
 " Keybindings
 source $XDG_CONFIG_HOME/vim/keybindings/keybindings.vim
-set packpath^=$XDG_DATA_HOME\vim
+
+set packpath^=$XDG_DATA_HOME/vim
 
 function! s:load_plugins(t) abort
 	" Use XDG Paths for vim

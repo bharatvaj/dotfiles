@@ -5,6 +5,7 @@
 !X11
 !alacritty/
 !alacritty/**
+alacritty/windows.yml
 !bash/
 !bash/**
 !cmd/

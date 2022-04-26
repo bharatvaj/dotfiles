@@ -7,6 +7,9 @@
 [submodule ".local/share/vim/pack/development/opt/vim-msbuild"]
 	path = .local/share/vim/pack/development/opt/vim-msbuild
 	url = https://git::@github.com/heaths/vim-msbuild.git
+[submodule ".local/share/vim/pack/development/opt/emmet-vim"]
+	path = .local/share/vim/pack/development/opt/emmet-vim
+	url = https://github.com/mattn/emmet-vim
 [submodule ".local/share/vim/pack/general/opt/editorconfig-vim"]
 	path = .local/share/vim/pack/general/opt/editorconfig-vim
 	url = https://git::@github.com/editorconfig/editorconfig-vim.git
@@ -52,3 +55,6 @@
 [submodule ".local/share/vim/pack/general/start/vim-tmux-navigator"]
 	path = .local/share/vim/pack/general/start/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule ".local/share/vim/pack/general/start/vim-dispatch"]
+	path = .local/share/vim/pack/general/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
