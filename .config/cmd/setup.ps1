@@ -7,4 +7,4 @@ Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.
 scoop install $(gc ~/.config/cmd/packages.txt)
 
 # Apply config patches
-xcopy %USERPROFILE%\.config\cmd\patch %USERPROFILE% /E
+xcopy $Env:USERPROFILE\.config\cmd\patch $Env:USERPROFILE\ /S /E
