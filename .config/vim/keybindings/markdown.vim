@@ -10,3 +10,7 @@ function QuickUnderline(n)
 		normal! yypv$r-
 	endif
 endfunction
+
+function ReverseDate()
+	normal! dt/wwpldeBP
+endfunction
