@@ -4,6 +4,7 @@ mouse:
 import:
   - ~/.config/alacritty/theme.yml
   - ~/.config/alacritty/font.yml
+  - ~/.config/alacritty/unix.yml
   - ~/.config/alacritty/windows.yml
 
 live_config_reload: true
