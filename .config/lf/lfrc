@@ -1,3 +1,4 @@
 map . set hidden!
 map v :toggle; down
 map V :invert
+set ratios 1:2:1

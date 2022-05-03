@@ -7,6 +7,7 @@ __type() {
 __type i3 || (echo "i3 not found" && exit 1)
 
 __type setxkbmap && setxkbmap -option caps:escape
+__type setxkbmap && setxkbmap -option altwin:swap_alt_win
 __type xbmap && xbmap
 __type xrdb && xrdb merge ~/.config/X11/Xresources
 __type hsetroot && exec hsetroot -solid "#000000" &
