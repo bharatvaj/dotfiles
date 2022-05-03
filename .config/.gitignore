@@ -5,8 +5,11 @@
 !X11
 !alacritty/
 !alacritty/**
+alacritty/windows.yml
 !bash/
 !bash/**
+!cmd/
+!cmd/**
 !git/
 !git/config
 !i3
@@ -15,7 +18,7 @@
 !lynx/
 !lynx/lynx.cfg
 !lynx/lynx.lss
-!nvim
+!nvim/
 !nvim/**
 !sh/
 !sh/**

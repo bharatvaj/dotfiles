@@ -6,6 +6,7 @@ nnoremap <Leader>l :ls<CR>:b<space>
 nmap <leader>F :GFiles<cr>
 nnoremap <leader>co :copen<cr>
 nnoremap <leader>g :grep 
+nnoremap <leader>ec :edit ~/.config/vim/vimrc<cr>
 nnoremap Y y$
 
 fun! SetupCommandAlias(from, to)
@@ -36,7 +37,7 @@ nnoremap <leader>ww :w<cr>
 nnoremap <leader>qq :q<cr>
 
 " Run Make
-nnoremap <leader>bb :make<CR>
+nnoremap <leader>bb :Make<CR>
 
 " Generate ctags
 map <leader>c :!ctags -R -f ./.git/tags .<CR>
