@@ -83,14 +83,15 @@ augroup user_cmds
 	autocmd VimEnter * call timer_start(20, function('s:load_plugins'))
 augroup END
 
+if has("gui")
+	source $XDG_CONFIG_HOME/vim/gvimrc
+endif
+
 if has("win32")
-	if executable("pwsh")
-		set shell=pwsh
-		set shellcmdflag=-ExecutionPolicy\ RemoteSigned\ -Command
-		set shellquote=\" 
-		" shellxquote must be a literal space character.
-		set shellxquote=  
-	endif
+	set shell=cmd
+	set shellquote=\" 
+	" shellxquote must be a literal space character.
+	set shellxquote=  
 endif
 
 set path+=**
