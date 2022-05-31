@@ -12,4 +12,4 @@ set XDG_CACHE_HOME=%USERPROFILE%\.cache
 set MYVIMRC=%XDG_CONFIG_HOME%\vim\vimrc
 set VIMINIT=source $MYVIMRC
 
-%USERPROFILE%\.config\cmd\aliases.cmd
+%XDG_CONFIG_HOME%\cmd\aliases.cmd
