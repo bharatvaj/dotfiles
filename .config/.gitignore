@@ -6,9 +6,10 @@
 !X11
 !alacritty/
 !alacritty/**
-alacritty/windows.yml
 !bash/
 !bash/**
+!clink
+!clink/clink_settings
 !cmd/
 !cmd/**
 !git/
@@ -29,3 +30,5 @@ alacritty/windows.yml
 !vim/
 !vim/**
 !wgetrc
+
+alacritty/windows.yml
