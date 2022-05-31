@@ -6,3 +6,5 @@ Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.
 # Install the absolute essentials
 scoop install $(gc ~/.config/cmd/packages.txt)
 
+# Setup clink
+clink autorun set "clink inject --profile %XDG_CONFIG_HOME%\clink"
