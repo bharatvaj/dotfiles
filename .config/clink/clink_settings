@@ -1,1 +1,2 @@
 clink.autostart=%XDG_CONFIG_HOME%\cmd\profile.cmd
+clink.logo=none
