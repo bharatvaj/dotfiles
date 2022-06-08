@@ -5,7 +5,7 @@ set number
 set mouse=
 set nocursorline
 set exrc
-set scrolloff=8
+set t_te=
 
 " Turn backup off
 set nobackup
@@ -37,6 +37,7 @@ set shiftwidth=4
 
 " Netrw customization
 let g:netrw_banner = 0
+let g:netrw_liststyle = 3
 
 " Disable status
 set laststatus=1
@@ -93,4 +94,4 @@ if has("win32")
 	endif
 endif
 
-set path+=**
+set fillchars+=eob:\ 
