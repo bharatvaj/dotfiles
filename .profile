@@ -1,3 +1,4 @@
+#!/bin/sh
 export GREP_COLOR='1;35;40'
 
 # XDG
@@ -25,7 +26,6 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/config"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-export EM_CONFIG="$XDG_CONFIG_HOME"/emscripten/config
 export ELINKS_CONFDIR="$XDG_CONFIG_HOME/elinks"
 
 export FFMPEG_DATADIR="$XDG_DATA_HOME"/ffmpeg
@@ -65,20 +65,20 @@ chance() {
     [ -f "${1}" ] && . "${1}"
 }
 
-# TODO refactor function name
-mich() {
+there() {
+	# Checks the availability of an executable
     type "$@" >/dev/null 2>/dev/null
 }
 
 # Setup editor
 
-export VISUAL=$(mich nvim && echo nvim || echo vim )
-export EDITOR="$VISUAL"
+export VISUAL=vim
+export EDITOR="$(there nvi && echo nvi || echo vi)"
+export FUZZER=sk
 
-export BROWSER="$(mich lynx && echo lynx)"
+export BROWSER=lynx
 export SURFRAW_browser="$BROWSER"
 
+chance "${XDG_CONFIG_HOME}/sh/functions"
 chance "${XDG_CONFIG_HOME}/sh/aliases"
-chance "${XDG_CONFIG_HOME}/sh/plugin/index"
 chance "${XDG_CONFIG_HOME}/sh/unstaged"
-
