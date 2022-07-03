@@ -1,12 +1,13 @@
 " General keybindings
 nnoremap <leader>t :tabnew<cr>
 nnoremap <leader>p :Rg<cr>
-nnoremap <leader>f :find 
+nnoremap <leader>f :find *
 nnoremap <Leader>l :ls<CR>:b<space>
 nmap <leader>F :GFiles<cr>
 nnoremap <leader>co :copen<cr>
 nnoremap <leader>g :grep 
 nnoremap <leader>ec :edit ~/.config/vim/vimrc<cr>
+nnoremap <leader>ek :edit ~/.config/vim/keybindings/keybindings.vim<cr>
 nnoremap Y y$
 
 fun! SetupCommandAlias(from, to)
@@ -29,12 +30,16 @@ nnoremap <leader>tl :call ToggleList()<CR>
 
 " Buffer Creation
 nnoremap <Leader>v :vsplit<enter>
-nnoremap <Leader>s :split<enter>
+nnoremap <Leader>ss :split<enter>
+nnoremap <Leader>sc :source ~/.config/vim/vimrc<enter>
 
 " Quick save and write
 nnoremap <leader>wq :wq<cr>
 nnoremap <leader>ww :w<cr>
 nnoremap <leader>qq :q<cr>
+
+" Fugitive
+nnoremap <space>gd :Gvdiff<CR>
 
 " Run Make
 nnoremap <leader>bb :Make<CR>
