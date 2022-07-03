@@ -4,10 +4,13 @@ nnoremap <Leader>l :ls<CR>:b<space>
 nnoremap <leader><leader> :grep 
 nnoremap <leader>co :copen<cr>
 nnoremap <leader>ec :edit ~/.config/vim/vimrc<cr>
-nnoremap <leader>f :find 
-nnoremap <leader>g :grep 
+nnoremap <leader>ek :edit ~/.config/vim/keybindings/keybindings.vim<cr>
+nnoremap <leader>f :find *
+nnoremap <leader>gg :grep<space>
 nnoremap <leader>p :Rg<cr>
 nnoremap <leader>t :tabnew<cr>
+
+" Behave vim
 nnoremap Y y$
 
 
@@ -34,12 +37,16 @@ nnoremap <leader>tl :call ToggleList()<CR>
 
 " Buffer Creation
 nnoremap <Leader>v :vsplit<enter>
-nnoremap <Leader>s :split<enter>
+nnoremap <Leader>ss :split<enter>
+nnoremap <Leader>sc :source ~/.config/vim/vimrc<enter>
 
 " Quick save and write
 nnoremap <leader>wq :wq<cr>
 nnoremap <leader>ww :w<cr>
 nnoremap <leader>qq :q<cr>
+
+" Fugitive
+nnoremap <space>gd :Gvdiff<CR>
 
 " Run Make
 
