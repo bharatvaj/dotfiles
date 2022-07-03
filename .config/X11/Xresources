@@ -1,6 +1,6 @@
 URxvt*background: #000000
 URxvt*foreground: #FFFFFF
-URxvt*font: xft:Fira Mono:pixelsize=14
+URxvt*font: xft:Fira Mono:pixelsize=14 xft:Noto Color Emoji:pixelsize=14
 URxvt*boldFont: xft:Fira Mono:bold:pixelsize=14
 URxvt*saveLines: 12000
 URxvt*scrollBar: false
