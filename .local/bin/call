@@ -1,0 +1,7 @@
+export TERMUX_CONTACTS_LIST="$(termux-contact-list)"
+
+export CNA="$(echo "${TERMUX_CONTACTS_LIST}" | jq '.[] | .name' | fzf)"
+
+CONTACT_NUMBER="$(echo "${TERMUX_CONTACTS_LIST}" | jq -r ".[] | select(.name==$CNA) | .number")"
+echo "${CONTACT_NUMBER}"
+termux-telephony-call "${CONTACT_NUMBER}"

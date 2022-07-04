@@ -1,15 +1,35 @@
-Ignore everything by default.
+# Ignore everything by default.
 *
 
 !.gitignore
-!alacritty/
-!alacritty/*
-!bash/
-!bash/*
-!i3
-!nvim
-!vim/
-!vim/*
 !X11
-!wgetrc
+!alacritty/
+!alacritty/**
+!bash/
+!bash/**
+!clink
+!clink/clink_settings
+cmd/userenv.bat
+!cmd/
+# TODO specify each file individually
+!cmd/
+!git/
+!git/config
+!i3
+!lf
+!lf/**
+!lynx/
+!lynx/lynx.cfg
+!lynx/lynx.lss
+!nvim/
+!nvim/**
+!sh/
+!sh/**
+!tmux/
+!tmux/tmux.conf
 !user-dirs.dirs
+!vim/
+!vim/**
+!wgetrc
+
+alacritty/windows.yml

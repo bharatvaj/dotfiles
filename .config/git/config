@@ -1,0 +1,33 @@
+[alias]
+	a = add
+	b = branch
+	ba = branch --all
+	c = commit
+	ca = commit --amend
+	cl = clone
+	cm = commit --message
+	co = checkout
+	con = config
+	d = diff
+	ds = diff --staged
+	l = log
+	ld = log --pretty=format:"%h %ad %s" --date=short --all
+	lg = log --graph --oneline --decorate --all
+	p = pull
+	pu = push
+	rs = remote --set-url
+	rso = remote --set-url origin
+	rv = remote --verbose
+	sm = submodule
+	st = status
+	suir = submodule update --init --recursive
+	wt = worktree
+
+[difftool]
+	prompt = false
+
+[init]
+	defaultBranch = main
+
+[include]
+	path = config.user

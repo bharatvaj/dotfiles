@@ -1,0 +1,39 @@
+# [xdg]
+alias abook='abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/abook/addressbook'
+alias abook='abook -C "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/abook/addressbook'
+alias btpd='btpd -d "$XDG_DATA_HOME"/btpd'
+alias dict='dict -c "$XDG_CONFIG_HOME"/dict/dictrc'
+alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
+alias startx='startx "$XDG_CONFIG_HOME/X11/xinitrc" vt1'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+
+# [ls_conditioning]
+thwart sl && thwart ld && thwart lls &&  thwart sls && thwart lsl && thwart lss && thwart kls
+# [cd_conditioning]
+thwart cdd
+
+# [ip]
+there ifconfig && alias lip="ifconfig | grep -w inet  | cut -d ' ' -f2"
+there curl && alias gip="curl ifconfig.co"
+
+# [navigation]
+alias -- -='cd -'
+alias ....='cd ../../..'
+alias ...='cd ../..'
+alias ..='cd ..'
+alias cf="quickopen cd d"
+alias ef="quickopen ${EDITOR} f"
+alias vf="quickopen ${VISUAL} f"
+
+# [shorthands]
+alias '?d'='sr duckduckgo'
+alias cls=clear
+alias d='wget'
+alias e='${EDITOR}'
+alias f='find . -name '
+alias g='git'
+alias g=git
+alias l=lfcd
+alias n='nvim'
+alias v='vim'
+alias x=extract_archive
