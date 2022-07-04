@@ -6,6 +6,7 @@ import:
   - ~/.config/alacritty/font.yml
   - ~/.config/alacritty/unix.yml
   - ~/.config/alacritty/windows.yml
+  - ~/.config/alacritty/mac.yml
 
 live_config_reload: true
 

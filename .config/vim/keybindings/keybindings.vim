@@ -1,15 +1,16 @@
 " General keybindings
-nmap <leader>F :GFiles<cr>
 nnoremap <Leader>l :ls<CR>:b<space>
-nnoremap <leader><leader> :grep 
+nnoremap <leader>F :GFiles<cr>
 nnoremap <leader>co :copen<cr>
 nnoremap <leader>ec :edit ~/.config/vim/vimrc<cr>
-nnoremap <leader>f :find 
-nnoremap <leader>g :grep 
+nnoremap <leader>ek :edit ~/.config/vim/keybindings/keybindings.vim<cr>
+nnoremap <leader>f :find *
+nnoremap <leader>gg :vimgrep<space>
 nnoremap <leader>p :Rg<cr>
 nnoremap <leader>t :tabnew<cr>
-nnoremap Y y$
 
+" Behave vim
+nnoremap Y y$
 
 fun! GitFind()
 endfun
@@ -33,13 +34,17 @@ endfunction
 nnoremap <leader>tl :call ToggleList()<CR>
 
 " Buffer Creation
-nnoremap <Leader>v :vsplit<enter>
-nnoremap <Leader>s :split<enter>
+nnoremap <Leader>vv :vsplit<enter>
+nnoremap <Leader>ss :split<enter>
+nnoremap <Leader>sc :source ~/.config/vim/vimrc<enter>
 
 " Quick save and write
 nnoremap <leader>wq :wq<cr>
 nnoremap <leader>ww :w<cr>
 nnoremap <leader>qq :q<cr>
+
+" Fugitive
+nnoremap <space>gd :Gvdiff<CR>
 
 " Run Make
 
