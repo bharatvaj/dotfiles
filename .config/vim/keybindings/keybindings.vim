@@ -2,8 +2,8 @@
 nnoremap <Leader>l :ls<CR>:b<space>
 nnoremap <leader>F :GFiles<cr>
 nnoremap <leader>co :copen<cr>
-nnoremap <leader>ec :edit ~/.config/vim/vimrc<cr>
-nnoremap <leader>ek :edit ~/.config/vim/keybindings/keybindings.vim<cr>
+nnoremap <leader>ec :edit $XDG_CONFIG_HOME/vim/vimrc<cr>
+nnoremap <leader>ek :edit $XDG_CONFIG_HOME/vim/keybindings/keybindings.vim<cr>
 nnoremap <leader>f :find *
 nnoremap <leader>gg :vimgrep<space>
 nnoremap <leader>p :Rg<cr>
@@ -61,8 +61,8 @@ map <leader>c :!ctags -R -f ./.git/tags .<CR>
 nnoremap <CR> :noh<CR><CR>:<backspace>
 
 " Plugin keybindings
-source ~/.config/vim/keybindings/vimspector.vim
-source ~/.config/vim/keybindings/markdown.vim
+source $XDG_CONFIG_HOME/vim/keybindings/vimspector.vim
+source $XDG_CONFIG_HOME/vim/keybindings/markdown.vim
 
 " Development keybindings
 " TODO Have a default build hotkey keybinding, maybe bb,br?

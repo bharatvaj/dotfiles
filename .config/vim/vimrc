@@ -1,4 +1,8 @@
-if !has('nvim') | set viminfofile=$XDG_CACHE_DIR/vim/viminfo | endif
+if !has('nvim')
+	if has("&viminfofile")
+		set viminfofile=$XDG_CACHE_DIR/vim/viminfo
+	endif
+endif
 
 " General
 set number
@@ -95,4 +99,6 @@ if has("win32")
 	set shellxquote=  
 endif
 
-set fillchars+=eob:\ 
+if exists('+fillchars')
+	set fillchars+=eob:\ 
+endif
