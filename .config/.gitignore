@@ -2,7 +2,10 @@
 *
 
 !.gitignore
-!X11
+!X11/
+!X11/keybindings
+!X11/xinitrc
+!X11/Xresources
 !alacritty/
 !alacritty/**
 !bash/

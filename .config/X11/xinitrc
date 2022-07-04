@@ -1,16 +1,13 @@
 #!/bin/sh
 
-__type() {
-    type "$@" >/dev/null 2>/dev/null
-}
+. ~/.config/X11/keybindings
 
-__type i3 || (echo "i3 not found" && exit 1)
+WM=dwm
 
-__type setxkbmap && setxkbmap -option caps:escape
-__type setxkbmap && setxkbmap -option altwin:swap_alt_win
-__type xbmap && xbmap
+__type $WM || (echo "$WM not found" && exit 1)
+
 __type xrdb && xrdb merge ~/.config/X11/Xresources
 __type hsetroot && exec hsetroot -solid "#000000" &
 __type compton && exec compton &
 
-exec i3
+exec $WM
