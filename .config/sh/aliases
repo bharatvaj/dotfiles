@@ -17,13 +17,15 @@ there ifconfig && alias lip="ifconfig | grep -w inet  | cut -d ' ' -f2"
 there curl && alias gip="curl ifconfig.co"
 
 # [navigation]
-alias -- -='cd -'
 alias ....='cd ../../..'
 alias ...='cd ../..'
 alias ..='cd ..'
 alias cf="quickopen cd d"
 alias ef="quickopen ${EDITOR} f"
 alias vf="quickopen ${VISUAL} f"
+# This won't work with dash
+# dash want's alias \-
+# alias -- -='cd -'
 
 # [shorthands]
 alias '?d'='sr duckduckgo'
