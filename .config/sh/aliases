@@ -36,4 +36,4 @@ alias g=git
 alias l=lfcd
 alias n='nvim'
 alias v='vim'
-alias x=extract
+alias x=extract_archive

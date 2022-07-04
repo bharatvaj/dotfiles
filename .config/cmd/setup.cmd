@@ -11,3 +11,5 @@ IF NOT EXIST %USERPROFILE%\.config\vim\vimrc mklink %USERPROFILE%\_vimrc %USERPR
 mkdir %SYSTEMDRIVE%\bin
 cp %SCOOP%\apps\busybox\current\busybox.exe %SYSTEMDRIVE%\bin
 cp %SCOOP%\shims\sh.* %SYSTEMDRIVE%\bin
+:: TODO Report this in scoop and remove this line
+rm %SCOOP%\apps\gpg\current\bin\gpgconf.ctl
