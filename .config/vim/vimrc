@@ -99,6 +99,6 @@ if has("win32")
 	set shellxquote=  
 endif
 
-if exists('+fillchars')
+if exists('&fillchars')
 	set fillchars+=eob:\ 
 endif
