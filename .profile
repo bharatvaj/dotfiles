@@ -1,10 +1,12 @@
 #!/bin/sh
 export GREP_COLOR='1;35;40'
 
+[ -n "$1" ] && XDG_ROOT="$1" || XDG_ROOT="$HOME"
+
 # XDG
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$XDG_ROOT/.config"
+export XDG_DATA_HOME="$XDG_ROOT/.local/share"
+export XDG_CACHE_HOME="$XDG_ROOT/.cache"
 
 # Global programs
 export VIMINIT="if !has('nvim')
