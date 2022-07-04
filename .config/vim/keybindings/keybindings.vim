@@ -9,7 +9,7 @@ nnoremap <leader>gg :vimgrep<space>
 nnoremap <leader>p :Rg<cr>
 nnoremap <leader>t :tabnew<cr>
 
-# Behave vim
+" Behave vim
 nnoremap Y y$
 
 fun! GitFind()
