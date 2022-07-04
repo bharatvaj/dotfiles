@@ -8,6 +8,8 @@
 !alacritty/**
 !bash/
 !bash/**
+!cmd/
+!cmd/**
 !git/
 !git/config
 !i3

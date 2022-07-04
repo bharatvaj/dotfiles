@@ -5,8 +5,12 @@ import:
   - ~/.config/alacritty/theme.yml
   - ~/.config/alacritty/font.yml
   - ~/.config/alacritty/unix.yml
+  - ~/.config/alacritty/windows.yml
 
 live_config_reload: true
 
-shell:
-  program: cmd
+bell:
+  command: None
+
+selection:
+  save_to_clipboard: true
