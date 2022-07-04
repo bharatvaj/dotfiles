@@ -1,13 +1,18 @@
 " General keybindings
-nnoremap <leader>t :tabnew<cr>
-nnoremap <leader>p :Rg<cr>
-nnoremap <leader>f :find 
-nnoremap <Leader>l :ls<CR>:b<space>
 nmap <leader>F :GFiles<cr>
+nnoremap <Leader>l :ls<CR>:b<space>
+nnoremap <leader><leader> :grep 
 nnoremap <leader>co :copen<cr>
-nnoremap <leader>g :grep 
 nnoremap <leader>ec :edit ~/.config/vim/vimrc<cr>
+nnoremap <leader>f :find 
+nnoremap <leader>g :grep 
+nnoremap <leader>p :Rg<cr>
+nnoremap <leader>t :tabnew<cr>
 nnoremap Y y$
+
+
+fun! GitFind()
+endfun
 
 fun! SetupCommandAlias(from, to)
   exec 'cnoreabbrev <expr> '.a:from
@@ -37,7 +42,13 @@ nnoremap <leader>ww :w<cr>
 nnoremap <leader>qq :q<cr>
 
 " Run Make
-nnoremap <leader>bb :Make<CR>
+
+function SaveAndBuild()
+		wall
+		Make
+endfunction
+
+nnoremap <leader>bb :call SaveAndBuild()<CR>
 
 " Generate ctags
 map <leader>c :!ctags -R -f ./.git/tags .<CR>

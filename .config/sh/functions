@@ -1,5 +1,5 @@
 # TODO implement [dest_dir] functionality
-extract () {
+extract_archive () {
 	test $# -lt 1 && { printf "Usage: $0 <archive>\n"; exit 1; }
 	test -f $1 || { printf "$0: $1: No such file \n"; exit 1; }
 	case $1 in
