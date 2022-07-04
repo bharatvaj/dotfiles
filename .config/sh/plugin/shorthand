@@ -1,7 +1,0 @@
-# Bindings for important commands
-
-[ -n "${EDITOR}" ] && alias e='${EDITOR}'
-
-alias cls=clear
-mich git && alias g=git
-mich pass && alias p=pass

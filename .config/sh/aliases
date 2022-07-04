@@ -22,3 +22,4 @@ mich curl && alias gip="curl ifconfig.co"
 
 alias '?d'='sr duckduckgo'
 alias l=lfcd
+alias x=extract_archive
