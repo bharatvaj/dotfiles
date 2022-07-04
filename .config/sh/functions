@@ -1,0 +1,38 @@
+# TODO implement [dest_dir] functionality
+extract () {
+	test $# -lt 1 && { printf "Usage: $0 <archive>\n"; exit 1; }
+	test -f $1 || { printf "$0: $1: No such file \n"; exit 1; }
+	case $1 in
+		*.Z) 7z x $1 ;;
+		*.bz2) bzip2 -d $1 ;;
+		*.gz) gunzip -d $1 ;;
+		*.rar) unrar x $1 ;;
+		*.tar) tar -xvf $1 ;;
+		*.tar.bz2) tar -jxvf $1 ;;
+		*.tar.gz) tar -zxvf $1 ;;
+		*.tgz) tar -zxvf $1 ;;
+		*.zip) unzip $1 ;;
+	*) echo "'$1' Error. Unsupported filetype." ;;
+	esac
+}
+
+md() {
+	mkdir "$@" && cd "$@"
+}
+
+# TODO make it non-interruptable
+insult() {
+	printf "You are a noob for typing '$1'\n"
+	sleep 5
+}
+
+thwart() {
+	alias $1="insult '$1'"
+}
+
+quickopen() {
+	test -z "${FUZZER}" && printf '${FUZZER} not set\n'
+	test "$#" -lt 1 && print "usage: $0 <command> [find -type]"
+	test -z "$2" && 2=f
+	${1} "$(find . -type $2 -maxdepth 3 2>/dev/null | ${FUZZER})"
+}
