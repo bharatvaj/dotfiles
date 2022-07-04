@@ -98,7 +98,3 @@ if has("win32")
 	" shellxquote must be a literal space character.
 	set shellxquote=  
 endif
-
-if exists('&fillchars')
-	set fillchars+=eob:\ 
-endif
