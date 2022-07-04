@@ -9,8 +9,10 @@
 !bash/**
 !clink
 !clink/clink_settings
+cmd/userenv.bat
 !cmd/
-!cmd/**
+# TODO specify each file individually
+!cmd/
 !git/
 !git/config
 !i3
