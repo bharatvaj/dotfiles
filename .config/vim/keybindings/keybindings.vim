@@ -2,17 +2,18 @@
 nmap <leader>F :GFiles<cr>
 nnoremap <Leader>l :ls<CR>:b<space>
 nnoremap <leader><leader> :grep 
+nnoremap <leader>F :GFiles<cr>
 nnoremap <leader>co :copen<cr>
-nnoremap <leader>ec :edit ~/.config/vim/vimrc<cr>
-nnoremap <leader>ek :edit ~/.config/vim/keybindings/keybindings.vim<cr>
+nnoremap <leader>ec :edit $XDG_CONFIG_HOME/vim/vimrc<cr>
+nnoremap <leader>ek :edit $XDG_CONFIG_HOME/vim/keybindings/keybindings.vim<cr>
 nnoremap <leader>f :find *
 nnoremap <leader>gg :grep<space>
+nnoremap <leader>vg :vimgrep<space>
 nnoremap <leader>p :Rg<cr>
 nnoremap <leader>t :tabnew<cr>
 
 " Behave vim
 nnoremap Y y$
-
 
 fun! GitFind()
 endfun
@@ -36,7 +37,7 @@ endfunction
 nnoremap <leader>tl :call ToggleList()<CR>
 
 " Buffer Creation
-nnoremap <Leader>v :vsplit<enter>
+nnoremap <Leader>vv :vsplit<enter>
 nnoremap <Leader>ss :split<enter>
 nnoremap <Leader>sc :source ~/.config/vim/vimrc<enter>
 
@@ -63,8 +64,8 @@ map <leader>c :!ctags -R -f ./.git/tags .<CR>
 nnoremap <CR> :noh<CR><CR>:<backspace>
 
 " Plugin keybindings
-source ~/.config/vim/keybindings/vimspector.vim
-source ~/.config/vim/keybindings/markdown.vim
+source $XDG_CONFIG_HOME/vim/keybindings/vimspector.vim
+source $XDG_CONFIG_HOME/vim/keybindings/markdown.vim
 
 " Development keybindings
 " TODO Have a default build hotkey keybinding, maybe bb,br?

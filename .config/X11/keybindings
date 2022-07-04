@@ -1,0 +1,7 @@
+__type() {
+    type "$@" >/dev/null 2>/dev/null
+}
+
+__type setxkbmap && setxkbmap -option caps:escape
+__type setxkbmap && setxkbmap -option altwin:swap_alt_win
+__type xbmap && xbmap
