@@ -61,3 +61,6 @@
 [submodule ".local/share/vim/pack/general/start/mru"]
 	path = .local/share/vim/pack/general/start/mru
 	url = https://github.com/yegappan/mru
+[submodule ".local/share/vim/pack/general/start/ctrlp.vim"]
+	path = .local/share/vim/pack/general/start/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim

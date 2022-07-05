@@ -1,22 +1,28 @@
 " General keybindings
-nmap <leader>F :GFiles<cr>
-nnoremap <Leader>l :ls<CR>:b<space>
-nnoremap <leader><leader> :grep 
-nnoremap <leader>F :GFiles<cr>
+nnoremap <Leader>lb :ls<CR>:b<space>
 nnoremap <leader>co :copen<cr>
+nnoremap <leader>cs :cdo<space>s/
 nnoremap <leader>ec :edit $XDG_CONFIG_HOME/vim/vimrc<cr>
 nnoremap <leader>ek :edit $XDG_CONFIG_HOME/vim/keybindings/keybindings.vim<cr>
 nnoremap <leader>f :find *
-nnoremap <leader>gg :grep<space>
-nnoremap <leader>vg :vimgrep<space>
+nnoremap <leader>lo :lopen<cr>
+nnoremap <leader>ls :ldo<space>s/
 nnoremap <leader>p :Rg<cr>
-nnoremap <leader>t :tabnew<cr>
+nnoremap <leader>so :source %<cr>
+nnoremap <leader>tt :tabnew<cr>
+nnoremap <leader>vg :vimgrep<space>
+
+" Plugin dependent
+let g:ctrlp_map = '<tab><tab>'
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_working_path_mode = 'r'
+let g:gutentags_file_list_command = 'rg --files'
+nnoremap <leader><leader> :CtrlPTag<cr>
+nnoremap <leader>gg :Ggrep<space>
+nnoremap <leader>lg :Glgrep<space>
 
 " Behave vim
 nnoremap Y y$
-
-fun! GitFind()
-endfun
 
 fun! SetupCommandAlias(from, to)
   exec 'cnoreabbrev <expr> '.a:from
@@ -25,6 +31,7 @@ fun! SetupCommandAlias(from, to)
 endfun
 call SetupCommandAlias("W","w")
 call SetupCommandAlias("Wq","wq")
+call SetupCommandAlias("man","help")
 
 function! ToggleList()
 	if &list == "nolist"
@@ -59,7 +66,8 @@ endfunction
 nnoremap <leader>bb :call SaveAndBuild()<CR>
 
 " Generate ctags
-map <leader>c :!ctags -R -f ./.git/tags .<CR>
+map <leader>gt :!sh -c "ctags `rg --files`"<CR>
+set tags+=.git/tags
 
 nnoremap <CR> :noh<CR><CR>:<backspace>
 
