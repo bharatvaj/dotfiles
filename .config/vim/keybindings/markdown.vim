@@ -14,3 +14,6 @@ endfunction
 function ReverseDate()
 	normal! dt/wwpldeBP
 endfunction
+
+nnoremap <leader>h1 :call QuickUnderline(1)<cr>
+nnoremap <leader>h2 :call QuickUnderline(2)<cr>
