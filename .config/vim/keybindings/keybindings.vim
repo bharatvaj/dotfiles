@@ -9,6 +9,7 @@ nnoremap <leader>f :find *
 nnoremap <leader>lo :lopen<cr>
 nnoremap <leader>ls :ldo<space>s/
 nnoremap <leader>p :Rg<cr>
+nnoremap <leader>sc :source $XDG_CONFIG_HOME/vim/vimrc<cr>
 nnoremap <leader>so :source %<cr>
 nnoremap <leader>tt :tabnew<cr>
 nnoremap <leader>vg :vimgrep<space>
