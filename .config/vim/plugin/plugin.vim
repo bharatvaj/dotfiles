@@ -15,3 +15,6 @@ function SaveAndBuild()
 		wall
 		Make
 endfunction
+
+" TODO load this automatically
+source $XDG_CONFIG_HOME/vim/ftplugin/cpp.vim

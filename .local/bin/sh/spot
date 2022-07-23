@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+#TODO Check system for this variable before setting default.
+#TODO Handle if program not found
+#TODO Add more search dirs for different platforms
+search_dirs=("/Applications" "/System/Applications")
+
+app="$(find ${search_dirs[@]} -maxdepth 2 -name "*.app" -type d | ${FUZZER})"
+
+test -n "${app}" && open "${app}"

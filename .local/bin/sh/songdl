@@ -1,0 +1,11 @@
+#!/bin/sh
+
+[ $# -ne 1 ] && echo "Usage: $0 <youtube-url>" && exit 1
+
+[ -z "$SONGDL_HOME" ] && SONGDL_HOME="${XDG_MUSIC_DIR}"
+
+cd "$SONGDL_HOME"
+
+song_name=$1
+
+youtube-dl --external-downloader aria2c --extract-audio --audio-format mp3 "$song_name"

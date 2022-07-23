@@ -1,11 +1,11 @@
 " General keybindings
-nnoremap <Leader>lb :ls<CR>:b<space>
+nnoremap <leader>lb :ls<CR>:b<space>
 nnoremap <leader>co :copen<cr>
 nnoremap <leader>cs :cdo<space>s/
 nnoremap <leader>ec :edit $XDG_CONFIG_HOME/vim/vimrc<cr>
 nnoremap <leader>ek :edit $XDG_CONFIG_HOME/vim/keybindings/keybindings.vim<cr>
 nnoremap <leader>et :set expandtab<cr>
-nnoremap <leader>f :find *
+nnoremap <leader>ff :find *
 nnoremap <leader>lo :lopen<cr>
 nnoremap <leader>ls :ldo<space>s/
 nnoremap <leader>p :Rg<cr>
@@ -13,10 +13,13 @@ nnoremap <leader>so :source %<cr>
 nnoremap <leader>tt :tabnew<cr>
 nnoremap <leader>vg :vimgrep<space>
 " Buffer Creation
-nnoremap <Leader>sc :source ~/.config/vim/vimrc<enter>
-nnoremap <Leader>ss :split<enter>
-nnoremap <Leader>vv :vsplit<enter>
+nnoremap <leader>sc :source ~/.config/vim/vimrc<enter>
+nnoremap <leader>ss :split<enter>
+nnoremap <leader>vv :vsplit<enter>
 
+" Accessible completions
+inoremap <c-f> <c-x><c-f>
+inoremap <c-l> <c-x><c-l>
 " Behave vim
 nnoremap Y y$
 
@@ -67,7 +70,7 @@ let g:ctrlp_map = '<tab><tab>'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode = 'r'
 let g:gutentags_file_list_command = 'rg --files'
-nnoremap <leader><leader> :CtrlPTag<cr>
+nnoremap <leader><leader> :CtrlPBuffer<cr>
 " vim-fugitive
 nnoremap <leader>gg :Ggrep<space>
 nnoremap <leader>lg :Glgrep<space>

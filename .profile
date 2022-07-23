@@ -8,6 +8,15 @@ export XDG_CONFIG_HOME="$XDG_ROOT/.config"
 export XDG_DATA_HOME="$XDG_ROOT/.local/share"
 export XDG_CACHE_HOME="$XDG_ROOT/.cache"
 
+export XDG_DESKTOP_DIR="$XDG_DATA_HOME/desktop"
+export XDG_DOCUMENTS_DIR="$XDG_DATA_HOME/documents"
+export XDG_DOWNLOAD_DIR="$XDG_CACHE_HOME/downloads"
+export XDG_MUSIC_DIR="$XDG_DATA_HOME/music"
+export XDG_PICTURES_DIR="$XDG_DATA_HOME/pictures"
+export XDG_PUBLICSHARE_DIR="$XDG_DATA_HOME/public"
+export XDG_TEMPLATES_DIR="$XDG_DATA_HOME/templates"
+export XDG_VIDEOS_DIR="$XDG_DATA_HOME/videos"
+
 # Global programs
 export VIMINIT="if !has('nvim')
 source $XDG_CONFIG_HOME/vim/vimrc
@@ -49,7 +58,7 @@ export VSCODE_PORTABLE="$XDG_DATA_HOME/vscode"
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export MYSQL_HISTFILE="$XDG_DATA_HOME/mysql_history"
-# export ZDOTDIR="$XDG_DATA_HOME/zsh"
+export SONGDL_HOME="${XDG_DATA_HOME}/music/"
 
 export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
@@ -60,7 +69,7 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 HISTTIMEFORMAT="%F %T "
 
 # Local executables
-export PATH=${PATH}:${HOME}/.local/bin:${XDG_DATA_HOME}/npm/bin:${XDG_DATA_HOME}/.cargo/bin
+export PATH=${PATH}:${HOME}/.local/bin:${HOME}/.local/bin/sh:${XDG_DATA_HOME}/npm/bin:${XDG_DATA_HOME}/.cargo/bin
 
 chance() {
     # Hit or miss

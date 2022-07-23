@@ -1,0 +1,9 @@
+#!/bin/sh
+
+#TODO figure out how th this is working in the first place
+status=$(mpc)
+
+song_status="$(mpc | sed 2q | tac | head -n1)"
+song_title="$(printf $status | head -n2 | tac | head -n1)"
+
+printf "%s - %s\n" "${song_status}" "${song_title}"
