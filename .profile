@@ -19,6 +19,7 @@ export XDG_VIDEOS_DIR="$XDG_DATA_HOME/videos"
 
 # Global programs
 export VIMINIT="if !has('nvim')
+set nocompatible
 source $XDG_CONFIG_HOME/vim/vimrc
 endif"
 export LESSHISTFILE=-
@@ -93,3 +94,8 @@ export SURFRAW_browser="$BROWSER"
 chance "${XDG_CONFIG_HOME}/sh/functions"
 chance "${XDG_CONFIG_HOME}/sh/aliases"
 chance "${XDG_CONFIG_HOME}/sh/unstaged"
+
+# Theme
+# Hyper Red
+export LESS_TERMCAP_us=$'\E[0;31m'
+export LESS_TERMCAP_ue=$'\E[0m'

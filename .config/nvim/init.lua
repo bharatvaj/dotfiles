@@ -44,10 +44,15 @@ augroup END
 -- TODO use lua api
 vim.cmd('hi StatusLine ctermbg=white ctermfg=red')
 vim.cmd('hi StatusLineNC ctermbg=white ctermfg=black')
-vim.cmd('hi LineNr ctermbg=NONE ctermfg=red')
+vim.cmd('hi LineNr ctermbg=NONE ctermfg=DarkGray')
 vim.cmd('set fillchars=vert:\\│')
 vim.cmd('hi VertSplit term=NONE cterm=NONE gui=NONE')
 vim.cmd('hi SignColumn ctermbg=NONE guibg=NONE')
-
-
-
+vim.cmd('hi Comment ctermfg=DarkGray guifg=DarkGray')
+vim.cmd('hi Statement ctermfg=DarkGray guifg=DarkGray')
+vim.cmd('hi Type ctermfg=DarkGray guifg=DarkGray')
+vim.cmd('hi PreProc ctermfg=LightGray guifg=LightGray')
+vim.cmd('hi Constant ctermfg=red guifg=red')
+vim.cmd('hi Special ctermfg=red guifg=red')
+vim.cmd('hi Identifier ctermfg=white guifg=white')
+vim.cmd('hi Visual ctermbg=white ctermfg=black guibg=black guifg=black')

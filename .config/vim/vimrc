@@ -82,6 +82,7 @@ function! s:load_plugins(t) abort
 	packadd vim-ninja-feet
 	packadd vim-fugitive
 	packadd vim-better-whitespace
+	source $XDG_CONFIG_HOME/vim/hyper-red.vim
 endfunction
 
 augroup user_cmds
