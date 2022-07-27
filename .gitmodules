@@ -64,3 +64,36 @@
 [submodule ".local/share/vim/pack/general/start/ctrlp.vim"]
 	path = .local/share/vim/pack/general/start/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim
+[submodule ".local/share/nvim/pack/general/start/telescope.nvim"]
+	path = .local/share/nvim/pack/general/start/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim
+[submodule ".local/share/nvim/pack/general/start/plenary.nvim"]
+	path = .local/share/nvim/pack/general/start/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+[submodule ".local/share/nvim/pack/general/start/vim-dispatch"]
+	path = .local/share/nvim/pack/general/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch
+[submodule ".local/share/nvim/pack/general/start/vim-dispatch-neovim"]
+	path = .local/share/nvim/pack/general/start/vim-dispatch-neovim
+	url = https://github.com/radenling/vim-dispatch-neovim
+[submodule ".local/share/nvim/pack/general/start/vim-tmux-navigator"]
+	path = .local/share/nvim/pack/general/start/vim-tmux-navigator
+	url = https://github.com/christoomey/vim-tmux-navigator
+[submodule ".local/share/nvim/pack/development/start/nvim-dap"]
+	path = .local/share/nvim/pack/development/start/nvim-dap
+	url = https://github.com/mfussenegger/nvim-dap
+[submodule ".local/share/nvim/pack/general/start/nvim-comment"]
+	path = .local/share/nvim/pack/general/start/nvim-comment
+	url = https://github.com/terrortylor/nvim-comment
+[submodule ".local/share/nvim/pack/development/opt/vimspector"]
+	path = .local/share/nvim/pack/development/opt/vimspector
+	url = https://github.com/puremourning/vimspector
+[submodule ".local/share/vim/pack/general/start/vim-checklist"]
+	path = .local/share/vim/pack/general/start/vim-checklist
+	url = https://github.com/evansalter/vim-checklist
+[submodule ".local/share/nvim/pack/general/opt/vim-fugitive"]
+	path = .local/share/nvim/pack/general/opt/vim-fugitive
+	url = https://git::@github.com/tpope/vim-fugitive.git
+[submodule ".local/share/nvim/pack/general/start/vim-unimpaired"]
+	path = .local/share/nvim/pack/general/start/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired

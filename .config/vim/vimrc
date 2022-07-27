@@ -5,6 +5,7 @@ if !has('nvim')
 endif
 
 " General
+set nocompatible
 set number
 set mouse=
 set nocursorline
@@ -33,6 +34,7 @@ set shortmess=Iat
 " Search
 set hlsearch
 set incsearch
+set nowrapscan
 
 " Pro tab
 filetype plugin indent on
@@ -45,7 +47,6 @@ let g:netrw_liststyle = 3
 
 " Disable status
 set laststatus=1
-set nowrapscan
 
 set lazyredraw
 set ttyfast

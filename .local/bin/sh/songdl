@@ -9,3 +9,7 @@ cd "$SONGDL_HOME"
 song_name=$1
 
 youtube-dl --external-downloader aria2c --extract-audio --audio-format mp3 "$song_name"
+
+if type mpc >/dev/null; then
+	mpc update
+fi

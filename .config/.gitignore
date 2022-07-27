@@ -36,3 +36,5 @@ cmd/userenv.bat
 !wgetrc
 
 alacritty/windows.yml
+alacritty/mac.yml
+alacritty/light-theme.yml

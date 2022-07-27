@@ -41,3 +41,7 @@ quickopen() {
 		${1} "$(find . -type $2 -maxdepth 3 2>/dev/null | ${FUZZER})"
 	fi
 }
+
+unset_viminit_nvim() {
+	VIMINIT="" nvim $*
+}

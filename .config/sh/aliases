@@ -36,6 +36,6 @@ alias f='find . -name '
 alias g='git'
 alias g=git
 alias l=lfcd
-alias n='nvim'
+alias n='unset_viminit_nvim'
 alias v='vim'
 alias x=extract_archive
