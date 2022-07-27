@@ -99,3 +99,5 @@ chance "${XDG_CONFIG_HOME}/sh/unstaged"
 # Hyper Red
 export LESS_TERMCAP_us=$'\E[0;31m'
 export LESS_TERMCAP_ue=$'\E[0m'
+export CLICOLOR=1
+export LSCOLORS="hxgxfxxxbxxxxxxxxxxxxx"
