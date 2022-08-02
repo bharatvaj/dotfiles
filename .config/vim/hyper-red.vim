@@ -3,13 +3,14 @@
 " TODO handle light theme
 " Probably use a autogroup for handling tCo count change
 " Do it in lua
-hi StatusLine ctermbg=white ctermfg=red
 if &background == "dark"
-		hi StatusLineNC ctermbg=white ctermfg=black
+	hi StatusLine guibg=white ctermbg=white guifg=black ctermfg=black
+	hi StatusLineNC guibg=lightgray ctermbg=lightgray guifg=black ctermfg=black
 else
-		hi StatusLineNC ctermbg=black ctermfg=white
+	hi StatusLine guibg=black ctermbg=black guifg=white ctermfg=white
+	hi StatusLineNC guibg=darkgray ctermbg=darkgray guifg=white ctermfg=white
 endif
-hi LineNr ctermbg=NONE ctermfg=DarkGray
+hi LineNr guibg=NONE ctermbg=NONE guifg=DarkGray ctermfg=DarkGray
 set fillchars=vert:\│
 hi VertSplit term=NONE cterm=NONE gui=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
@@ -21,7 +22,6 @@ hi Constant ctermfg=red guifg=red
 hi String ctermfg=lightred guifg=lightred
 hi Special ctermfg=red guifg=red
 hi Identifier ctermfg=white guifg=white
-hi Visual ctermbg=LightGray ctermfg=DarkGray guibg=LightGray guifg=DarkGray
+hi Visual ctermbg=DarkGray ctermfg=white guibg=DarkGray guifg=white
 hi Search ctermbg=Blue ctermfg=White guibg=Blue guifg=White
 hi Todo ctermbg=NONE ctermfg=Yellow guibg=NONE guifg=Yellow
-

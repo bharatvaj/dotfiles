@@ -70,11 +70,11 @@ nnoremap <leader>cr :Cargo run<cr>
 nnoremap <leader>cc :ChecklistToggleCheckbox<cr>
 
 "ctrlp.vim
-let g:ctrlp_map = '<tab><tab>'
+let g:ctrlp_map = '<leader><leader>'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let g:ctrlp_working_path_mode = 'r'
 let g:gutentags_file_list_command = 'rg --files'
-nnoremap <leader><leader> :CtrlPBuffer<cr>
+nnoremap <tab><tab> :CtrlPBuffer<cr>
 " vim-fugitive
 nnoremap <leader>gg :Ggrep<space>
 nnoremap <leader>lg :Glgrep<space>
