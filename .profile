@@ -19,7 +19,6 @@ export XDG_VIDEOS_DIR="$XDG_DATA_HOME/videos"
 
 # Global programs
 export VIMINIT="if !has('nvim')
-set nocompatible
 source $XDG_CONFIG_HOME/vim/vimrc
 endif"
 export LESSHISTFILE=-
