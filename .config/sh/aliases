@@ -7,6 +7,9 @@ alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 alias startx='startx "$XDG_CONFIG_HOME/X11/xinitrc" vt1'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
+# [misc]
+alias doas=sudo
+
 # [ls_conditioning]
 thwart sl && thwart ld && thwart lls &&  thwart sls && thwart lsl && thwart lss && thwart kls
 # [cd_conditioning]

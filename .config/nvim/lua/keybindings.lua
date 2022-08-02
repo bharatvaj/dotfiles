@@ -111,3 +111,4 @@ map("n", "<leader>cd", ":ChecklistDisableCheckbox<cr>", { silent = true });
 -- vim-fugitive
 map("n", "<leader>gg", ":Ggrep<space>", { silent = false });
 map("n", "<leader>lg", ":Glgrep<space>", { silent = false });
+map("n", "<leader>gwq", ":Gwq<cr>", { silent = false });

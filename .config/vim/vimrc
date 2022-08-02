@@ -10,7 +10,6 @@ set number
 set mouse=
 set nocursorline
 set exrc
-set t_te=
 
 " Turn backup off
 set nobackup
