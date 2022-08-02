@@ -1,13 +1,13 @@
 " Hyper Red
 hi StatusLine ctermbg=white ctermfg=red
 hi StatusLineNC ctermbg=white ctermfg=black
-hi LineNr ctermbg=NONE ctermfg=DarkGray
+hi LineNr ctermbg=NONE ctermfg=Blue
 set fillchars=vert:\│
 hi VertSplit term=NONE cterm=NONE gui=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
-hi Comment ctermfg=DarkGray guifg=DarkGray
-hi Statement ctermfg=DarkGray guifg=DarkGray
-hi Type ctermfg=DarkGray guifg=DarkGray
+hi Comment ctermfg=Blue guifg=Blue
+hi Statement ctermfg=Blue guifg=Blue
+hi Type ctermfg=Blue guifg=Blue
 hi PreProc ctermfg=LightGray guifg=LightGray
 hi Constant ctermfg=red guifg=red
 hi Special ctermfg=red guifg=red

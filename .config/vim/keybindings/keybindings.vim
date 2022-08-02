@@ -21,6 +21,9 @@ nnoremap <leader>vv :vsplit<enter>
 " Accessible completions
 inoremap <c-f> <c-x><c-f>
 inoremap <c-l> <c-x><c-l>
+" Emacs line navigation in insert mode
+inoremap <c-a> <c-o>0
+inoremap <c-e> <c-o>A
 " Behave vim
 nnoremap Y y$
 
