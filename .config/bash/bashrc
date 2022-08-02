@@ -6,6 +6,6 @@ export PATH="${PATH}:${PATH_EXPORTS[*]}"
 
 [ -f ${XDG_CONFIG_HOME}/bash/autojump.bash ] && ${XDG_CONFIG_HOME}/bash/autojump.bash
 
-PS1='\033[0;31m\w \033[0;37m$\033[0m '
+PS1='\w $ '
 
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
