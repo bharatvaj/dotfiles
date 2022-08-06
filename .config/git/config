@@ -17,6 +17,7 @@
 	lss = log --show-signature
 	p = pull
 	pu = push
+	put = push --tags
 	puuo = push -u origin
 	rs = remote set-url
 	rso = remote set-url origin

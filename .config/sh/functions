@@ -42,6 +42,7 @@ quickopen() {
 	fi
 }
 
-unset_viminit_nvim() {
-	VIMINIT="" nvim $*
+cd_and_ls() {
+		cd $*
+		ls
 }
