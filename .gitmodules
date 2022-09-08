@@ -100,3 +100,12 @@
 [submodule ".local/share/nvim/pack/themes/start/gruvbox-material"]
 	path = .local/share/nvim/pack/themes/start/gruvbox-material
 	url = https://git::@github.com/sainnhe/gruvbox-material.git
+[submodule ".local/share/nvim/pack/general/start/Command-T"]
+	path = .local/share/nvim/pack/general/start/Command-T
+	url = https://github.com/wincent/Command-T
+[submodule ".config/nvim/vim-vinegar"]
+	path = .config/nvim/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
+[submodule ".local/share/nvim/pack/general/start/vim-vinegar"]
+	path = .local/share/nvim/pack/general/start/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar

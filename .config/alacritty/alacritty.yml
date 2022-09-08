@@ -7,6 +7,7 @@ import:
   - ~/.config/alacritty/unix.yml
   - ~/.config/alacritty/windows.yml
   - ~/.config/alacritty/mac.yml
+  - ~/.config/alacritty/bindings.yml
 
 live_config_reload: true
 
