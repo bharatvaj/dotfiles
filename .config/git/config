@@ -16,6 +16,7 @@
 	lgr = log --graph --oneline --decorate --all
 	lss = log --show-signature
 	p = pull
+	po = pull origin
 	pu = push
 	puuo = push -u origin
 	rs = remote set-url
