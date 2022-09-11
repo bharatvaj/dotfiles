@@ -16,8 +16,6 @@ set.expandtab=false
 set.hlsearch=true
 set.incsearch=true
 set.wrapscan=false
-set.ignorecase=true
-set.smartcase=true
 
 require'lspconfig'.clangd.setup{}
 

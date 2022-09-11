@@ -17,6 +17,22 @@ function toggle_list(is_local_buffer)
 	end
 end
 
+-- function toggle_highlight()
+-- 	if vim.opt.highlight then
+-- 			vim.
+--
+-- end
+
+vim.cmd([[
+function! DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+]])
+
 function file_mv_helper()
 	vim.cmd('normal! 0i"A"0y$A p0imv j0')
 end
@@ -36,15 +52,17 @@ map("n", "<leader>ls", ":ldo<space>s/", { silent = false })
 map("n", "<leader>p", ":Rg<cr>", { silent = false })
 map("n", "<leader>sc", ":source $XDG_CONFIG_HOME/nvim/init.lua<cr>", { silent = false })
 map("n", "<leader>so", ":source %<cr>", { silent = false })
+map("n", "<leader>sp", ":set paste<cr>", { silent = false })
 map("n", "<leader>tl", ":lua toggle_list(true)<CR>", { silent = true })
 map("n", "<leader>tt", ":tabnew<cr>", { silent = false })
 map("n", "<leader>vg", ":vimgrep<space>", { silent = false })
+map("n", "<leader>wd", ":call DiffWithSaved()<cr>", { silent = false });
 
 -- quick write and quit
 map("n", "<Leader>ww", ":w<CR>", { silent = true })
 map("n", "<Leader>wq", ":wq<CR>", { silent = true })
 map("n", "<Leader>qq", ":q<CR>", { silent = true })
-map("n", "<leader>cs", ":noh<CR>", { silent = true })
+map("n", "<leader><cr>", ":noh<CR>", { silent = true })
 
 -- buffers
 map("n", "<leader>sc", ":source ~/.config/vim/vimrc<enter>", { silent = true })
@@ -112,3 +130,9 @@ map("n", "<leader>cd", ":ChecklistDisableCheckbox<cr>", { silent = true });
 map("n", "<leader>gg", ":Ggrep<space>", { silent = false });
 map("n", "<leader>lg", ":Glgrep<space>", { silent = false });
 map("n", "<leader>gwq", ":Gwq<cr>", { silent = false });
+
+-- neovim diagnostics
+map("n", "<leader>sd", ":lua vim.diagnostic.open_float()<cr>", { silent = false });
+
+-- netrw keybindings
+map("n", "<leader>sf", ":Ex<cr>", { silent = false });

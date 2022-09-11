@@ -23,7 +23,7 @@ there curl && alias gip="curl ifconfig.co"
 alias ....='cd ../../..'
 alias ...='cd ../..'
 alias ..='cd ..'
-alias n='cd'
+alias n='cd_and_ls'
 alias cf="quickopen cd d"
 alias ef="quickopen ${EDITOR} f"
 alias vf="quickopen ${VISUAL} f"
@@ -40,5 +40,5 @@ alias f='find . -name '
 alias g='git'
 alias g=git
 alias l=lfcd
-alias v='unset_viminit_nvim'
+alias v='VIMINIT="" nvim'
 alias x=extract_archive
