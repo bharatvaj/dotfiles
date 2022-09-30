@@ -41,14 +41,13 @@ end
 local map = require("utils").map
 -- general
 map("n", "<leader>co", ":copen<cr>", { silent = false })
-map("n", "<leader>cs", ":cdo<space>s/", { silent = false })
+map("n", "<leader>cd", ":cdo<space>s/", { silent = false })
 map("n", "<leader>ec", ":edit $XDG_CONFIG_HOME/nvim/init.lua<cr>", { silent = true })
 map("n", "<leader>ek", ":edit $XDG_CONFIG_HOME/nvim/lua/keybindings.lua<cr>", { silent = false })
 map("n", "<leader>et", ":set expandtab<cr>", { silent = false })
-map("n", "<leader>ff", ":find *", { silent = false })
 map("n", "<leader>lb", ":ls<CR>:b<space>", { silent = false })
 map("n", "<leader>lo", ":lopen<cr>", { silent = false })
-map("n", "<leader>ls", ":ldo<space>s/", { silent = false })
+map("n", "<leader>ld", ":ldo<space>s/", { silent = false })
 map("n", "<leader>p", ":Rg<cr>", { silent = false })
 map("n", "<leader>sc", ":source $XDG_CONFIG_HOME/nvim/init.lua<cr>", { silent = false })
 map("n", "<leader>so", ":source %<cr>", { silent = false })
@@ -93,9 +92,14 @@ map("n", "<leader>dcbp", "<Plug>VimspectorToggleConditionalBreakpoint", { silent
 
 map("n", "<leader>bb", ":lua save_and_build()<CR>", { silent = false })
 
+
+-- development
+map("n", "<leader>oc", ":grepadd /:: %", { silent = false })
+map("n", "<leader>oh", ":grepadd /:: %", { silent = false })
+
 -- quick navigation
 -- telscope.nvim
-map("n", "<leader><leader>", ":Telescope find_files<cr>", { silent = true })
+map("n", "<leader>ff", ":b *", { silent = false })
 
 -- file helpers
 map("n", "<leader>fmv", "lua file_mv_helper()",  { silent = true })
@@ -119,10 +123,7 @@ map("n", "<leader>h2", ":lua doc_quick_underline(2)<cr>", { silent = true });
 
 map("n", "<leader>ct", ":ChecklistToggleCheckbox<cr>", { silent = true });
 map("n", "<leader>ce", ":ChecklistEnableCheckbox<cr>", { silent = true });
-map("n", "<leader>cd", ":ChecklistDisableCheckbox<cr>", { silent = true });
-map("n", "<leader>ct", ":ChecklistToggleCheckbox<cr>", { silent = true });
-map("n", "<leader>ce", ":ChecklistEnableCheckbox<cr>", { silent = true });
-map("n", "<leader>cd", ":ChecklistDisableCheckbox<cr>", { silent = true });
+-- map("n", "<leader>cd", ":ChecklistDisableCheckbox<cr>", { silent = true });
 
 -- vim.g.checklist_filetypes:append('adoc', 'md')
 
@@ -136,3 +137,8 @@ map("n", "<leader>sd", ":lua vim.diagnostic.open_float()<cr>", { silent = false 
 
 -- netrw keybindings
 map("n", "<leader>sf", ":Ex<cr>", { silent = false });
+
+-- nb
+-- TODO open a fuzzy finder quickly. Even better use fuzzy finder without chdir
+map("n", "<leader>nb", ":chdir $NB_PATH<cr>", { silent = false });
+

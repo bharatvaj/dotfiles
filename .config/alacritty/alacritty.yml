@@ -2,7 +2,7 @@ mouse:
   hide_when_typing: true
 
 import:
-  - ~/.config/alacritty/theme.yml
+  - ~/.config/alacritty/hyper-dark.yml
   - ~/.config/alacritty/font.yml
   - ~/.config/alacritty/unix.yml
   - ~/.config/alacritty/windows.yml

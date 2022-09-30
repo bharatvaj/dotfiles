@@ -9,6 +9,7 @@ require("keybindings")
 
 
 set.tabstop=4
+set.shiftwidth=4
 set.number=true
 set.laststatus=1
 set.expandtab=false
@@ -27,8 +28,14 @@ g.netrw_liststyle = 3
 require('nvim_comment').setup()
 
 vim.cmd([[
+set packpath^=$XDG_DATA_HOME/vimcommon
 function! s:load_plugins(t) abort
+	packadd vim-tmux-navigator
+	packadd mru
+	packadd vim-surround
+	packadd vim-ninja-feet
 	packadd vim-fugitive
+	packadd gruvbox-material
 endfunction
 
 augroup user_cmds

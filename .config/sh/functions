@@ -24,8 +24,12 @@ md() {
 
 # TODO make it non-interruptable
 insult() {
-	printf "You are a noob for typing '$1'\n"
-	sleep 5
+	if type sl 1>/dev/null; then
+		sl
+	else
+		printf "You are a noob for typing '$1'\n"
+		sleep 5
+	fi
 }
 
 thwart() {
@@ -43,6 +47,5 @@ quickopen() {
 }
 
 cd_and_ls() {
-		cd $*
-		ls
+		cd $* && ls
 }

@@ -4,31 +4,45 @@
 " Probably use a autogroup for handling tCo count change
 " Do it in lua
 if &background == "dark"
-	hi StatusLine ctermfg=Black ctermbg=LightBlue guifg=black guibg=white
+    hi LineNr guibg=NONE ctermbg=NONE guifg=DarkGray ctermfg=DarkGray
+    hi CursorLineNr guibg=NONE ctermbg=NONE guifg=White ctermfg=White
+	hi StatusLine cterm=bold gui=bold ctermfg=White ctermbg=Black guifg=White guibg=Black
 	hi StatusLineNC guibg=lightgray ctermbg=lightgray guifg=black ctermfg=black
+	hi Statement ctermfg=Red guifg=Red
+	hi Constant ctermfg=LightGreen guifg=LightGreen
+	hi String ctermfg=LightBlue guifg=LightBlue
+	hi Special cterm=bold ctermfg=LightGreen guifg=LightYellow
+	hi Identifier ctermfg=White guifg=White
+	hi IncSearch ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
+	hi Search ctermbg=LightBlue ctermfg=Black guibg=Blue guifg=White
+	hi Todo cterm=underline ctermbg=NONE ctermfg=LightYellow guibg=NONE guifg=LightYellow
+	hi Comment ctermfg=DarkGray guifg=DarkGray
+	hi Visual ctermbg=White ctermfg=Black guibg=White guifg=Black
+	hi Type ctermfg=LightGray guifg=LightGray
+	hi PreProc ctermfg=DarkGray guifg=DarkGray
+	hi MatchParen ctermbg=NONE cterm=underline ctermfg=LightMagenta
 else
-	hi StatusLine guibg=darkblue ctermbg=darkblue guifg=white ctermfg=white
-	hi StatusLineNC guibg=darkgray ctermbg=darkgray guifg=white ctermfg=white
+	hi LineNr guibg=NONE ctermbg=NONE guifg=LightGray ctermfg=LightGray
+	hi StatusLine cterm=bold gui=bold guibg=NONE ctermbg=NONE guifg=Black ctermfg=Black
+	hi StatusLineNC guibg=DarkGray ctermbg=DarkGray guifg=White ctermfg=White
+	hi Statement ctermfg=Red guifg=Red
+	hi Constant ctermfg=Green guifg=Green
+	hi String ctermfg=DarkBlue guifg=DarkBlue
+	hi Special cterm=bold ctermfg=DarkGreen guifg=DarkGreen
+	hi Identifier ctermfg=Black guifg=Black
+	hi IncSearch ctermbg=White ctermfg=Yellow guibg=White guifg=Yellow
+	hi Search ctermbg=Blue ctermfg=White guibg=Blue guifg=White
+	hi Todo cterm=underline,bold ctermbg=NONE ctermfg=Yellow guibg=NONE guifg=Yellow
+	hi Comment ctermfg=LightGray guifg=LightGray
+	hi Visual ctermbg=Black ctermfg=white guibg=Black guifg=white
+	hi Type ctermfg=DarkGray guifg=DarkGray
+	hi PreProc ctermfg=LightGray guifg=LightGray
+	hi MatchParen guibg=NONE ctermbg=NONE gui=underline cterm=underline guifg=DarkMagenta ctermfg=DarkMagenta
 endif
-hi LineNr guibg=NONE ctermbg=NONE guifg=DarkGray ctermfg=DarkGray
 set fillchars=vert:\│
 hi VertSplit term=NONE cterm=NONE gui=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
-if empty($DISPLAY)
-hi Comment ctermfg=NONE
-else
-hi Comment ctermfg=DarkGray guifg=DarkGray
-hi Visual ctermbg=DarkGray ctermfg=white guibg=DarkGray guifg=white
-hi Type ctermfg=LightGray guifg=LightGray
-hi PreProc ctermfg=LightGray guifg=LightGray
+
+if (&t_Co == 8)
+	hi Comment ctermfg=NONE
 endif
-
-hi Statement ctermfg=Red guifg=LightGreen
-hi Constant ctermfg=Red guifg=Red
-hi String cterm=bold ctermfg=NONE guifg=LightRed
-hi Special cterm=bold ctermfg=LightBlue guifg=LightYellow
-hi Identifier ctermfg=White guifg=White
-hi Search ctermbg=Blue ctermfg=White guibg=Blue guifg=White
-hi Todo cterm=underline ctermbg=NONE ctermfg=LightYellow guibg=NONE guifg=LightYellow
-
-hi MatchParen ctermbg=NONE cterm=underline ctermfg=Magenta
