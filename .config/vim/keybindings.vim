@@ -3,7 +3,7 @@ nnoremap <leader>aa :argadd **<cr>
 nnoremap <leader>co :copen<cr>
 nnoremap <leader>cs :cdo<space>s/
 nnoremap <leader>ec :edit $XDG_CONFIG_HOME/vim/vimrc<cr>
-nnoremap <leader>ek :edit $XDG_CONFIG_HOME/vim/keybindings/keybindings.vim<cr>
+nnoremap <leader>ek :edit $XDG_CONFIG_HOME/vim/keybindings.vim<cr>
 nnoremap <leader>et :set expandtab<cr>
 nnoremap <leader>fa :find *
 nnoremap <leader>ff :b *
@@ -18,7 +18,7 @@ nnoremap <leader>sp :set paste<cr>
 nnoremap <leader>tt :tabnew<cr>
 nnoremap <leader>vg :vimgrep<space>
 " Buffer Creation
-nnoremap <leader>sc :source ~/.config/vim/vimrc<enter>
+nnoremap <leader>sc :source $XDG_CONFIG_HOME/vim/vimrc<enter>
 nnoremap <leader>ss :split<enter>
 nnoremap <leader>vv :vsplit<enter>
 
