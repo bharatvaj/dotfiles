@@ -67,3 +67,6 @@
 [submodule ".local/share/vim/pack/general/opt/vim-maildir"]
 	path = .local/share/vim/pack/general/opt/vim-maildir
 	url = https://github.com/ferranpm/vim-maildir
+[submodule ".local/share/vimcommon/pack/general/start/vim-minisnip"]
+	path = .local/share/vimcommon/pack/general/start/vim-minisnip
+	url = https://github.com/joereynolds/vim-minisnip/

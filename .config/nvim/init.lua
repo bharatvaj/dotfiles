@@ -27,8 +27,10 @@ g.netrw_liststyle = 3
 
 require('nvim_comment').setup()
 
+-- TODO use lua api
+vim.cmd('source $XDG_DATA_HOME/vimcommon/vimrc')
+
 vim.cmd([[
-set packpath^=$XDG_DATA_HOME/vimcommon
 function! s:load_plugins(t) abort
 	packadd vim-tmux-navigator
 	packadd mru
@@ -44,7 +46,3 @@ augroup user_cmds
 augroup END
 ]])
 
--- theme
--- hyper-red
--- TODO use lua api
-vim.cmd('source $XDG_CONFIG_HOME/vim/hyper-red.vim')

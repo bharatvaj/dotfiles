@@ -54,7 +54,6 @@ set nospell
 
 set background=dark
 syntax on indent off
-source $XDG_CONFIG_HOME/vim/hyper-red.vim
 
 " Plugins
 source $XDG_CONFIG_HOME/vim/plugin/plugin.vim
@@ -62,8 +61,10 @@ source $XDG_CONFIG_HOME/vim/plugin/plugin.vim
 " Keybindings
 source $XDG_CONFIG_HOME/vim/keybindings.vim
 
+" Common vimrc
+source $XDG_DATA_HOME/vimcommon/vimrc
+
 set packpath^=$XDG_DATA_HOME/vim
-set packpath^=$XDG_DATA_HOME/vimcommon
 
 function! s:load_plugins(t) abort
 	set synmaxcol=128
@@ -86,6 +87,7 @@ function! s:load_plugins(t) abort
 	packadd vim-surround
 	packadd vim-ninja-feet
 	packadd vim-fugitive
+	packadd vim-unimpaired
 	packadd vim-better-whitespace
 	packadd gruvbox-material
 endfunction
@@ -94,13 +96,6 @@ augroup user_cmds
 	autocmd!
 	autocmd VimEnter * call timer_start(20, function('s:load_plugins'))
 augroup END
-
-function! SetColorColumnColor()
-  if &background ==# 'dark'
-    source $XDG_CONFIG_HOME/vim/hyper-red.vim
-  endif
-endfunction
-autocmd OptionSet background call SetColorColumnColor()
 
 if has("gui")
 	source $XDG_CONFIG_HOME/vim/gvimrc
