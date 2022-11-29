@@ -38,3 +38,31 @@ bind index \005 next-undeleted		# Mouse wheel
 bind pager \031 previous-line		# Mouse wheel
 bind pager \005 next-line		# Mouse wheel
 bind editor <Tab> complete-query
+
+macro index S "<shell-escape>mbsync -c \"$XDG_CONFIG_HOME\"/isync/mbsyncrc -aV<enter>" "sync email"
+macro index,pager gi "<change-folder>=INBOX<enter>" "go to inbox"
+macro index,pager gd "<change-folder>=Drafts<enter>" "go to drafts"
+macro index,pager gj "<change-folder>=Junk<enter>" "go to junk"
+macro index,pager gt "<change-folder>=Trash<enter>" "go to trash"
+macro index,pager gs "<change-folder>=Sent<enter>" "go to sent"
+macro index,pager gb "<change-folder>=Business<enter>" "go to Business"
+macro index,pager ga "<change-folder>=Archive<enter>" "go to archive"
+macro index,pager gf "<change-folder>=Friends<enter>" "go to Friends"
+macro index,pager gF "<change-folder>=Family<enter>" "go to Family"
+macro index,pager Mi ";<save-message>=INBOX<enter>" "move mail to inbox"
+macro index,pager Md ";<save-message>=Drafts<enter>" "move mail to drafts"
+macro index,pager Mj ";<save-message>=Junk<enter>" "move mail to junk"
+macro index,pager Mt ";<save-message>=Trash<enter>" "move mail to trash"
+macro index,pager Ms ";<save-message>=Sent<enter>" "move mail to sent"
+macro index,pager Mb ";<save-message>=Business<enter>" "move mail to Business"
+macro index,pager Ma ";<save-message>=Archive<enter>" "move mail to archive"
+macro index,pager Mg ";<save-message>=Google<enter>" "move mail to google"
+macro index,pager Mf ";<save-message>=Friends<enter>" "move mail to Friends"
+macro index,pager MF ";<save-message>=Family<enter>" "move mail to Family"
+
+macro index,pager a "<enter-command>set my_pipe_decode=\$pipe_decode pipe_decode<return><pipe-message>abook --add-email<return><enter-command>set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>" "add the sender address to abook"
+macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+macro index O "<shell-escape>mw -Y<enter>" "run mw -Y to sync all mail"
+macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>printf 'Enter a search term to find with notmuch: '; read x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;s/\^id:// for@a;$,=\"|\";print@a' | perl -le '@a=<>; chomp@a; s/\\+/\\\\+/ for@a;print@a' \`\"<enter>" "show only messages matching a notmuch pattern"
+macro index A "<limit>all\n" "show all messages (undo limit)"
+
