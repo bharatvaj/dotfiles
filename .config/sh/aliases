@@ -43,7 +43,7 @@ alias g='git'
 alias g=git
 alias l=lfcd
 alias le=less
-alias m=gmake
+alias m=make
 alias v="VIMINIT='' nvim"
 alias x=extract_archive
 
