@@ -99,4 +99,5 @@ chance "${XDG_CONFIG_HOME}/sh/unstaged"
 export LESS_TERMCAP_us=$'\E[0;31m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export CLICOLOR=1
-export LSCOLORS="hxgxfxxxbxxxxxxxxxxxxx"
+export LSCOLORS="xxexcxdxbxegxdxbagxcxd"
+export LS_COLORS="di=0:ln=34:so=32:pi=33:ex=31:bd=34;46:cd=0;43:su=0;41:sg=30;46:tw=0;42:ow=0;43"

@@ -10,10 +10,10 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 # [misc]
 alias doas=sudo
 
-# [ls_conditioning]
+# [baseutils_conditioning]
 thwart sl && thwart ld && thwart lls &&  thwart sls && thwart lsl && thwart lss && thwart kls
-# [cd_conditioning]
 thwart cdd
+thwart mr
 
 # [ip]
 there ifconfig && alias lip="ifconfig | grep -w inet  | cut -d ' ' -f2"
@@ -27,6 +27,8 @@ alias n='cd_and_ls'
 alias cf="quickopen cd d"
 alias ef="quickopen ${EDITOR} f"
 alias vf="quickopen ${VISUAL} f"
+# TODO make it work for linux
+alias of="quickopen open f"
 # This won't work with dash
 # dash want's alias \-
 # alias -- -='cd -'
@@ -34,11 +36,16 @@ alias vf="quickopen ${VISUAL} f"
 # [shorthands]
 alias '?d'='sr duckduckgo'
 alias cls=clear
-alias d='wget'
+alias d='download'
 alias e='${EDITOR}'
 alias f='find . -name '
 alias g='git'
 alias g=git
 alias l=lfcd
-alias v='VIMINIT="" nvim'
+alias le=less
+alias m=make
+alias v="VIMINIT='' nvim"
 alias x=extract_archive
+
+# [longhands]
+alias girl='grep -irl'

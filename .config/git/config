@@ -27,6 +27,7 @@
 	st = status
 	suir = submodule update --init --recursive
 	wt = worktree
+	wta = worktree add
 
 [difftool]
 	prompt = false

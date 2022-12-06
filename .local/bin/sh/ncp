@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Copies the given file over a server.
+# 0x0.st is used for copying.
+# WARNING: Don't use this for sensitive files.
+if [ $# -ne 1 ]; then
+	printf "Usage: %s <file_to_upload>\n" "$0"
+	exit 1
+fi
+file_to_upload="$1"
+curl -F "file=@$file_to_upload" https://0x0.st

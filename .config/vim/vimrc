@@ -39,6 +39,7 @@ set nowrapscan
 filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
+set expandtab
 
 " Netrw customization
 let g:netrw_banner = 0
@@ -49,19 +50,25 @@ set laststatus=1
 
 set lazyredraw
 set ttyfast
+set nospell
+
+set background=dark
+syntax on indent off
 
 " Plugins
 source $XDG_CONFIG_HOME/vim/plugin/plugin.vim
 
 " Keybindings
-source $XDG_CONFIG_HOME/vim/keybindings/keybindings.vim
+source $XDG_CONFIG_HOME/vim/keybindings.vim
+
+" Common vimrc
+source $XDG_DATA_HOME/vimcommon/vimrc
 
 set packpath^=$XDG_DATA_HOME/vim
 
 function! s:load_plugins(t) abort
-	" Use XDG Paths for vim
-	syntax on
 	set synmaxcol=128
+	" Use XDG Paths for vim
 	" TODO compile hard constants somewhere based on OS
 	set runtimepath^='$XDG_CONFIG_HOME/vim'
 	set runtimepath+='$XDG_DATA_HOME/vim'
@@ -75,13 +82,14 @@ function! s:load_plugins(t) abort
 	set directory=$XDG_CACHE_HOME/vim/swap   | call mkdir(&directory, 'p')
 	set undodir=$XDG_CACHE_HOME/vim/undo     | call mkdir(&undodir,   'p')
 	packadd vim-tmux-navigator
-	packadd editorconfig-vim
 	packadd vim-commentary
+	packadd mru
 	packadd vim-surround
 	packadd vim-ninja-feet
 	packadd vim-fugitive
+	packadd vim-unimpaired
 	packadd vim-better-whitespace
-	source $XDG_CONFIG_HOME/vim/hyper-red.vim
+	packadd gruvbox-material
 endfunction
 
 augroup user_cmds
