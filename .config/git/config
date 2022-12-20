@@ -29,6 +29,9 @@
 	wt = worktree
 	wta = worktree add
 
+[push]
+	autoSetupRemote = true
+
 [difftool]
 	prompt = false
 
