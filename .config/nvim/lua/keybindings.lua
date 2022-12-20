@@ -17,53 +17,10 @@ end
 
 local map = vim.keymap.set
 
--- Column Navigation/Scrolling
-map('n', 'J', '<c-d>')
-map('n', 'K', '<c-u>')
-map('n', 'gJ', '<c-f>')
-map('n', 'gK', '<c-b>')
--- map('n', '<c-d>', 'J')
--- map('n', 'g<c-d>', 'gJ')
--- map('n', '<c-u>', 'K')
--- map('n', 'g<c-u>', 'gK')
-
--- Edit
--- map('n', "g<cr>", 'O')
--- map('n', "<cr>", 'o')
-
--- send command upstream
-map('n', "<esc>h", '<c-w>h')
-map('n', "<esc>j", '<c-w>j')
-map('n', "<esc>k", '<c-w>k')
-map('n', "<esc>l", '<c-w>l')
-map('n', "<esc>f", '<c-w>l')
-
--- Horizonatal scrolling
-map('n', "H", 'zH')
-map('n', "L", 'zL')
-
-map('n', "zh", 'g0')
-map('n', "zj", 'L')
-map('n', "zk", 'H')
-map('n', "zl", 'g$')
-map('n', "zm", ":call cursor(0, len(getline('.'))/2)<cr>")
-map('n', "zM", 'M')
-
--- Line movements
-map('n', "gh", '_')
-map('n', "gl", '$')
-map('n', "gm", 'M')
-
-map('n', "gM", 'M')
-
 map('n', "U", '<c-r>')
 map('n', "<c-r>", '"')
 
-map('n', "<bs>", 's')
 map('n', "z/", ':%s/')
-map('n', "z?", ':%s?')
-
-map('n', "M", 'q')
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
@@ -158,6 +115,12 @@ map("n", "<leader>bb", ":lua save_and_build()<CR>")
 map("n", "<leader>oc", ":grepadd /:: %")
 map("n", "<leader>oh", ":grepadd /:: %")
 
+vim.keymap.set('n', '\\f', ":CommandTGit<cr>")
+vim.keymap.set('n', '\\F', ":CommandTFind<cr>")
+vim.keymap.set('n', '\\g', ":CommandTGit<cr>")
+vim.keymap.set('n', '\\b', ":CommandTBuffer<cr>")
+
+
 -- quick navigation
 map("n", "<leader>fb", ":b *")
 map("n", "<leader>ff", ":find *")
@@ -191,10 +154,12 @@ map("n", "<leader>ce", ":ChecklistEnableCheckbox<cr>")
 -- vim.g.checklist_filetypes:append('adoc', 'md')
 
 -- vim-fugitive
-map("n", "<leader>gd", ":Gvdiff")
+map("n", "<leader>gb", ":G blame<cr>")
+map("n", "<leader>gd", ":Gvdiff<cr>")
 map("n", "<leader>gg", ":Ggrep<space>")
-map("n", "<leader>lg", ":Glgrep<space>")
+map("n", "<leader>gr", ":G reset %<cr>")
 map("n", "<leader>gwq", ":Gwq<cr>")
+map("n", "<leader>lg", ":Glgrep<space>")
 
 -- useful
 map("n", "<leader>nn", ":set number<cr>")

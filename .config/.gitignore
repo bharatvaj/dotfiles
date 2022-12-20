@@ -9,7 +9,7 @@
 !alacritty/
 !alacritty/**
 !bash/
-!bash/**
+!bash/bashrc
 !clink
 !clink/clink_settings
 cmd/userenv.bat
@@ -25,7 +25,8 @@ cmd/userenv.bat
 !lynx/lynx.cfg
 !lynx/lynx.lss
 !nvim/
-!nvim/**
+!nvim/init.lua
+!nvim/lua/keybindings.lua
 !sh/
 !sh/**
 !tmux/
