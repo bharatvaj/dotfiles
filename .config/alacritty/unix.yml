@@ -1,3 +1,0 @@
-shell:
-  program: bash
-  args: ['--login', '-i']

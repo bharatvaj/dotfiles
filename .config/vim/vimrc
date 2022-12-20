@@ -6,9 +6,9 @@ endif
 
 " General
 set nocompatible
-set number
 set mouse=
-set nocursorline
+set cursorline
+set cursorlineopt=number
 set exrc
 
 " Turn backup off
@@ -52,7 +52,6 @@ set lazyredraw
 set ttyfast
 set nospell
 
-set background=dark
 syntax on indent off
 
 " Plugins

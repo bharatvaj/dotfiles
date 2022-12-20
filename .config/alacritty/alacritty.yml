@@ -4,7 +4,6 @@ mouse:
 import:
   - ~/.config/alacritty/hyper-dark.yml
   - ~/.config/alacritty/font.yml
-  - ~/.config/alacritty/unix.yml
   - ~/.config/alacritty/windows.yml
   - ~/.config/alacritty/mac.yml
   - ~/.config/alacritty/bindings.yml

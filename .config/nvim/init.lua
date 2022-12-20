@@ -4,40 +4,53 @@ local g = vim.g
 
 set.packpath="$XDG_DATA_HOME/nvim"
 
-local map = require("utils").map
-require("keybindings")
+g.loaded_node_provider = 0
+g.loaded_ruby_provider = 0
+g.loaded_perl_provider = 0
+g.loaded_python3_provider = 0
 
+require'keybindings'
 
 set.tabstop=4
 set.shiftwidth=4
-set.number=true
-set.laststatus=1
-set.expandtab=false
+set.cursorline=true
+set.cursorlineopt="number"
+set.laststatus=2
+set.wildignore:append("out/**")
+
+set.exrc=true
 
 set.hlsearch=true
 set.incsearch=true
 set.wrapscan=false
-
-require'lspconfig'.clangd.setup{}
 
 set.shortmess="Iat"
 
 g.netrw_banner = 0
 g.netrw_liststyle = 3
 
-require('nvim_comment').setup()
+require'nvim_comment'.setup()
 
--- TODO use lua api
-vim.cmd('source $XDG_DATA_HOME/vimcommon/vimrc')
 
 vim.cmd([[
+" TODO use lua api
+source $XDG_DATA_HOME/vimcommon/vimrc
+
 function! s:load_plugins(t) abort
-	packadd vim-tmux-navigator
-	packadd mru
-	packadd vim-surround
-	packadd vim-ninja-feet
-	packadd vim-fugitive
+	packadd fzf.vim
 	packadd gruvbox-material
+	packadd mru
+	packadd nvim-dap
+	packadd nvim-dap-ui
+	packadd vim-fugitive
+	packadd vim-ninja-feet
+	packadd vim-surround
+	packadd vim-tmux-navigator
+	packadd vim-unimpaired
+	packadd vim-xcode
+
+	lua require"dapui".setup()
+	lua require"unstaged"
 endfunction
 
 augroup user_cmds
@@ -45,4 +58,5 @@ augroup user_cmds
 	autocmd VimEnter * call timer_start(20, function('s:load_plugins'))
 augroup END
 ]])
+
 

@@ -19,13 +19,13 @@
 	po = pull origin
 	pu = push
 	put = push --tags
-	puuo = push -u origin
+	puo = push -u origin
 	rs = remote set-url
 	rso = remote set-url origin
 	rv = remote --verbose
 	sm = submodule
 	st = status
-	suir = submodule update --init --recursive
+	suir = submodule update --init --recursiv
 	wt = worktree
 	wta = worktree add
 
