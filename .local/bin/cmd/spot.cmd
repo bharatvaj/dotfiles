@@ -14,6 +14,7 @@ if exist %s_tmpfile% goto:s_tmploop
 wmenu.exe -e %row% | more > "!s_tmpfile!"
 
 set /p c_tmpfile=<!s_tmpfile!
+if not exist "%c_tmpfile%" exit
 del /f !s_tmpfile!
 start "%c_tmpfile%" "%c_tmpfile%"
 endlocal
