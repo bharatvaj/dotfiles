@@ -25,7 +25,7 @@
 	rv = remote --verbose
 	sm = submodule
 	st = status
-	suir = submodule update --init --recursiv
+	suir = submodule update --init --recursive
 	wt = worktree
 	wta = worktree add
 

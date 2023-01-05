@@ -5,3 +5,6 @@ let g:minisnip_dir=$XDG_DATA_HOME . '/vimcommon/minisnip'
 set background=dark
 
 source $XDG_DATA_HOME/vimcommon/hyper-red.vim
+
+set path+=**
+set wildignore+=**/out/**

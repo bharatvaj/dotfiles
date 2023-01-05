@@ -10,6 +10,4 @@ lf -last-dir-path=%tmpfile% %*
 if not exist %tmpfile% exit
 set /p dir=<%tmpfile%
 del /f %tmpfile%
-if not exist "%dir%" exit
-if "%dir%" == "%cd%" exit
 cd /d "%dir%"

@@ -42,7 +42,11 @@ call SetupCommandAlias("man","help")
 
 nnoremap <leader>tb :call ToggleBackground()<CR>
 nnoremap <leader>tl :call ToggleList()<CR>
+
+" development
 nnoremap <leader>bb :call SaveAndBuild()<CR>
+nnoremap <leader>bc :Make clean<CR>
+
 nnoremap <leader>fmv :call FileMvHelper()<CR>
 
 " Quick save and write

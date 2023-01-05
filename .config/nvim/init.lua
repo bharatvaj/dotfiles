@@ -39,7 +39,6 @@ source $XDG_DATA_HOME/vimcommon/vimrc
 function! s:load_plugins(t) abort
 	packadd fzf.vim
 	packadd gruvbox-material
-	packadd mru
 	packadd nvim-dap
 	packadd nvim-dap-ui
 	packadd vim-fugitive

@@ -109,6 +109,7 @@ map("n", "<leader>dcb", ":lua require'dap'.ToggleConditionalBreakpoint()")
 -- map("n", "<leader>dtcb", ":call vimspector#CleanLineBreakpoint()<CR>")
 
 map("n", "<leader>bb", ":lua save_and_build()<CR>")
+map("n", "<leader>bc", ":Make clean<CR>")
 
 
 -- development
