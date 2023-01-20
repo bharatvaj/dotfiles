@@ -6,7 +6,6 @@
 if &background == "dark"
 	hi! LineNr guibg=NONE ctermbg=NONE guifg=DarkGray ctermfg=DarkGray
 	hi! CursorLineNr cterm=NONE gui=NONE guibg=NONE ctermbg=NONE guifg=White ctermfg=White
-	hi! StatusLine cterm=bold gui=bold ctermfg=White ctermbg=Red guifg=White guibg=Red
 	hi! StatusLineNC guibg=LightGray ctermbg=LightGray guifg=Black ctermfg=Black
 	hi! Statement ctermfg=Red guifg=Red
 	hi! Constant ctermfg=LightGreen guifg=LightGreen
@@ -23,7 +22,6 @@ if &background == "dark"
 	hi! MatchParen ctermbg=NONE cterm=underline ctermfg=LightMagenta
 else
 	hi! LineNr cterm=NONE gui=NONE guibg=NONE ctermbg=NONE guifg=LightGray ctermfg=LightGray
-	hi! StatusLine cterm=bold gui=bold guibg=NONE ctermbg=NONE guifg=Black ctermfg=Black
 	hi! StatusLineNC guibg=DarkGray ctermbg=DarkGray guifg=White ctermfg=White
 	hi! Statement ctermfg=Red guifg=Red
 	hi! Constant ctermfg=Green guifg=Green
