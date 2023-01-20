@@ -97,3 +97,6 @@
 [submodule ".local/share/vimcommon/pack/general/start/gitignore"]
 	path = .local/share/vimcommon/pack/general/start/gitignore
 	url = https://github.com/vim-scripts/gitignore
+[submodule ".local/share/nvim/pack/dev/start/nvim-lspconfig"]
+	path = .local/share/nvim/pack/dev/opt/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
