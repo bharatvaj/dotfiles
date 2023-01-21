@@ -1,17 +1,17 @@
 font:
   normal:
-    family: Bitstream Vera Sans Mono
-    style: Roman
+    family: Fira Mono
+    style: Regular
 
   bold:
-    family: Bitstream Vera Sans Mono
+    family: Fira Mono
 
     style: Bold
 
   italic:
-    family: Bitstream Vera Sans Mono
+    family: Fira Mono
     style: Oblique
 
   bold_italic:
-    family: Bitstream Vera Sans Mono
+    family: Fira Mono
     style: Bold Oblique

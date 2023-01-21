@@ -16,9 +16,10 @@
 	lgr = log --graph --oneline --decorate --all
 	lss = log --show-signature
 	p = pull
+	po = pull origin
 	pu = push
 	put = push --tags
-	puuo = push -u origin
+	puo = push -u origin
 	rs = remote set-url
 	rso = remote set-url origin
 	rv = remote --verbose
@@ -27,6 +28,9 @@
 	suir = submodule update --init --recursive
 	wt = worktree
 	wta = worktree add
+
+[push]
+	autoSetupRemote = true
 
 [difftool]
 	prompt = false

@@ -2,4 +2,9 @@ set packpath^=$XDG_DATA_HOME/vimcommon
 
 let g:minisnip_dir=$XDG_DATA_HOME . '/vimcommon/minisnip'
 
-source $XDG_CONFIG_HOME/vim/hyper-red.vim
+set background=dark
+
+source $XDG_DATA_HOME/vimcommon/hyper-red.vim
+
+set path+=**
+set wildignore+=**/out/**

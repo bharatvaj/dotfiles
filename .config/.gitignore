@@ -9,7 +9,7 @@
 !alacritty/
 !alacritty/**
 !bash/
-!bash/**
+!bash/bashrc
 !clink
 !clink/clink_settings
 !cmd/
@@ -25,7 +25,8 @@
 !mutt/
 !mutt/**
 !nvim/
-!nvim/**
+!nvim/init.lua
+!nvim/lua/keybindings.lua
 !sh/
 !sh/**
 !tmux/

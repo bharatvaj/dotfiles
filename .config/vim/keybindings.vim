@@ -42,7 +42,11 @@ call SetupCommandAlias("man","help")
 
 nnoremap <leader>tb :call ToggleBackground()<CR>
 nnoremap <leader>tl :call ToggleList()<CR>
+
+" development
 nnoremap <leader>bb :call SaveAndBuild()<CR>
+nnoremap <leader>bc :Make clean<CR>
+
 nnoremap <leader>fmv :call FileMvHelper()<CR>
 
 " Quick save and write
@@ -64,7 +68,6 @@ nnoremap <CR> :noh<CR><CR>:<backspace>
 nnoremap <leader>cc :ChecklistToggleCheckbox<cr>
 
 let g:gutentags_file_list_command = 'rg --files'
-nnoremap <tab><tab> :CtrlPBuffer<cr>
 
 " vim-fugitive
 nnoremap <leader>gg :Ggrep<space>

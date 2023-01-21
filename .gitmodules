@@ -19,12 +19,9 @@
 [submodule ".local/share/vim/pack/general/opt/vim-ninja-feet"]
 	path = .local/share/vimcommon/pack/general/opt/vim-ninja-feet
 	url = https://git::@github.com/tommcdo/vim-ninja-feet.git
-[submodule ".local/share/vim/pack/themes/start/gruvbox-material"]
-	path = .local/share/vimcommon/pack/themes/opt/gruvbox-material
+[submodule ".local/share/vimcommon/pack/ui/opt/gruvbox-material"]
+	path = .local/share/vimcommon/pack/ui/opt/gruvbox-material
 	url = https://git::@github.com/sainnhe/gruvbox-material.git
-[submodule ".local/share/nvim/pack/general/start/nvim-lspconfig"]
-	path = .local/share/nvim/pack/general/start/nvim-lspconfig
-	url = https://github.com/neovim/nvim-lspconfig
 [submodule ".local/share/vim/pack/general/start/vim-unimpaired"]
 	path = .local/share/vimcommon/pack/general/opt/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired
@@ -44,7 +41,7 @@
 	path = .local/share/nvim/pack/general/start/vim-dispatch-neovim
 	url = https://github.com/radenling/vim-dispatch-neovim
 [submodule ".local/share/nvim/pack/development/start/nvim-dap"]
-	path = .local/share/nvim/pack/development/start/nvim-dap
+	path = .local/share/nvim/pack/dev/opt/nvim-dap
 	url = https://github.com/mfussenegger/nvim-dap
 [submodule ".local/share/nvim/pack/general/start/nvim-comment"]
 	path = .local/share/nvim/pack/general/start/nvim-comment
@@ -70,3 +67,36 @@
 [submodule ".local/share/vimcommon/pack/general/start/vim-minisnip"]
 	path = .local/share/vimcommon/pack/general/start/vim-minisnip
 	url = https://github.com/joereynolds/vim-minisnip/
+[submodule ".local/share/vimcommon/pack/dev/opt/clang_complete"]
+	path = .local/share/vimcommon/pack/dev/opt/clang_complete
+	url = https://github.com/xavierd/clang_complete
+[submodule ".local/share/vimcommon/pack/dev/opt/swift.vim"]
+	path = .local/share/vimcommon/pack/dev/opt/swift.vim
+	url = https://github.com/keith/swift.vim
+[submodule ".local/share/vimcommon/pack/dev/opt/tagbar"]
+	path = .local/share/vimcommon/pack/dev/opt/tagbar
+	url = https://github.com/preservim/tagbar
+[submodule ".local/share/vimcommon/pack/general/start/vim-pbxproj"]
+	path = .local/share/vimcommon/pack/general/start/vim-pbxproj
+	url = https://github.com/cfdrake/vim-pbxproj
+[submodule ".local/share/vimcommon/pack/dev/opt/vim-submode"]
+	path = .local/share/vimcommon/pack/general/start/vim-submode
+	url = https://github.com/kana/vim-submode
+[submodule ".local/share/vimcommon/pack/dev/opt/xcodebuild.vim"]
+	path = .local/share/vimcommon/pack/dev/opt/xcodebuild.vim
+	url = https://github.com/jerrymarino/xcodebuild.vim
+[submodule ".local/share/nvim/pack/dev/opt/nvim-dap-ui"]
+	path = .local/share/nvim/pack/dev/opt/nvim-dap-ui
+	url = https://github.com/rcarriga/nvim-dap-ui
+[submodule ".local/share/vimcommon/pack/dev/opt/vim-xcode"]
+	path = .local/share/vimcommon/pack/dev/opt/vim-xcode
+	url = https://github.com/gfontenot/vim-xcode
+[submodule ".local/share/vimcommon/pack/general/opt/fzf.vim"]
+	path = .local/share/vimcommon/pack/general/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule ".local/share/vimcommon/pack/general/start/gitignore"]
+	path = .local/share/vimcommon/pack/general/start/gitignore
+	url = https://github.com/vim-scripts/gitignore
+[submodule ".local/share/nvim/pack/dev/start/nvim-lspconfig"]
+	path = .local/share/nvim/pack/dev/opt/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig

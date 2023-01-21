@@ -49,3 +49,12 @@ quickopen() {
 cd_and_ls() {
 		cd $* && ls
 }
+
+download() {
+	# TODO use wget if curl not available
+	curl -fLO $*
+}
+
+find_() {
+	find . -name "*$**"
+}

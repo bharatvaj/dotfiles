@@ -67,9 +67,10 @@ export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
 
 # Make `history` print timestamp
 HISTTIMEFORMAT="%F %T "
+HISTCONTROL=erasedups
 
 # Local executables
-export PATH=${PATH}:${HOME}/.local/bin:${HOME}/.local/bin/sh:${XDG_DATA_HOME}/npm/bin:${XDG_DATA_HOME}/.cargo/bin
+export PATH=${PATH}:${HOME}/.local/bin:${HOME}/.local/bin/sh:${XDG_DATA_HOME}/npm/bin:${XDG_DATA_HOME}/.cargo/bin:${XDG_DATA_HOME}/gem/bin
 
 chance() {
     # Hit or miss

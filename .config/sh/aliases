@@ -9,6 +9,7 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 # [misc]
 alias doas=sudo
+alias qc='ssh $(ci)'
 
 # [baseutils_conditioning]
 thwart sl && thwart ld && thwart lls &&  thwart sls && thwart lsl && thwart lss && thwart kls
@@ -26,6 +27,7 @@ alias ..='cd ..'
 alias n='cd_and_ls'
 alias cf="quickopen cd d"
 alias ef="quickopen ${EDITOR} f"
+alias gf='$EDITOR $(git ls-files | ${FUZZER})'
 alias vf="quickopen ${VISUAL} f"
 # TODO make it work for linux
 alias of="quickopen open f"
@@ -36,12 +38,17 @@ alias of="quickopen open f"
 # [shorthands]
 alias '?d'='sr duckduckgo'
 alias cls=clear
-alias d='wget'
+alias d='download'
 alias e='${EDITOR}'
-alias f='find . -name '
+alias f=find_
 alias g='git'
 alias g=git
 alias l=lfcd
 alias le=less
+alias m=make
 alias v="VIMINIT='' nvim"
 alias x=extract_archive
+
+# [longhands]
+alias girl='grep -irl'
+alias gir='grep -ir'
