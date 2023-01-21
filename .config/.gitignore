@@ -3,18 +3,16 @@
 
 !.gitignore
 !X11/
+!X11/Xresources
 !X11/keybindings
 !X11/xinitrc
-!X11/Xresources
 !alacritty/
 !alacritty/**
 !bash/
 !bash/bashrc
 !clink
 !clink/clink_settings
-cmd/userenv.bat
 !cmd/
-# TODO specify each file individually
 !cmd/
 !git/
 !git/config
@@ -24,6 +22,8 @@ cmd/userenv.bat
 !lynx/
 !lynx/lynx.cfg
 !lynx/lynx.lss
+!mutt/
+!mutt/**
 !nvim/
 !nvim/init.lua
 !nvim/lua/keybindings.lua
@@ -36,6 +36,8 @@ cmd/userenv.bat
 !vim/**
 !wgetrc
 
-alacritty/windows.yml
-alacritty/mac.yml
 alacritty/light-theme.yml
+alacritty/mac.yml
+alacritty/unstaged.yml
+alacritty/windows.yml
+cmd/userenv.bat
