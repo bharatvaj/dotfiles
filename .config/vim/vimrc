@@ -64,7 +64,7 @@ source $XDG_CONFIG_HOME/vim/plugin/plugin.vim
 source $XDG_CONFIG_HOME/vim/keybindings.vim
 
 " Common vimrc
-source $XDG_DATA_HOME/vimcommon/vimrc
+source $XDG_DATA_HOME/vim/vimrc
 
 set packpath^=$XDG_DATA_HOME/vim
 

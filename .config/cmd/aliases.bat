@@ -6,6 +6,7 @@ doskey e=%EDITOR% $*
 doskey l=lfcd.cmd
 doskey ls=dir /B $*
 doskey cp=copy $*
+doskey m=make $*
 doskey mv=move $*
 doskey pwd=cd
 doskey rm=del $*
