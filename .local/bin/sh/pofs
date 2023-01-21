@@ -4,6 +4,6 @@
 
 cd "${PASSWORD_STORE_DIR}" || exit 1
 
-selection="$(find -L totp -name '*.gpg' | sed 's/.gpg$//g' | ${FUZZER})"
+selection="$(find -L totp -name "*.gpg" | sed 's/.gpg$//g' | ${FUZZER} -q "$*")"
 
-test -z "${selection}" || pass otp ${1} "${selection}"
+test -z "${selection}" || pass otp "${selection}"
