@@ -4,12 +4,9 @@
 [submodule ".local/share/vim/pack/general/opt/vim-commentary"]
 	path = .local/share/vim/pack/general/opt/vim-commentary
 	url = https://git::@github.com/tpope/vim-commentary.git
-[submodule ".local/share/vim/pack/general/opt/vim-surround"]
-	path = .local/share/vim/pack/general/start/vim-surround
-	url = https://git::@github.com/tpope/vim-surround.git
 [submodule ".local/share/vim/pack/general/opt/vim-fugitive"]
-	path = .local/share/vim/pack/general/opt/vim-ninja-feet/vim-fugitive
-	url = https://git::@github.com/tpope/vim-fugitive.git
+	path = .local/share/vim/pack/general/opt/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
 [submodule ".local/share/vim/pack/general/opt/vim-ninja-feet"]
 	path = .local/share/vim/pack/general/opt/vim-ninja-feet/vim-ninja-feet
 	url = https://git::@github.com/tommcdo/vim-ninja-feet.git
@@ -19,15 +16,9 @@
 [submodule ".local/share/vim/pack/general/start/vim-unimpaired"]
 	path = .local/share/vim/pack/general/opt/vim-ninja-feet/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired
-[submodule ".local/share/vim/pack/general/start/vim-repeat"]
-	path = .local/share/vim/pack/general/start/vim-repeat
-	url = https://git::@github.com/tpope/vim-repeat.git
 [submodule ".local/share/vim/pack/general/start/vim-tmux-navigator"]
 	path = .local/share/vim/pack/general/opt/vim-ninja-feet/vim-tmux-navigator
 	url = https://github.com/christoomey/vim-tmux-navigator
-[submodule ".local/share/vim/pack/general/start/vim-dispatch"]
-	path = .local/share/vim/pack/general/start/vim-dispatch
-	url = https://github.com/tpope/vim-dispatch
 [submodule ".local/share/vim/pack/general/start/mru"]
 	path = .local/share/vim/pack/general/opt/vim-ninja-feet/mru
 	url = https://github.com/yegappan/mru
@@ -43,14 +34,8 @@
 [submodule ".local/share/nvim/pack/development/opt/vimspector"]
 	path = .local/share/vim/pack/dev/opt/vimspector
 	url = https://github.com/puremourning/vimspector
-[submodule ".local/share/vim/pack/general/start/vim-checklist"]
-	path = .local/share/vim/pack/general/start/vim-checklist
-	url = https://github.com/evansalter/vim-checklist
 [submodule ".config/nvim/vim-vinegar"]
 	path = .config/nvim/vim-vinegar
-	url = https://github.com/tpope/vim-vinegar
-[submodule ".local/share/nvim/pack/general/start/vim-vinegar"]
-	path = .local/share/vim/pack/general/start/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
 [submodule ".local/share/vim/pack/general/opt/birck.vim"]
 	path = .local/share/vim/pack/general/opt/vim-ninja-feet/birck.vim
@@ -58,9 +43,6 @@
 [submodule ".local/share/vim/pack/general/opt/vim-maildir"]
 	path = .local/share/vim/pack/general/opt/vim-maildir
 	url = https://github.com/ferranpm/vim-maildir
-[submodule ".local/share/vimcommon/pack/general/start/vim-minisnip"]
-	path = .local/share/vim/pack/general/start/vim-minisnip
-	url = https://github.com/joereynolds/vim-minisnip/
 [submodule ".local/share/vimcommon/pack/dev/opt/clang_complete"]
 	path = .local/share/vim/pack/dev/opt/clang_complete
 	url = https://github.com/xavierd/clang_complete
@@ -70,12 +52,6 @@
 [submodule ".local/share/vimcommon/pack/dev/opt/tagbar"]
 	path = .local/share/vim/pack/dev/opt/tagbar
 	url = https://github.com/preservim/tagbar
-[submodule ".local/share/vimcommon/pack/general/start/vim-pbxproj"]
-	path = .local/share/vim/pack/general/start/vim-pbxproj
-	url = https://github.com/cfdrake/vim-pbxproj
-[submodule ".local/share/vimcommon/pack/dev/opt/vim-submode"]
-	path = .local/share/vim/pack/general/start/vim-submode
-	url = https://github.com/kana/vim-submode
 [submodule ".local/share/vimcommon/pack/dev/opt/xcodebuild.vim"]
 	path = .local/share/vim/pack/dev/opt/xcodebuild.vim
 	url = https://github.com/jerrymarino/xcodebuild.vim
@@ -85,15 +61,18 @@
 [submodule ".local/share/vimcommon/pack/dev/opt/vim-xcode"]
 	path = .local/share/vim/pack/dev/opt/vim-xcode
 	url = https://github.com/gfontenot/vim-xcode
-[submodule ".local/share/vimcommon/pack/general/opt/fzf.vim"]
-	path = .local/share/vim/pack/general/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim
-[submodule ".local/share/vimcommon/pack/general/start/gitignore"]
-	path = .local/share/vim/pack/general/start/gitignore
-	url = https://github.com/vim-scripts/gitignore
 [submodule ".local/share/nvim/pack/dev/start/nvim-lspconfig"]
 	path = .local/share/nvim/pack/dev/opt/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
 [submodule ".local/share/vim/pack/dev/start/omnisharp-vim"]
 	path = .local/share/vim/pack/dev/start/omnisharp-vim
+	url = https://github.com/OmniSharp/omnisharp-vim
+[submodule ".local/share/vim/pack/dev/opt/vim-cmake"]
+	path = .local/share/vim/pack/dev/opt/vim-cmake
+	url = https://github.com/OmniSharp/omnisharp-vim
+[submodule ".local/share/vim/pack/dev/opt/vim-msbuild"]
+	path = .local/share/vim/pack/dev/opt/vim-msbuild
+	url = https://github.com/OmniSharp/omnisharp-vim
+[submodule ".local/share/vim/pack/general/opt/vim-fugitive"]
+	path = .local/share/vim/pack/general/opt/vim-fugitive
 	url = https://github.com/OmniSharp/omnisharp-vim
