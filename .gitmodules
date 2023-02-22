@@ -55,12 +55,12 @@
 [submodule ".local/share/vim/pack/dev/start/omnisharp-vim"]
 	path = .local/share/vim/pack/dev/start/omnisharp-vim
 	url = https://github.com/OmniSharp/omnisharp-vim
-[submodule ".local/share/vim/pack/dev/opt/vim-msbuild"]
-	path = .local/share/vim/pack/dev/opt/vim-msbuild
-	url = https://github.com/OmniSharp/omnisharp-vim
 [submodule ".local/share/vim/pack/general/opt/vim-fugitive"]
 	path = .local/share/vim/pack/general/opt/vim-fugitive
 	url = https://github.com/OmniSharp/omnisharp-vim
 [submodule ".local/share/vim/pack/dev/opt/vim-cmake"]
 	path = .local/share/vim/pack/dev/opt/vim-cmake
 	url = https://github.com/cdelledonne/vim-cmake
+[submodule ".local/share/vim/pack/dev/opt/vim-msbuild"]
+	path = .local/share/vim/pack/dev/opt/vim-msbuild
+	url = https://github.com/heaths/vim-msbuild
