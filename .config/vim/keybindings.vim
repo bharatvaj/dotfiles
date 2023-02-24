@@ -5,8 +5,8 @@ nnoremap <leader>cs :cdo<space>s/
 nnoremap <leader>ec :edit $XDG_CONFIG_HOME/vim/vimrc<cr>
 nnoremap <leader>ek :edit $XDG_CONFIG_HOME/vim/keybindings.vim<cr>
 nnoremap <leader>et :set expandtab<cr>
-nnoremap <leader>fa :find *
-nnoremap <leader>ff :b *
+nnoremap <leader>ff :find *
+nnoremap <leader>fb :buffer *
 nnoremap <leader>lb :ls<cr>:b<space>
 nnoremap <leader>lo :lopen<cr>
 nnoremap <leader>ls :ldo<space>s/
@@ -45,6 +45,7 @@ nnoremap <leader>tl :call ToggleList()<CR>
 
 " development
 nnoremap <leader>bb :call SaveAndBuild()<CR>
+nnoremap <leader>be :AbortDispatch<CR>
 nnoremap <leader>bc :Make clean<CR>
 
 nnoremap <leader>fmv :call FileMvHelper()<CR>
@@ -96,6 +97,10 @@ nnoremap <leader>h2 :call QuickUnderline(2)<cr>
 fun! GotoWindow(id)
     call win_gotoid(a:id)
 endfun
+
+" Navigation maps
+nnoremap \f :GFiles<CR>
+nnoremap \F :Files<CR>
 
 " Debugger remaps
 nnoremap <leader>dd :call vimspector#Launch()<CR>

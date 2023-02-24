@@ -56,20 +56,21 @@ function file_mv_helper()
 end
 
 -- general
+map("n", "<leader>H", ":Lex<cr>")
 map("n", "<leader>aa", ":argadd **<cr>")
-map("n", "<leader>co", ":copen<cr>")
 map("n", "<leader>cd", ":cdo<space>s/")
+map("n", "<leader>co", ":copen<cr>")
 map("n", "<leader>ec", ":edit $XDG_CONFIG_HOME/nvim/init.lua<cr>")
 map("n", "<leader>ek", ":edit $XDG_CONFIG_HOME/nvim/lua/keybindings.lua<cr>")
 map("n", "<leader>et", ":set expandtab<cr>")
 map("n", "<leader>lb", ":ls<CR>:b<space>")
-map("n", "<leader>lo", ":lopen<cr>")
 map("n", "<leader>ld", ":ldo<space>s/")
+map("n", "<leader>lo", ":lopen<cr>")
 map("n", "<leader>p", ":Rg<cr>")
 map("n", "<leader>sc", ":source $XDG_CONFIG_HOME/nvim/init.lua<cr>")
 map("n", "<leader>so", ":source %<cr>")
-map("n", "<leader>spp", ":set paste<cr>")
 map("n", "<leader>spa", ":set path+=**<cr>")
+map("n", "<leader>spp", ":set paste<cr>")
 map("n", "<leader>tl", ":lua toggle_list(true)<CR>")
 map("n", "<leader>tt", ":tabnew<cr>")
 map("n", "<leader>vg", ":vimgrep<space>")
@@ -109,6 +110,7 @@ map("n", "<leader>dcb", ":lua require'dap'.ToggleConditionalBreakpoint()")
 -- map("n", "<leader>dtcb", ":call vimspector#CleanLineBreakpoint()<CR>")
 
 map("n", "<leader>bb", ":lua save_and_build()<CR>")
+map("n", "<leader>be", ":AbortDispatch<CR>")
 map("n", "<leader>bc", ":Make clean<CR>")
 
 
@@ -116,10 +118,11 @@ map("n", "<leader>bc", ":Make clean<CR>")
 map("n", "<leader>oc", ":grepadd /:: %")
 map("n", "<leader>oh", ":grepadd /:: %")
 
-vim.keymap.set('n', '\\f', ":CommandTGit<cr>")
-vim.keymap.set('n', '\\F', ":CommandTFind<cr>")
+vim.keymap.set('n', '\\a', ":A<cr>")
+vim.keymap.set('n', '\\f', ":GFiles<cr>")
+vim.keymap.set('n', '\\F', ":Files<cr>")
 vim.keymap.set('n', '\\g', ":CommandTGit<cr>")
-vim.keymap.set('n', '\\b', ":CommandTBuffer<cr>")
+map("n", "\\b", ":lua save_and_build()<CR>")
 
 
 -- quick navigation
