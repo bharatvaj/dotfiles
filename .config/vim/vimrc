@@ -11,7 +11,9 @@ endif
 set nocompatible
 set mouse=
 set cursorline
-set cursorlineopt=number
+if has('cursorlineopt')
+	set cursorlineopt=number
+endif
 set exrc
 
 " Turn backup off

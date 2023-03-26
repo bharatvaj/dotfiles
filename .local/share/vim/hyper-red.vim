@@ -37,7 +37,9 @@ else
 	hi! PreProc ctermfg=LightGray guifg=LightGray
 	hi! MatchParen guibg=NONE ctermbg=NONE gui=underline cterm=underline guifg=DarkMagenta ctermfg=DarkMagenta
 endif
-set fillchars=vert:\│
+if has('fillchars')
+	set fillchars=vert:\│
+endif
 hi! VertSplit term=NONE cterm=NONE gui=NONE
 hi! SignColumn ctermbg=NONE guibg=NONE
 
