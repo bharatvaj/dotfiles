@@ -21,8 +21,8 @@ if &background == "dark"
 	hi! PreProc ctermfg=DarkGray guifg=DarkGray
 	hi! MatchParen ctermbg=NONE cterm=underline ctermfg=LightMagenta
 else
-	hi! LineNr cterm=NONE gui=NONE guibg=NONE ctermbg=NONE guifg=LightGray ctermfg=LightGray
-	hi! StatusLineNC guibg=DarkGray ctermbg=DarkGray guifg=White ctermfg=White
+	hi! LineNr cterm=NONE gui=NONE guibg=NONE ctermbg=NONE guifg=DarkGray ctermfg=DarkGray
+	hi! StatusLineNC guibg=Black ctermbg=Black guifg=White ctermfg=White
 	hi! Statement ctermfg=Red guifg=Red
 	hi! Constant ctermfg=Green guifg=Green
 	hi! String ctermfg=DarkBlue guifg=DarkBlue
@@ -31,10 +31,10 @@ else
 	hi! IncSearch ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
 	hi! Search ctermbg=Blue ctermfg=White guibg=Blue guifg=White
 	hi! Todo cterm=underline,bold ctermbg=NONE ctermfg=Yellow guibg=NONE guifg=Yellow
-	hi! Comment ctermfg=LightGray guifg=LightGray
+	hi! Comment ctermfg=DarkGray guifg=DarkGray
 	hi! Visual ctermbg=Black ctermfg=white guibg=Black guifg=white
-	hi! Type ctermfg=DarkGray guifg=DarkGray
-	hi! PreProc ctermfg=LightGray guifg=LightGray
+	hi! Type ctermfg=Black guifg=Black
+	hi! PreProc ctermfg=DarkGray guifg=DarkGray
 	hi! MatchParen guibg=NONE ctermbg=NONE gui=underline cterm=underline guifg=DarkMagenta ctermfg=DarkMagenta
 endif
 if has('fillchars')

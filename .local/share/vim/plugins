@@ -3,7 +3,6 @@ tpope/vim-commentary.git
 tpope/vim-surround.git
 tpope/vim-fugitive
 tommcdo/vim-ninja-feet.git
-sainnhe/gruvbox-material.git
 tpope/vim-unimpaired
 pope/vim-repeat.git
 christoomey/vim-tmux-navigator

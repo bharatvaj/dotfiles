@@ -59,8 +59,6 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export MYSQL_HISTFILE="$XDG_DATA_HOME/mysql_history"
 export SONGDL_HOME="${XDG_DATA_HOME}/music/"
-export VIM_PLUGINS_DIR="$XDG_DATA_HOME"/vim/pack/voom/start
-export VIM_DIR="$XDG_DATA_HOME"/vim
 
 export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
 export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages

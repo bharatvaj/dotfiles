@@ -29,15 +29,12 @@ set.shortmess="Iat"
 g.netrw_banner = 0
 g.netrw_liststyle = 3
 
-require'nvim_comment'.setup()
-
 vim.cmd([[
 " TODO use lua api
 source $XDG_DATA_HOME/vim/vimrc
 
 function! s:load_plugins(t) abort
 	packadd fzf.vim
-	packadd gruvbox-material
 	packadd nvim-dap
 	packadd nvim-dap-ui
 	packadd nvim-lspconfig
