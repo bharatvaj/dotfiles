@@ -15,7 +15,6 @@ tpope/vim-vinegar
 tpope/vim-vinegar
 ferranpm/vim-maildir
 joereynolds/vim-minisnip/
-xavierd/clang_complete
 keith/swift.vim
 preservim/tagbar
 cfdrake/vim-pbxproj

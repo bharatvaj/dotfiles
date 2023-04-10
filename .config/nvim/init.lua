@@ -40,6 +40,7 @@ function! s:load_plugins(t) abort
 	packadd gruvbox-material
 	packadd nvim-dap
 	packadd nvim-dap-ui
+	packadd nvim-lspconfig
 	packadd vim-fugitive
 	packadd vim-ninja-feet
 	packadd vim-surround
@@ -48,6 +49,7 @@ function! s:load_plugins(t) abort
 	packadd vim-xcode
 
 	lua require"dapui".setup()
+	lua require"lspconfig".clangd.setup{}
 	lua require"unstaged"
 endfunction
 
