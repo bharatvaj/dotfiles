@@ -16,12 +16,6 @@
 [submodule ".local/share/nvim/pack/general/start/vim-dispatch-neovim"]
 	path = .local/share/nvim/pack/general/start/vim-dispatch-neovim
 	url = https://github.com/radenling/vim-dispatch-neovim
-[submodule ".local/share/nvim/pack/development/start/nvim-dap"]
-	path = .local/share/nvim/pack/dev/opt/nvim-dap
-	url = https://github.com/mfussenegger/nvim-dap
-[submodule ".local/share/nvim/pack/general/start/nvim-comment"]
-	path = .local/share/nvim/pack/general/start/nvim-comment
-	url = https://github.com/terrortylor/nvim-comment
 [submodule ".local/share/nvim/pack/development/opt/vimspector"]
 	path = .local/share/vim/pack/dev/opt/vimspector
 	url = https://github.com/puremourning/vimspector
@@ -43,15 +37,9 @@
 [submodule ".local/share/vimcommon/pack/dev/opt/xcodebuild.vim"]
 	path = .local/share/vim/pack/dev/opt/xcodebuild.vim
 	url = https://github.com/jerrymarino/xcodebuild.vim
-[submodule ".local/share/nvim/pack/dev/opt/nvim-dap-ui"]
-	path = .local/share/nvim/pack/dev/opt/nvim-dap-ui
-	url = https://github.com/rcarriga/nvim-dap-ui
 [submodule ".local/share/vimcommon/pack/dev/opt/vim-xcode"]
 	path = .local/share/vim/pack/dev/opt/vim-xcode
 	url = https://github.com/gfontenot/vim-xcode
-[submodule ".local/share/nvim/pack/dev/start/nvim-lspconfig"]
-	path = .local/share/nvim/pack/dev/opt/nvim-lspconfig
-	url = https://github.com/neovim/nvim-lspconfig
 [submodule ".local/share/vim/pack/dev/start/omnisharp-vim"]
 	path = .local/share/vim/pack/dev/start/omnisharp-vim
 	url = https://github.com/OmniSharp/omnisharp-vim
