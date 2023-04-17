@@ -58,3 +58,15 @@ download() {
 find_() {
 	find . -name "*$**"
 }
+
+vim_plug() {
+	export VIM_PLUGINS_DIR="$XDG_DATA_HOME"/vim/pack/voom/opt
+	export VIM_DIR="$XDG_DATA_HOME"/vim
+	voom $@
+}
+
+nvim_plug() {
+	export VIM_PLUGINS_DIR="$XDG_DATA_HOME"/nvim/pack/voom/opt
+	export VIM_DIR="$XDG_DATA_HOME"/nvim
+	voom $@
+}

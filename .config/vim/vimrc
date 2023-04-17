@@ -11,7 +11,9 @@ endif
 set nocompatible
 set mouse=
 set cursorline
-set cursorlineopt=number
+if has('cursorlineopt')
+	set cursorlineopt=number
+endif
 set exrc
 
 " Turn backup off
@@ -90,7 +92,6 @@ function! s:load_plugins(t) abort
 	packadd vim-fugitive
 	packadd vim-unimpaired
 	packadd vim-better-whitespace
-	packadd gruvbox-material
 endfunction
 
 augroup user_cmds

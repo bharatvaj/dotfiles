@@ -1,11 +1,6 @@
-mouse:
-  hide_when_typing: true
-
 import:
-  - ~/.config/alacritty/hyper-dark.yml
-  - ~/.config/alacritty/font.yml
-  - ~/.config/alacritty/windows.yml
   - ~/.config/alacritty/mac.yml
+  - ~/.config/alacritty/windows.yml
   - ~/.config/alacritty/bindings.yml
   - ~/.config/alacritty/unstaged.yml
 
@@ -16,3 +11,7 @@ bell:
 
 selection:
   save_to_clipboard: true
+
+# No title bar, use shortcuts
+window:
+   decorations: none

@@ -1,17 +1,5 @@
 !vim/
-!vim/pack/
-!vim/pack/*
 
 !nvim/
-!nvim/pack/
-!nvim/pack/**
-
-
-!vimcommon/
-!vimcommon/*
-!vimcommon/pack/
-!vimcommon/pack/**
-!vimcommon/minisnip/
-!vimcommon/minisnip/*
 
 tags
