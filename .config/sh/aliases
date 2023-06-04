@@ -1,7 +1,6 @@
 # [xdg]
 alias abook='abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/abook/addressbook'
 alias abook='abook -C "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/abook/addressbook'
-alias btpd='btpd -d "$XDG_DATA_HOME"/btpd'
 alias dict='dict -c "$XDG_CONFIG_HOME"/dict/dictrc'
 alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 alias startx='startx "$XDG_CONFIG_HOME/X11/xinitrc" vt1'
@@ -52,3 +51,5 @@ alias x=extract_archive
 # [longhands]
 alias girl='grep -irl'
 alias gir='grep -ir'
+
+alias voom='VIM_DIR=$XDG_DATA_HOME/vim voom'

@@ -1,29 +1,29 @@
-ntpeters/vim-better-whitespace.git
-tpope/vim-commentary.git
-tpope/vim-surround.git
-tpope/vim-fugitive
-tommcdo/vim-ninja-feet.git
-tpope/vim-unimpaired
-pope/vim-repeat.git
-christoomey/vim-tmux-navigator
-tpope/vim-dispatch
-yegappan/mru
-radenling/vim-dispatch-neovim
-evansalter/vim-checklist
-tpope/vim-vinegar
-tpope/vim-vinegar
-ferranpm/vim-maildir
-joereynolds/vim-minisnip/
-keith/swift.vim
-preservim/tagbar
 cfdrake/vim-pbxproj
-kana/vim-submode
-jerrymarino/xcodebuild.vim
+christoomey/vim-tmux-navigator
+evansalter/vim-checklist
+ferranpm/vim-maildir
 gfontenot/vim-xcode
+jerrymarino/xcodebuild.vim
+joereynolds/vim-minisnip/
+junegunn/fzf
 junegunn/fzf.vim
+kana/vim-submode
+keith/swift.vim
+nachumk/systemverilog.vim
+ntpeters/vim-better-whitespace.git
+omniSharp/omnisharp-vim
+pope/vim-repeat.git
+radenling/vim-dispatch-neovim
+tommcdo/vim-ninja-feet.git
+tpope/vim-commentary.git
+tpope/vim-dispatch
+tpope/vim-fugitive
+tpope/vim-surround.git
+tpope/vim-unimpaired
+tpope/vim-vinegar
+tpope/vim-vinegar
 vim-scripts/gitignore
-OmniSharp/omnisharp-vim
-
+yegappan/mru
 
 # https://git.sr.ht/~torresjrjr/birck.vim
 # rcarriga/nvim-dap-ui
@@ -31,3 +31,6 @@ OmniSharp/omnisharp-vim
 # terrortylor/nvim-comment
 # neovim/nvim-lspconfig
 # puremourning/vimspector
+# xolox/vim-misc
+# xolox/vim-easytags
+# preservim/tagbar

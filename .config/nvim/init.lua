@@ -2,8 +2,6 @@ vim.g.mapleader = ' '
 local set = vim.opt
 local g = vim.g
 
-set.packpath="$XDG_DATA_HOME/nvim"
-
 g.loaded_node_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_perl_provider = 0
@@ -31,19 +29,21 @@ g.netrw_liststyle = 3
 
 vim.cmd([[
 " TODO use lua api
-source $XDG_DATA_HOME/vim/vimrc
 
 function! s:load_plugins(t) abort
+	set packpath+=~/.local/share/vim
+	packadd fzf
 	packadd fzf.vim
-	packadd nvim-dap
-	packadd nvim-dap-ui
-	packadd nvim-lspconfig
 	packadd vim-fugitive
 	packadd vim-ninja-feet
 	packadd vim-surround
 	packadd vim-tmux-navigator
 	packadd vim-unimpaired
 	packadd vim-xcode
+
+	packadd nvim-dap
+	packadd nvim-dap-ui
+	packadd nvim-lspconfig
 
 	lua require"dapui".setup()
 	lua require"lspconfig".clangd.setup{}

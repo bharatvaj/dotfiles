@@ -7,6 +7,8 @@
 	cl = clone
 	cm = commit --message
 	co = checkout
+	cot = checkout --theirs
+	coo = checkout --ours
 	con = config
 	d = diff
 	ds = diff --staged
@@ -20,9 +22,11 @@
 	pu = push
 	put = push --tags
 	puo = push -u origin
-	rs = remote set-url
-	rso = remote set-url origin
-	rv = remote --verbose
+	r = reset
+	rs = reset --soft
+	res = remote set-url
+	reso = remote set-url origin
+	rev = remote --verbose
 	sm = submodule
 	st = status
 	suir = submodule update --init --recursive

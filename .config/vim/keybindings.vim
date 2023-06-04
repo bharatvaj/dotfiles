@@ -1,26 +1,33 @@
 " General keybindings
 nnoremap <leader>aa :argadd **<cr>
 nnoremap <leader>co :copen<cr>
+nnoremap <leader>cd :cdo<space>s/
 nnoremap <leader>cs :cdo<space>s/
 nnoremap <leader>ec :edit $XDG_CONFIG_HOME/vim/vimrc<cr>
 nnoremap <leader>ek :edit $XDG_CONFIG_HOME/vim/keybindings.vim<cr>
 nnoremap <leader>et :set expandtab<cr>
 nnoremap <leader>fa :find *
-nnoremap <leader>ff :b *
+nnoremap <leader>ff :find *
 nnoremap <leader>lb :ls<cr>:b<space>
+nnoremap <leader>ld :ldo<space>s/
 nnoremap <leader>lo :lopen<cr>
 nnoremap <leader>ls :ldo<space>s/
 nnoremap <leader>pp :Rg<cr>
 nnoremap <leader>pv :packadd vimspector<cr>
 nnoremap <leader>sc :source $XDG_CONFIG_HOME/vim/vimrc<cr>
 nnoremap <leader>so :source %<cr>
-nnoremap <leader>sp :set paste<cr>
+nnoremap <leader>spp :set paste<cr>
+nnoremap <leader>spa :set path+=**<cr>
 nnoremap <leader>tt :tabnew<cr>
 nnoremap <leader>vg :vimgrep<space>
 " Buffer Creation
-nnoremap <leader>sc :source $XDG_CONFIG_HOME/vim/vimrc<enter>
-nnoremap <leader>ss :split<enter>
-nnoremap <leader>vv :vsplit<enter>
+nnoremap <leader>sc :source $XDG_CONFIG_HOME/vim/vimrc<cr>
+nnoremap <leader>ss :split<cr>
+nnoremap <leader>vv :vsplit<cr>
+nnoremap <leader>wd :call DiffWithSaved()<cr>
+
+" netrw keybindings
+nnoremap <leader>sf :Ex<cr>
 
 " Accessible completions
 inoremap <c-f> <c-x><c-f>
@@ -30,6 +37,18 @@ inoremap <c-a> <c-o>0
 inoremap <c-e> <c-o>A
 " Behave vim
 nnoremap Y y$
+
+" development
+nnoremap <leader>oc :grepadd /:: %
+nnoremap <leader>oh :grepadd /:: %
+
+nnoremap <leader>fb :b *
+
+" quick navigation
+nnoremap \f :GFiles<cr>
+nnoremap \F :Files<cr>
+" TODO setup this up with fzf
+nnoremap \g :Ggrep<cr>
 
 fun! SetupCommandAlias(from, to)
   exec 'cnoreabbrev <expr> '.a:from
@@ -43,6 +62,9 @@ call SetupCommandAlias("man","help")
 nnoremap <leader>tb :call ToggleBackground()<CR>
 nnoremap <leader>tl :call ToggleList()<CR>
 
+" useful
+nnoremap <leader>nn :set number<cr>
+
 " development
 nnoremap <leader>bb :call SaveAndBuild()<CR>
 nnoremap <leader>bc :Make clean<CR>
@@ -54,18 +76,26 @@ nnoremap <leader>wq :wq<cr>
 nnoremap <leader>ww :w<cr>
 nnoremap <leader>qq :q<cr>
 
-" Fugitive
-nnoremap <space>gd :Gvdiff<CR>
+" vim-fugitive
+nnoremap <leader>gb :G blame<cr>
+nnoremap <leader>gd :Gvdiff<CR>
+nnoremap <leader>gg :Ggrep<space>
+nnoremap <leader>gr :G reset %<cr>
+nnoremap <leader>gwq :Gwq<cr>
+nnoremap <leader>lg :Glgrep<space>
 
 
 " Generate ctags
-map <leader>gt :!sh -c "ctags `rg --files`"<CR>
+nnoremap<leader>gt :!sh -c "ctags `rg --files`"<CR>
 set tags+=.git/tags
 
 nnoremap <CR> :noh<CR><CR>:<backspace>
 
-" Markdown
+" Markdown - Add checkbox mode?
 nnoremap <leader>cc :ChecklistToggleCheckbox<cr>
+nnoremap <leader>ct :ChecklistToggleCheckbox<cr>
+nnoremap <leader>ce :ChecklistEnableCheckbox<cr>
+"nnoremap <leader>cd :ChecklistDisableCheckbox<cr>
 
 let g:gutentags_file_list_command = 'rg --files'
 
@@ -118,3 +148,12 @@ nnoremap <leader>d<space> :call vimspector#Continue()<CR>
 nmap <leader>drc <Plug>VimspectorRunToCursor
 nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
 nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
+
+" nb
+" TODO open a fuzzy finder quickly. Even better use fuzzy finder without chdir
+nnoremap <leader>nb :chdir $NB_PATH<cr>
+
+nnoremap cn *``cgn
+nnoremap cN *``cgN
+let g:mc = "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>"
+vnoremap <expr> cn g:mc . "``cgn"

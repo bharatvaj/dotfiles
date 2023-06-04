@@ -63,3 +63,14 @@ function! ChooseFile()
   echo "Finding file..."
   exec ":e " . root . "/" . selection
 endfunction
+
+
+function! DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+
+
