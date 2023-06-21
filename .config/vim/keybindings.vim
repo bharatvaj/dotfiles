@@ -19,6 +19,7 @@ nnoremap <leader>so :source %<cr>
 nnoremap <leader>spp :set paste<cr>
 nnoremap <leader>spa :set path+=**<cr>
 nnoremap <leader>tt :tabnew<cr>
+nnoremap <leader>ta :tab *
 nnoremap <leader>vg :vimgrep<space>
 " Buffer Creation
 nnoremap <leader>sc :source $XDG_CONFIG_HOME/vim/vimrc<cr>
@@ -43,6 +44,11 @@ nnoremap <leader>oc :grepadd /:: %
 nnoremap <leader>oh :grepadd /:: %
 
 nnoremap <leader>fb :b *
+
+fun! SaveAndBuild()
+    :wall
+    :Make
+endfun
 
 " quick navigation
 nnoremap \f :GFiles<cr>
@@ -86,8 +92,7 @@ nnoremap <leader>lg :Glgrep<space>
 
 
 " Generate ctags
-nnoremap<leader>gt :!sh -c "ctags `rg --files`"<CR>
-set tags+=.git/tags
+nnoremap<leader>gt :!sh -c "ctags `git --ls-files`"<CR>
 
 nnoremap <CR> :noh<CR><CR>:<backspace>
 

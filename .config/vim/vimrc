@@ -7,6 +7,8 @@ else
 	endif
 endif
 
+set complete-=i
+
 " General
 set nocompatible
 set mouse=
@@ -94,8 +96,17 @@ function! s:load_plugins(t) abort
 	packadd vim-fugitive
 	packadd vim-unimpaired
 	packadd vim-better-whitespace
+	packadd notmuch-vim
+	packadd vim-dispatch
+	let g:notmuch_use_fzf = 1
+	let g:notmuch_open_command = 'fzf'
+	let g:notmuch_fzf_command = 'fzf --reverse'
+	let g:notmuch_use_conversation_view = 1
+	let sendmail_path = systemlist('sed -n "s/^set sendmail=\(.*\)$/\1/p; $!d" ~/.mailrc')
+	if len(sendmail_path) > 0
+		let g:notmuch_sendmail=sendmail_path[0]
+	endif
 endfunction
-
 augroup user_cmds
 	autocmd!
 	autocmd VimEnter * call timer_start(20, function('s:load_plugins'))

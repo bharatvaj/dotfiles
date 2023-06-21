@@ -27,26 +27,25 @@ alias n='cd_and_ls'
 alias cf="quickopen cd d"
 alias ef="quickopen ${EDITOR} f"
 alias gf='$EDITOR $(git ls-files | ${FUZZER})'
-alias vf="quickopen ${VISUAL} f"
 # TODO make it work for linux
 alias of="quickopen open f"
 # This won't work with dash
 # dash want's alias \-
-# alias -- -='cd -'
+alias -- -='cd -'
 
 # [shorthands]
+alias a=attach
 alias '?d'='sr duckduckgo'
 alias cls=clear
 alias d='download'
 alias e='${EDITOR}'
-alias f=find_
-alias g='git'
+alias f=quickopen
 alias g=git
 alias l=lfcd
 alias le=less
-alias m=make
+alias m=smartmake
 alias v="VIMINIT='' nvim"
-alias x=extract_archive
+alias x=extract.sh
 
 # [longhands]
 alias girl='grep -irl'

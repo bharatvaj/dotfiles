@@ -23,7 +23,10 @@ tpope/vim-unimpaired
 tpope/vim-vinegar
 tpope/vim-vinegar
 vim-scripts/gitignore
+torrancew/vim-openscad
 yegappan/mru
+https://github.com/bfrg/vim-jqplay
+notmuch-vim/notmuch-vim
 
 # https://git.sr.ht/~torresjrjr/birck.vim
 # rcarriga/nvim-dap-ui

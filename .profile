@@ -1,6 +1,4 @@
 #!/bin/sh
-export GREP_COLOR='1;35;40'
-
 [ -n "$1" ] && XDG_ROOT="$1" || XDG_ROOT="$HOME"
 
 # XDG
@@ -66,7 +64,7 @@ HISTTIMEFORMAT="%F %T "
 HISTCONTROL=erasedups
 
 # Local executables
-export PATH=${PATH}:${HOME}/.local/bin:${HOME}/.local/bin/sh:${XDG_DATA_HOME}/npm/bin:${XDG_DATA_HOME}/.cargo/bin:${XDG_DATA_HOME}/gem/bin
+export PATH=${PATH}:${HOME}/.local/bin:${HOME}/.local/bin/sh:${XDG_DATA_HOME}/npm/bin:${XDG_DATA_HOME}/.cargo/bin:${GOPATH}/bin:${XDG_DATA_HOME}/gem/bin
 
 chance() {
     # Hit or miss
@@ -81,10 +79,12 @@ there() {
 # Setup editor
 # TODO until I grok the shell and able to control the clipboard and
 # registers with terminal level keybings. I am not going back to vi/nvi
-export VISUAL=vim
-export EDITOR="$(there nvim && echo nvim || echo vim)"
+#alias vim=vi
+#alias nvim=vi
+export VISUAL=nvim
+export EDITOR=nvim
 there $EDITOR || unset $EDITOR
-export FUZZER="$(there sk && echo sk || echo fzf)"
+export FUZZER=fzy
 there $FUZZER || unset $FUZZER
 
 export BROWSER=lynx
@@ -101,3 +101,5 @@ export LESS_TERMCAP_se=$'\e[0m'
 export CLICOLOR=1
 export LSCOLORS="xxexcxdxbxegxdxbagxcxd"
 export LS_COLORS="di=0:ln=34:so=32:pi=33:ex=31:bd=34;46:cd=0;43:su=0;41:sg=30;46:tw=0;42:ow=0;43"
+export GREP_COLOR='1;35;40'
+
