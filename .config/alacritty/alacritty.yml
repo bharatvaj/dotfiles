@@ -1,13 +1,18 @@
-mouse:
-  hide_when_typing: true
-
 import:
-  - ~/.config/alacritty/hyper-dark.yml
-  - ~/.config/alacritty/font.yml
-  - ~/.config/alacritty/windows.yml
   - ~/.config/alacritty/mac.yml
-  - ~/.config/alacritty/bindings.yml
+  - ~/.config/alacritty/windows.yml
   - ~/.config/alacritty/unstaged.yml
+
+key_bindings:
+  - { key: N, mods: Control|Shift, action: CreateNewWindow}
+
+colors:
+  primary:
+    background: '0x000000'
+    foreground: '0xffffff'
+  cursor:
+    text: '0xF81CE5'
+    cursor: '0xffffff'
 
 live_config_reload: true
 
@@ -16,3 +21,7 @@ bell:
 
 selection:
   save_to_clipboard: true
+
+# No title bar, use shortcuts
+window:
+   decorations: none
