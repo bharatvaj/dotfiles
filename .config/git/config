@@ -28,6 +28,7 @@
 	suir = submodule update --init --recursive
 	wt = worktree
 	wta = worktree add
+	ctags = !.git/hooks/ctags
 
 [push]
 	autoSetupRemote = true
@@ -40,4 +41,4 @@
 	templatedir = ~/.config/git/template
 
 [include]
-	path = config.user
+	path = ~/.config/git/user

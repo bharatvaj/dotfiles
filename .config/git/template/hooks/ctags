@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+trap 'rm -f "$$.tags"' EXIT
+ctags -f"$$.tags" $(git ls-files)
+mv "$$.tags" "tags"
