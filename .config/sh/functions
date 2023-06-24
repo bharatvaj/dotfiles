@@ -44,10 +44,12 @@ quickopen() {
 	#	name="-name $@"
 	#fi
 	# 2>/dev/null
-	if if [ -d .git ]; then
+	if [ -d .git ]; then
 		optional_files="$(git ls-files) |"
 		somethin="$(git ls-files | ${FUZZER})"
-	else maxdepth=${1:-3} somethin="$(find .  -maxdepth $maxdepth | ${FUZZER})" fi
+	else
+		maxdepth=${1:-3} somethin="$(find .  -maxdepth $maxdepth | ${FUZZER})"
+	fi
 	if [ -z "$somethin" ]; then
 		return;
 	elif [ -f "$somethin" ]; then
@@ -60,7 +62,9 @@ quickopen() {
 	fi
 }
 
-cd_and_ls() { cd $* && ls }
+cd_and_ls() {
+	cd $* && ls
+}
 
 download() {
 	# TODO use wget if curl not available
