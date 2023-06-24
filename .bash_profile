@@ -1,3 +1,5 @@
+[ -n "$1" ] && XDG_ROOT="$1" || XDG_ROOT="$HOME"
+
 [ -f "${XDG_ROOT}"/.profile ] && . "${XDG_ROOT}"/.profile
 set -o vi
 PS1='\w> '
