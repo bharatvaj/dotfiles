@@ -2,8 +2,6 @@ vim.g.mapleader = ' '
 local set = vim.opt
 local g = vim.g
 
-set.packpath="$XDG_DATA_HOME/nvim"
-
 g.loaded_node_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_perl_provider = 0
@@ -30,30 +28,38 @@ g.netrw_banner = 0
 g.netrw_liststyle = 3
 
 vim.cmd([[
-" TODO use lua api
-source $XDG_DATA_HOME/vim/vimrc
+	source $XDG_DATA_HOME/vim/hyper-red.vim
+]])
 
-function! s:load_plugins(t) abort
+function load_plugns()
+	vim.cmd([[
+	set packpath+=$XDG_DATA_HOME/vim
+	packadd fzf
 	packadd fzf.vim
-	packadd nvim-dap
-	packadd nvim-dap-ui
-	packadd nvim-lspconfig
 	packadd vim-fugitive
 	packadd vim-ninja-feet
 	packadd vim-surround
 	packadd vim-tmux-navigator
 	packadd vim-unimpaired
 	packadd vim-xcode
+	packadd vim-dispatch
 
-	lua require"dapui".setup()
-	lua require"lspconfig".clangd.setup{}
-	lua require"unstaged"
-endfunction
+	packadd nvim-dap
+	packadd nvim-dap-ui
+	packadd nvim-lspconfig
+	]])
+	require"dapui".setup()
+	require"lspconfig".clangd.setup{}
+	require"unstaged"
 
-augroup user_cmds
-	autocmd!
-	autocmd VimEnter * call timer_start(20, function('s:load_plugins'))
-augroup END
-]])
+	require('dap').adapters.cppdbg = {
+		type = 'executable',
+		command = 'lldb-vscode',
+		name = 'cppdbg'
+	}
 
+	require('dap.ext.vscode').load_launchjs(nil, { cppdbg = {'c', 'cpp'} })
+end
+
+vim.defer_fn(function() load_plugns() end, 20)
 

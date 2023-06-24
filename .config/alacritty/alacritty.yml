@@ -1,5 +1,4 @@
 import:
-  - ~/.config/alacritty/mac.yml
   - ~/.config/alacritty/windows.yml
   - ~/.config/alacritty/unstaged.yml
 
