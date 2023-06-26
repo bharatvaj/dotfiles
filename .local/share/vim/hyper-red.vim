@@ -7,9 +7,9 @@ if &background == "dark"
 	hi! LineNr guibg=NONE ctermbg=NONE guifg=DarkGray ctermfg=DarkGray
 	hi! CursorLineNr cterm=NONE gui=NONE guibg=NONE ctermbg=NONE guifg=White ctermfg=White
 	hi! StatusLineNC guibg=LightGray ctermbg=LightGray guifg=Black ctermfg=Black
-	hi! Statement ctermfg=Red guifg=Red
-	hi! Constant ctermfg=LightGreen guifg=LightGreen
-	hi! String ctermfg=LightBlue guifg=LightBlue
+	hi! Statement ctermfg=NONE guifg=NONE
+	hi! Constant ctermfg=Red guifg=Red
+	hi! String ctermfg=DarkGray guifg=DarkGray
 	hi! Special cterm=bold ctermfg=LightMagenta guifg=LightMagenta
 	hi! Identifier ctermfg=White guifg=White
 	hi! IncSearch ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
@@ -18,7 +18,7 @@ if &background == "dark"
 	hi! Comment ctermfg=DarkGray guifg=DarkGray
 	hi! Visual ctermbg=White ctermfg=Black guibg=White guifg=Black
 	hi! Type ctermfg=LightGray guifg=LightGray
-	hi! PreProc ctermfg=DarkGray guifg=DarkGray
+	hi! PreProc ctermfg=LightGray guifg=LightGray
 	hi! MatchParen ctermbg=NONE cterm=underline ctermfg=LightMagenta
 else
 	hi! LineNr cterm=NONE gui=NONE guibg=NONE ctermbg=NONE guifg=DarkGray ctermfg=DarkGray

@@ -5,6 +5,7 @@ md() {
 attach() {
 	if there abduco && [ $# -eq 0 ]; then
 		sesh_name=$(abduco -l | tail -n +2 | cut -f3 | $FUZZER)
+		test -z "$sesh_name" && return
 		abduco -a $sesh_name || {
 			echo "Do you want to create session: $sesh_name? (press any key)";
 			read a && abduco -c $sesh_name mtm;
