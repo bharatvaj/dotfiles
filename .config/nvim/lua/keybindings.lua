@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 
-vim.cmd[[source $XDG_CONFIG_HOME/vim/keybindings.vim]]
+vim.cmd[[source $XDG_DATA_HOME/vim/keybindings.vim]]
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)

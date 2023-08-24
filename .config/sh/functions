@@ -2,14 +2,24 @@ md() {
 	mkdir "$@" && cd "$@"
 }
 
+open_project() {
+	# search only dirs
+	search_dir=${1:-.}
+	for i in $search_dir/*/; do
+		if [ -d "$i/.git" ]; then
+			echo "$i"
+		else
+			# if does not have .git, search the subdirs
+			open_project "$i"
+		fi
+	done
+}
+
 attach() {
 	if there abduco && [ $# -eq 0 ]; then
 		sesh_name=$(abduco -l | tail -n +2 | cut -f3 | $FUZZER)
 		test -z "$sesh_name" && return
-		abduco -a $sesh_name || {
-			echo "Do you want to create session: $sesh_name? (press any key)";
-			read a && abduco -c $sesh_name mtm;
-		}
+		abduco -a $sesh_name || abduco -c $sesh_name mtm;
 	fi
 	[ $# -gt 0 ] && abduco -a $1
 }
@@ -37,7 +47,7 @@ thwart() {
 quickopen() {
 	if ! there "${FUZZER}"; then
 		printf '${FUZZER} not available\n'
-		exit 1
+		return
 	fi
 
 	# TODO maybe add -type in the future TODO add $name
@@ -59,7 +69,7 @@ quickopen() {
 		cd "$somethin"
 	else
 		printf '%s: is neither a file nor a directory\n' "$somethin"
-		exit 1
+		return
 	fi
 }
 

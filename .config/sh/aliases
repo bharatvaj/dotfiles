@@ -44,11 +44,14 @@ alias g=git
 alias l=lfcd
 alias le=less
 alias m=smartmake
-alias v="VIMINIT='' nvim"
+alias v="$EDITOR"
 alias x=extract.sh
 
-# [longhands]
+# [midlonghands]
+alias op='cd $(open_project "$HOME/repo" | fzf)'
 alias girl='grep -irl'
 alias gir='grep -ir'
+alias markdown=md2html
+alias fy='fzf | pbcopy'
 
 alias voom='VIM_DIR=$XDG_DATA_HOME/vim voom'

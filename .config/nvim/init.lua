@@ -33,9 +33,6 @@ vim.cmd([[
 
 function load_plugns()
 	vim.cmd([[
-	set packpath+=$XDG_DATA_HOME/vim
-	packadd fzf
-	packadd fzf.vim
 	packadd vim-fugitive
 	packadd vim-ninja-feet
 	packadd vim-surround
@@ -43,22 +40,18 @@ function load_plugns()
 	packadd vim-unimpaired
 	packadd vim-xcode
 	packadd vim-dispatch
-
-	packadd nvim-dap
-	packadd nvim-dap-ui
-	packadd nvim-lspconfig
 	]])
-	require"dapui".setup()
-	require"lspconfig".clangd.setup{}
-	require"unstaged"
+	--require"dapui".setup()
+	--require"lspconfig".clangd.setup{}
+	--require"unstaged"
 
-	require('dap').adapters.cppdbg = {
-		type = 'executable',
-		command = 'lldb-vscode',
-		name = 'cppdbg'
-	}
+	--require('dap').adapters.cppdbg = {
+	--	type = 'executable',
+	--	command = 'lldb-vscode',
+	--	name = 'cppdbg'
+	--}
 
-	require('dap.ext.vscode').load_launchjs(nil, { cppdbg = {'c', 'cpp'} })
+	--require('dap.ext.vscode').load_launchjs(nil, { cppdbg = {'c', 'cpp'} })
 end
 
 vim.defer_fn(function() load_plugns() end, 20)
