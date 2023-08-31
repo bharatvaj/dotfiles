@@ -8,8 +8,6 @@
 !X11/xinitrc
 !alacritty/
 !alacritty/**
-!bash/
-!bash/bashrc
 !clink
 !clink/clink_settings
 !cmd/

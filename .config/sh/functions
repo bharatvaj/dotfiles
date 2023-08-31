@@ -1,53 +1,80 @@
-# TODO implement [dest_dir] functionality
-# Iterate over each arguments
-# Treat last argument as dest folder? or use -d
-extract_archive () {
-	test $# -lt 1 && { printf "Usage: $0 <archive>\n"; exit 1; }
-	test -f $1 || { printf "$0: $1: No such file \n"; exit 1; }
-	lowercase_ext=$(printf "%s" "$1" | rev | cut -d '.' -f1 | tr '[:upper:]' '[:lower:]' | rev)
-	case $lowercase_ext in
-		z) 7z x "$1" ;;
-		bz2) bzip2 -d "$1" ;;
-		bz) bzip2 -d "$1" ;;
-		gz) gunzip -d "$1" ;;
-		rar) unrar x "$1" ;;
-		tar) tar -xvf "$1" ;;
-		tgz) tar -zxvf "$1" ;;
-		zip) unzip "$1" ;;
-	*) printf "'$1' Error. Unsupported filetype.\n" >&2 ;;
-	esac
-}
-
 md() {
 	mkdir "$@" && cd "$@"
 }
 
+open_project() {
+	# search only dirs
+	search_dir=${1:-.}
+	for i in $search_dir/*/; do
+		if [ -d "$i/.git" ]; then
+			echo "$i"
+		else
+			# if does not have .git, search the subdirs
+			open_project "$i"
+		fi
+	done
+}
+
+attach() {
+	if there abduco && [ $# -eq 0 ]; then
+		sesh_name=$(abduco -l | tail -n +2 | cut -f3 | $FUZZER)
+		test -z "$sesh_name" && return
+		abduco -a $sesh_name || abduco -c $sesh_name mtm;
+	fi
+	[ $# -gt 0 ] && abduco -a $1
+}
+
 # TODO make it non-interruptable
 insult() {
-	if type sl 1>/dev/null; then
-		sl
-	else
-		printf "You are a noob for typing '$1'\n"
+	if there sl; then
+		sl else printf "You are a noob for typing '$1'\n"
 		sleep 5
 	fi
 }
 
+smartmake() {
+    if there fmake && there errorformat; then
+        $(fmake) $* | errorformat
+    else
+        make
+    fi
+}
+
 thwart() {
-	alias $1="insult '$1'"
+    alias $1="insult '$1'"
 }
 
 quickopen() {
-	if ! type "${FUZZER}" 2>/dev/null; then
+	if ! there "${FUZZER}"; then
 		printf '${FUZZER} not available\n'
+		return
+	fi
+
+	# TODO maybe add -type in the future TODO add $name
+	#if [ $# -gt 0 ]; then
+	#	name="-name $@"
+	#fi
+	# 2>/dev/null
+	if [ -d .git ]; then
+		optional_files="$(git ls-files) |"
+		somethin="$(git ls-files | ${FUZZER})"
 	else
-		test "$#" -lt 1 && print "usage: $0 <command> [find -type]"
-		test -z "$2" && 2=f
-		${1} "$(find . -type $2 -maxdepth 3 2>/dev/null | ${FUZZER})"
+		maxdepth=${1:-3} somethin="$(find .  -maxdepth $maxdepth | ${FUZZER})"
+	fi
+	if [ -z "$somethin" ]; then
+		return;
+	elif [ -f "$somethin" ]; then
+		$EDITOR "$somethin"
+	elif [ -d "$somethin" ]; then
+		cd "$somethin"
+	else
+		printf '%s: is neither a file nor a directory\n' "$somethin"
+		return
 	fi
 }
 
 cd_and_ls() {
-		cd $* && ls
+	cd $* && ls
 }
 
 download() {
@@ -59,14 +86,12 @@ find_() {
 	find . -name "*$**"
 }
 
-vim_plug() {
-	export VIM_PLUGINS_DIR="$XDG_DATA_HOME"/vim/pack/voom/opt
-	export VIM_DIR="$XDG_DATA_HOME"/vim
-	voom $@
+vim_plug() { export
+	VIM_PLUGINS_DIR="$XDG_DATA_HOME"/vim/pack/voom/opt export
+	VIM_DIR="$XDG_DATA_HOME"/vim voom $@
 }
 
 nvim_plug() {
-	export VIM_PLUGINS_DIR="$XDG_DATA_HOME"/nvim/pack/voom/opt
-	export VIM_DIR="$XDG_DATA_HOME"/nvim
-	voom $@
+    export VIM_PLUGINS_DIR="$XDG_DATA_HOME"/nvim/pack/voom/opt
+    export VIM_DIR="$XDG_DATA_HOME"/nvim voom $@
 }

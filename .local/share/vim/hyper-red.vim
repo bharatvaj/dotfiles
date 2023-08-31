@@ -4,12 +4,20 @@
 " Probably use a autogroup for handling tCo count change
 " Do it in lua
 if &background == "dark"
+	hi! ColorColumn guifg=White ctermfg=White guibg=DarkGray ctermbg=DarkGray
+	hi! Folded guifg=LightBlue ctermfg=LightBlue guibg=NONE ctermbg=NONE cterm=bold
+	hi! FoldColumn guifg=LightBlue ctermfg=LightBlue guibg=NONE ctermbg=NONE cterm=bold
+	hi! DiffChange guifg=LightYellow ctermfg=LightYellow guibg=NONE ctermbg=NONE cterm=bold
+	hi! DiffText guifg=DarkBlue ctermfg=DarkBlue guibg=LightYellow ctermbg=LightYellow cterm=bold
+	hi! DiffAdd guibg=NONE ctermbg=NONE guifg=LightGreen ctermfg=LightGreen
+	hi! DiffDelete guifg=DarkRed ctermfg=DarkRed guibg=NONE ctermbg=NONE
 	hi! LineNr guibg=NONE ctermbg=NONE guifg=DarkGray ctermfg=DarkGray
 	hi! CursorLineNr cterm=NONE gui=NONE guibg=NONE ctermbg=NONE guifg=White ctermfg=White
 	hi! StatusLineNC guibg=LightGray ctermbg=LightGray guifg=Black ctermfg=Black
-	hi! Statement ctermfg=Red guifg=Red
-	hi! Constant ctermfg=LightGreen guifg=LightGreen
-	hi! String ctermfg=LightBlue guifg=LightBlue
+	hi! Statement ctermfg=NONE guifg=NONE
+	hi! Constant ctermfg=Red guifg=Red
+	hi! Error ctermbg=DarkRed guifg=DarkRed
+	hi! String ctermfg=DarkGray guifg=DarkGray
 	hi! Special cterm=bold ctermfg=LightMagenta guifg=LightMagenta
 	hi! Identifier ctermfg=White guifg=White
 	hi! IncSearch ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
@@ -18,8 +26,9 @@ if &background == "dark"
 	hi! Comment ctermfg=DarkGray guifg=DarkGray
 	hi! Visual ctermbg=White ctermfg=Black guibg=White guifg=Black
 	hi! Type ctermfg=LightGray guifg=LightGray
-	hi! PreProc ctermfg=DarkGray guifg=DarkGray
+	hi! PreProc ctermfg=LightGray guifg=LightGray
 	hi! MatchParen ctermbg=NONE cterm=underline ctermfg=LightMagenta
+	hi! ExtraWhitespace ctermbg=DarkRed guibg=DarkRed
 else
 	hi! LineNr cterm=NONE gui=NONE guibg=NONE ctermbg=NONE guifg=DarkGray ctermfg=DarkGray
 	hi! StatusLineNC guibg=Black ctermbg=Black guifg=White ctermfg=White
@@ -40,9 +49,11 @@ endif
 if has('fillchars')
 	set fillchars=vert:\│
 endif
+set listchars=eol:$,tab:>\ 
 hi! VertSplit term=NONE cterm=NONE gui=NONE
 hi! SignColumn ctermbg=NONE guibg=NONE
 
 if (&t_Co == 8)
 	hi! Comment ctermfg=NONE
 endif
+match ExtraWhitespace /\s\+$/

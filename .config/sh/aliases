@@ -1,7 +1,6 @@
 # [xdg]
 alias abook='abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/abook/addressbook'
 alias abook='abook -C "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/abook/addressbook'
-alias btpd='btpd -d "$XDG_DATA_HOME"/btpd'
 alias dict='dict -c "$XDG_CONFIG_HOME"/dict/dictrc'
 alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 alias startx='startx "$XDG_CONFIG_HOME/X11/xinitrc" vt1'
@@ -28,27 +27,31 @@ alias n='cd_and_ls'
 alias cf="quickopen cd d"
 alias ef="quickopen ${EDITOR} f"
 alias gf='$EDITOR $(git ls-files | ${FUZZER})'
-alias vf="quickopen ${VISUAL} f"
 # TODO make it work for linux
 alias of="quickopen open f"
 # This won't work with dash
 # dash want's alias \-
-# alias -- -='cd -'
+alias -- -='cd -'
 
 # [shorthands]
+alias a=attach
 alias '?d'='sr duckduckgo'
 alias cls=clear
 alias d='download'
 alias e='${EDITOR}'
-alias f=find_
-alias g='git'
+alias f=quickopen
 alias g=git
 alias l=lfcd
 alias le=less
-alias m=make
-alias v="VIMINIT='' nvim"
-alias x=extract_archive
+alias m=smartmake
+alias v="$EDITOR"
+alias x=extract.sh
 
-# [longhands]
+# [midlonghands]
+alias op='cd $(open_project "$HOME/repo" | fzf)'
 alias girl='grep -irl'
 alias gir='grep -ir'
+alias markdown=md2html
+alias fy='fzf | pbcopy'
+
+alias voom='VIM_DIR=$XDG_DATA_HOME/vim voom'

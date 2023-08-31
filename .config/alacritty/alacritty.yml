@@ -1,8 +1,5 @@
 import:
-  - ~/.config/alacritty/mac.yml
-  - ~/.config/alacritty/windows.yml
-  - ~/.config/alacritty/bindings.yml
-  - ~/.config/alacritty/unstaged.yml
+  - ~/.cache/alacritty_unstaged.yml
 
 live_config_reload: true
 
@@ -12,6 +9,3 @@ bell:
 selection:
   save_to_clipboard: true
 
-# No title bar, use shortcuts
-window:
-   decorations: none

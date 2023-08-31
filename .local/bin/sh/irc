@@ -2,10 +2,13 @@
 
 test -z "${FUZZER}" && { printf "FUZZER not set\n"; exit 1; }
 
-CHATS="irc.freenode.net\nirc.libera.chat"
+type ii || exit 1
+
+CHATS="irc.freenode.net
+irc.libera.chat"
 
 startii() {
-	pick=`echo ${CHATS} | ${FUZZER}`
+    pick=`echo "${CHATS}" | ${FUZZER}`
 	ii -s "${pick}" -n $IRC_NICK &
 }
 
@@ -18,8 +21,9 @@ iipid="$(pgrep ii)"
 
 if [ -n "${iipid}" ]; then
 	printf "ii is already running with pid: %s\n" "${iipid}"
+    startvim
 else
 	startii
+    startvim
 fi
 
-startvim

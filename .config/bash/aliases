@@ -1,4 +1,0 @@
-which startx >&/dev/null && alias startx="startx \"$XDG_CONFIG_HOME/X11/xinitrc\" vt1"
-which wget >&/dev/null && alias wget="wget --hsts-file=\"$XDG_CACHE_HOME/wget-hsts\""
-which nvim >&/dev/null && alias vim="nvim" && alias vi="nvim" 
-which elinks >&/dev/null && alias elinks="elinks ddg.gg"
