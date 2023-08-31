@@ -11,6 +11,4 @@ set PASSWORD_STORE_DIR=%XDG_DATA_HOME%\pass
 set PASS_BASE_DIR=%XDG_DATA_HOME%\pass
 set NB_PATH=%XDG_DATA_HOME%\notebook
 
-set MYVIMRC=%XDG_CONFIG_HOME%\vim\vimrc
-set VIMINIT=source $MYVIMRC
 set PATH=%PATH%;%USERPROFILE%\.local\bin\cmd
