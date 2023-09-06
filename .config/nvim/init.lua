@@ -29,7 +29,7 @@ g.netrw_liststyle = 3
 
 vim.cmd([[
 	source $XDG_DATA_HOME/vim/hyper-red.vim
-	source $XDG_DATA_HOME/vim/plugins.vim
+	source $XDG_DATA_HOME/vim/plugin.vim
 ]])
 
 function load_plugns()
