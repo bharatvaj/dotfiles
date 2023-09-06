@@ -7,18 +7,18 @@ if &background == "dark"
 	hi! ColorColumn guifg=White ctermfg=White guibg=DarkGray ctermbg=DarkGray
 	hi! Folded guifg=LightBlue ctermfg=LightBlue guibg=NONE ctermbg=NONE cterm=bold
 	hi! FoldColumn guifg=LightBlue ctermfg=LightBlue guibg=NONE ctermbg=NONE cterm=bold
-	hi! DiffChange guifg=LightYellow ctermfg=LightYellow guibg=NONE ctermbg=NONE cterm=bold
-	hi! DiffText guifg=DarkBlue ctermfg=DarkBlue guibg=LightYellow ctermbg=LightYellow cterm=bold
+	hi! DiffChange guifg=LightYellow ctermfg=LightYellow guibg=NONE ctermbg=NONE cterm=NONE
+	hi! DiffText guifg=DarkBlue ctermfg=DarkYellow guibg=LightYellow ctermbg=LightYellow cterm=bold
 	hi! DiffAdd guibg=NONE ctermbg=NONE guifg=LightGreen ctermfg=LightGreen
 	hi! DiffDelete guifg=DarkRed ctermfg=DarkRed guibg=NONE ctermbg=NONE
 	hi! LineNr guibg=NONE ctermbg=NONE guifg=DarkGray ctermfg=DarkGray
 	hi! CursorLineNr cterm=NONE gui=NONE guibg=NONE ctermbg=NONE guifg=White ctermfg=White
 	hi! StatusLineNC guibg=LightGray ctermbg=LightGray guifg=Black ctermfg=Black
 	hi! Statement ctermfg=NONE guifg=NONE
-	hi! Constant ctermfg=Red guifg=Red
-	hi! Error ctermbg=DarkRed guifg=DarkRed
+	hi! Constant ctermfg=LightBlue guifg=LightBlue
+	hi! Error ctermbg=NONE guibg=NONE ctermfg=DarkRed guifg=DarkRed
 	hi! String ctermfg=DarkGray guifg=DarkGray
-	hi! Special cterm=bold ctermfg=LightMagenta guifg=LightMagenta
+	hi! Special cterm=NONE ctermfg=LightMagenta guifg=NONE
 	hi! Identifier ctermfg=White guifg=White
 	hi! IncSearch ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
 	hi! Search ctermbg=LightBlue ctermfg=Black guibg=DarkGray guifg=Black
