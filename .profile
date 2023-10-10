@@ -5,59 +5,61 @@
 export XDG_CONFIG_HOME="$XDG_ROOT/.config"
 export XDG_DATA_HOME="$XDG_ROOT/.local/share"
 export XDG_CACHE_HOME="$XDG_ROOT/.cache"
-export XDG_RUNTIME_HOME="$XDG_ROOT/.runtime"
+export XDG_RUNTIME_DIR="$XDG_ROOT/.local/run"
+export XDG_STATE_HOME="$XDG_ROOT/.local/state"
 
-export XDG_DESKTOP_DIR="$XDG_DATA_HOME/desktop"
-export XDG_DOCUMENTS_DIR="$XDG_DATA_HOME/documents"
-export XDG_DOWNLOAD_DIR="$XDG_CACHE_HOME/downloads"
-export XDG_MUSIC_DIR="$XDG_DATA_HOME/music"
-export XDG_PICTURES_DIR="$XDG_DATA_HOME/pictures"
-export XDG_PUBLICSHARE_DIR="$XDG_DATA_HOME/public"
-export XDG_TEMPLATES_DIR="$XDG_DATA_HOME/templates"
-export XDG_VIDEOS_DIR="$XDG_DATA_HOME/videos"
+export ABDUCO_SOCKET_DIR="$XDG_STATE_HOME"/abuco
+export LESSHISTFILE="$XDG_STATE_HOME"/lesshst
 
 # Global programs
-export VIMINIT="if !has('nvim')
-source $XDG_CONFIG_HOME/vim/vimrc
-endif"
+export BUNDLE_USER_CONFIG="$XDG_CONFIG_HOME"/bundle
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+export ELINKS_CONFDIR="$XDG_CONFIG_HOME/elinks"
+export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
 export LESSHISTFILE=-
 export LYNX_CFG="$XDG_CONFIG_HOME/lynx/lynx.cfg"
 export LYNX_LSS="$XDG_CONFIG_HOME/lynx/lynx.lss"
-export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/config"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export PARALLEL_HOME="$XDG_CONFIG_HOME"/parallel
 export PGPASSFILE="$XDG_CONFIG_HOME/pg/pgpass"
 export PGSERVICEFILE="$XDG_CONFIG_HOME/pg/pg_service.conf"
+export PSQLRC="$XDG_CONFIG_HOME/pg/psqlrc"
+export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 export TASKRC="$XDG_CONFIG_HOME/task/taskrc"
+export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
-export WGETRC="$XDG_CONFIG_HOME/wgetrc"
-export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
-export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
-export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc
-export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/config"
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-export ELINKS_CONFDIR="$XDG_CONFIG_HOME/elinks"
 
+export ANDROID_HOME="$XDG_DATA_HOME"/android
+export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export FFMPEG_DATADIR="$XDG_DATA_HOME"/ffmpeg
+export GEM_HOME="$XDG_DATA_HOME"/gem
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export GOPATH="$XDG_DATA_HOME"/go
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export HISTFILE="$XDG_DATA_HOME"/history
+export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
+export MYSQL_HISTFILE="$XDG_DATA_HOME/mysql_history"
+export NB_PATH="$XDG_DATA_HOME/notebook"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
-export HISTFILE="$XDG_DATA_HOME"/history
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
-export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
-export GOPATH="$XDG_DATA_HOME"/go
-export NB_PATH="$XDG_DATA_HOME/notebook"
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export GEM_HOME="$XDG_DATA_HOME"/gem
-export VSCODE_PORTABLE="$XDG_DATA_HOME/vscode"
-export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
-export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
-export MYSQL_HISTFILE="$XDG_DATA_HOME/mysql_history"
 export SONGDL_HOME="${XDG_DATA_HOME}/music/"
+export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
+export TERMINFO="$XDG_DATA_HOME"/terminfo
+export TERMINFO_DIRS="$XDG_DATA_HOME"/terminfo:/usr/share/terminfo
+export VSCODE_PORTABLE="$XDG_DATA_HOME/vscode"
+export W3M_DIR="$XDG_DATA_HOME"/w3m
+export _Z_DATA="$XDG_DATA_HOME/z"
 
-export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
-export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
+export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export GEM_SPEC_CACHE="$XDG_CACHE_HOME"/gem
+export NUGET_PACKAGES="$XDG_CACHE_HOME"/NuGetPackages
+export PSQL_HISTORY="$XDG_CACHE_HOME/pg/psql_history"
 
 # Make `history` print timestamp
 HISTTIMEFORMAT="%F %T "

@@ -1,39 +1,3 @@
-function! ToggleList()
-	if &list == "nolist"
-		set list
-	else
-		set nolist
-	endif
-endfunction
-
-function! ToggleBackground()
-	if &background == "light"
-		set background=dark
-	else
-		set background=light
-	endif
-endfunction
-
-function! FileMvHelper()
-	:normal! 0i"A"0y$A p0imv j0
-endfunction
-" Run Make
-
-function SaveAndBuild()
-		wall
-		Make
-endfunction
-
-" TODO load this automatically
-source $XDG_CONFIG_HOME/vim/ftplugin/cpp.vim
-
-
-" Mail
-set rtp+=~/.local/share/nvim/pack/general/start/himalaya/vim
-
-
-let g:birck_default_chan="irc.libera.chat"
-
 " Strip the newline from the end of a string
 function! Chomp(str)
   return substitute(a:str, '\n$', '', '')
@@ -64,13 +28,51 @@ function! ChooseFile()
   exec ":e " . root . "/" . selection
 endfunction
 
-
 function! DiffWithSaved()
   let filetype=&ft
   diffthis
   vnew | r # | normal! 1Gdd
   diffthis
   exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+
+" Move to a file common to nvim and vim
+function! ToggleList()
+	if &list == "nolist"
+		set list
+	else
+		set nolist
+	endif
+endfunction
+
+function! ToggleBackground()
+	if &background == "light"
+		set background=dark
+	else
+		set background=light
+	endif
+endfunction
+
+function! FileMvHelper()
+	:normal! 0i"A"0y$A p0imv j0
+endfunction
+" Run Make
+
+function SaveAndBuild()
+		wall
+		Make
+endfunction
+
+function QuickUnderline(n)
+	if a:n == 1
+		normal! yypv$r=
+	else
+		normal! yypv$r-
+	endif
+endfunction
+
+function ReverseDate()
+	normal! dt/wwpldeBP
 endfunction
 
 

@@ -7,6 +7,7 @@
 test $# -lt 1 && { printf "Usage: $(basename $0) <archive>\n"; exit 1; }
 test -f $1 || { printf "$0: $1: No such file \n"; exit 1; }
 case $1 in
+    *.a) ar x "$1" ;;
     *.z) 7z x "$1" ;;
     *.bz2) bzip2 -d "$1" ;;
     *.bz) bzip2 -d "$1" ;;

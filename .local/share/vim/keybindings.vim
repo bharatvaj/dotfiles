@@ -3,8 +3,8 @@ nnoremap <leader>aa :argadd **<cr>
 nnoremap <leader>co :copen<cr>
 nnoremap <leader>cd :cdo<space>s/
 nnoremap <leader>cs :cdo<space>s/
-nnoremap <leader>ec :edit $XDG_CONFIG_HOME/vim/vimrc<cr>
-nnoremap <leader>ek :edit $XDG_CONFIG_HOME/vim/keybindings.vim<cr>
+nnoremap <leader>ec :edit $HOME/.vimrc<cr>
+nnoremap <leader>ek :edit $XDG_DATA_HOME/vim/keybindings.vim<cr>
 nnoremap <leader>et :set expandtab<cr>
 nnoremap <leader>fa :find *
 nnoremap <leader>ff :find *
@@ -21,14 +21,43 @@ nnoremap <leader>spa :set path+=**<cr>
 nnoremap <leader>tt :tabnew<cr>
 nnoremap <leader>ta :tab *
 nnoremap <leader>vg :vimgrep<space>
+nnoremap <leader>/ :cdo %s/
+
 " Buffer Creation
 nnoremap <leader>sc :source $XDG_CONFIG_HOME/vim/vimrc<cr>
 nnoremap <leader>ss :split<cr>
 nnoremap <leader>vv :vsplit<cr>
 nnoremap <leader>wd :call DiffWithSaved()<cr>
 
-" netrw keybindings
-nnoremap <leader>sf :Ex<cr>
+fun! SaveAndSuspend()
+    :w
+    :suspend
+endfun
+
+nnoremap <silent> <leader>zj :call NextClosedFold('j')<cr>
+nnoremap <silent> <leader>zk :call NextClosedFold('k')<cr>
+
+function! NextClosedFold(dir)
+    let cmd = 'norm!z'..a:dir
+    let view = winsaveview()
+    let [l0, l, open] = [0, view.lnum, 1]
+    while l != l0 && open
+        exe cmd
+        let [l0, l] = [l, line('.')]
+        let open = foldclosed(l) < 0
+    endwhile
+    if open
+        call winrestview(view)
+    endif
+endfunction
+
+
+" Control
+nnoremap <c-z> :call SaveAndSuspend()<cr>
+inoremap <c-z> :call SaveAndSuspend()<cr>
+
+nnoremap <c-f> :bnext<cr>
+nnoremap <c-b> :bprevious<cr>
 
 " Accessible completions
 inoremap <c-f> <c-x><c-f>
@@ -38,6 +67,7 @@ inoremap <c-a> <c-o>0
 inoremap <c-e> <c-o>A
 " Behave vim
 nnoremap Y y$
+nnoremap Q :noh<cr>
 
 " development
 nnoremap <leader>oc :grepadd /:: %
@@ -45,14 +75,10 @@ nnoremap <leader>oh :grepadd /:: %
 
 nnoremap <leader>fb :b *
 
-fun! SaveAndBuild()
-    :wall
-    :Make
-endfun
-
-" quick navigation
-nnoremap \f :GFiles<cr>
-nnoremap \F :Files<cr>
+nnoremap <c-p> :call FZYFiles()<cr>
+" TODO reflect on whether <leader><leader> is productive, I keep hitting it
+" accidentally
+"nnoremap <leader><leader> :Rg<cr>
 " TODO setup this up with fzf
 nnoremap \g :Ggrep<cr>
 
@@ -92,7 +118,7 @@ nnoremap <leader>lg :Glgrep<space>
 
 
 " Generate ctags
-nnoremap<leader>gt :!sh -c "ctags `git --ls-files`"<CR>
+nnoremap<leader>gt :!sh -c "ctags `git ls-files`"<CR>
 
 nnoremap <CR> :noh<CR><CR>:<backspace>
 
@@ -112,18 +138,6 @@ autocmd FileType markdown set cursorline
 
 " Hide and format markdown elements like **bold**
 autocmd FileType markdown set conceallevel=2
-
-function QuickUnderline(n)
-	if a:n == 1
-		normal! yypv$r=
-	else
-		normal! yypv$r-
-	endif
-endfunction
-
-function ReverseDate()
-	normal! dt/wwpldeBP
-endfunction
 
 nnoremap <leader>h1 :call QuickUnderline(1)<cr>
 nnoremap <leader>h2 :call QuickUnderline(2)<cr>
@@ -162,3 +176,5 @@ nnoremap cn *``cgn
 nnoremap cN *``cgN
 let g:mc = "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>"
 vnoremap <expr> cn g:mc . "``cgn"
+
+

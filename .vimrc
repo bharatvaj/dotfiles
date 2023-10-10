@@ -1,13 +1,16 @@
-if has('nvim')
-	luafile ~/.config/nvim/init.lua
-    finish
-else
-	if has("&viminfofile")
-		set viminfofile=$XDG_CACHE_DIR/vim/viminfo
-	endif
+syntax on indent off
+if has("&viminfofile")
+    set viminfofile=$XDG_CACHE_DIR/vim/viminfo
 endif
 
+" reject netrw, embrace ls
+"let loaded_netrwPlugin = 1
+
 set complete-=i
+set foldmethod=marker
+set foldmarker={,}
+set foldlevel=20
+set foldopen-=search
 
 " General
 set nocompatible
@@ -36,6 +39,7 @@ set nofixendofline
 
 " Disable vim intro message
 set shortmess=Iat
+set shortmess-=F
 
 " Search
 set hlsearch
@@ -51,26 +55,58 @@ set expandtab
 " Netrw customization
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
+let g:netrw_fastbrowse= 2
 
 " Disable status
 set laststatus=1
 
-set lazyredraw
+set nolazyredraw
 set ttyfast
 set nospell
 
-syntax on indent off
-
-" Plugins
-source $XDG_CONFIG_HOME/vim/plugin/plugin.vim
-
-" Keybindings
-source $XDG_CONFIG_HOME/vim/keybindings.vim
 
 " Common vimrc
 source $XDG_DATA_HOME/vim/vimrc
 
+source $XDG_DATA_HOME/vim/keybindings.vim
+
 set packpath^=$XDG_DATA_HOME/vim
+
+function! FZYFiles() abort
+    let l:tempname = tempname()
+    " fzf | awk '{ print $1":1:0" }' > file
+    execute 'silent !git ls-files --recurse-submodules | fzf > ' . fnameescape(l:tempname)
+	let l:tcontents = join(readfile(l:tempname))
+    try
+		" TODO Add option to add multiple files to argslist
+		"execute 'argadd ' . l:tcontents
+		 let bufnr = bufadd(l:tcontents)
+		call bufload(bufnr)
+		"call setbufline(bufnr, 1, ['some', 'text'])
+        execute 'edit ' . l:tcontents
+        redraw!
+    finally
+        call delete(l:tempname)
+    endtry
+endfunction
+let g:lsc_server_commands = {'cpp': 'clangd --log=error'}
+let g:lsc_auto_map = {
+    \ 'GoToDefinition': '<C-]>',
+    \ 'GoToDefinitionSplit': ['<C-W>]', '<C-W><C-]>'],
+    \ 'FindReferences': 'gr',
+    \ 'FindImplementations': 'gI',
+    \ 'FindCodeActions': 'ga',
+    \ 'Rename': 'gR',
+    \ 'ShowHover': v:true,
+    \ 'DocumentSymbol': 'go',
+    \ 'WorkspaceSymbol': 'gS',
+    \ 'SignatureHelp': 'gm',
+    \ 'Completion': 'completefunc',
+    \}
+let g:lsc_enable_autocomplete  = v:true
+let g:lsc_enable_diagnostics   = v:true
+let g:lsc_reference_highlights = v:false
+let g:lsc_trace_level          = 'off'
 
 function! s:load_plugins(t) abort
 	set synmaxcol=128
@@ -87,8 +123,6 @@ function! s:load_plugins(t) abort
 	set backupdir=$XDG_CACHE_HOME/vim/backup | call mkdir(&backupdir, 'p')
 	set directory=$XDG_CACHE_HOME/vim/swap   | call mkdir(&directory, 'p')
 	set undodir=$XDG_CACHE_HOME/vim/undo     | call mkdir(&undodir,   'p')
-	packadd fzf
-	packadd fzf.vim
 	packadd vim-tmux-navigator
 	packadd vim-commentary
 	packadd vim-surround
@@ -117,8 +151,16 @@ if has("gui")
 endif
 
 if has("win32")
-	set shell=cmd
+set shell=cmd
 	set shellquote=\" 
 	" shellxquote must be a literal space character.
 	set shellxquote=  
+else
+    set shell=sh
 endif
+
+" TODO load this automatically
+source $XDG_CONFIG_HOME/vim/ftplugin/cpp.vim
+source $XDG_DATA_HOME/vim/plugin.vim
+
+let g:birck_default_chan="irc.libera.chat"
