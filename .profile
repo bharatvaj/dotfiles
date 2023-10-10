@@ -101,5 +101,3 @@ export LESS_TERMCAP_se=$'\e[0m'
 export CLICOLOR=1
 export LSCOLORS="xxexcxdxbxegxdxbagxcxd"
 export LS_COLORS="di=0:ln=34:so=32:pi=33:ex=31:bd=34;46:cd=0;43:su=0;41:sg=30;46:tw=0;42:ow=0;43"
-export GREP_COLOR='1;35;40'
-
