@@ -3,5 +3,4 @@ __type() {
 }
 
 __type setxkbmap && setxkbmap -option caps:escape
-__type setxkbmap && setxkbmap -option altwin:swap_alt_win
 __type xbmap && xbmap

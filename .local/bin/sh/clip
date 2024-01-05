@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# TODO cross-platform clipborad
+# Use OS-specific, should work both on console and X

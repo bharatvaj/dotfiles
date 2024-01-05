@@ -6,8 +6,6 @@ WM=dwm
 
 __type $WM || (echo "$WM not found" && exit 1)
 
-__type xrdb && xrdb merge ~/.config/X11/Xresources
-__type hsetroot && exec hsetroot -solid "#000000" &
-__type compton && exec compton &
+__type slstatus && exec slstatus &
 
 exec $WM

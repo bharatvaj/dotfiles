@@ -2,13 +2,12 @@
 
 [ $# -ne 1 ] && echo "Usage: $0 <youtube-url>" && exit 1
 
-[ -z "$SONGDL_HOME" ] && SONGDL_HOME="${XDG_MUSIC_DIR}"
-
-cd "$SONGDL_HOME"
+: ${XDG_MUSIC_DIR:=$HOME/Music}
+cd "${XDG_MUSIC_DIR:?$XDG_MUSIC_DIR not found}"
 
 song_name=$1
 
-youtube-dl --extract-audio --audio-format mp3 "$song_name" --external-downloader aria2c
+yt-dlp --extract-audio --audio-format mp3 "$song_name" --external-downloader aria2c
 
 if type mpc >/dev/null; then
 	mpc update

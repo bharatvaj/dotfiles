@@ -9,12 +9,12 @@ test -f $1 || { printf "$0: $1: No such file \n"; exit 1; }
 case $1 in
     *.a) ar x "$1" ;;
     *.z) 7z x "$1" ;;
+    *.rar) unrar x "$1" ;;
+    *.tar|*.tar.xz|*.tar.gz) tar -xvf "$1" ;;
+    *.tar.bz2) tar -xzvf "$1" ;;
     *.bz2) bzip2 -d "$1" ;;
     *.bz) bzip2 -d "$1" ;;
     *.gz) gunzip -d "$1" ;;
-    *.rar) unrar x "$1" ;;
-    *.tar) tar -xvf "$1" ;;
-    *.tar.gz) tar -xvf "$1" ;;
     *.tgz) tar -zxvf "$1" ;;
     *.zip) unzip "$1" ;;
     *.mp4)

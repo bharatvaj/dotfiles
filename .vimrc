@@ -12,6 +12,9 @@ set foldmarker={,}
 set foldlevel=20
 set foldopen-=search
 
+" Debug
+let g:termdebug_config = {'sign': '>>', 'winbar': 0, 'wide':163}
+
 " General
 set nocompatible
 set mouse=
@@ -132,6 +135,8 @@ function! s:load_plugins(t) abort
 	packadd vim-better-whitespace
 	packadd notmuch-vim
 	packadd vim-dispatch
+	packadd termdebug
+	let g:termdebug_wide=163
 	let g:notmuch_use_fzf = 1
 	let g:notmuch_open_command = 'fzf'
 	let g:notmuch_fzf_command = 'fzf --reverse'
@@ -147,7 +152,7 @@ augroup user_cmds
 augroup END
 
 if has("gui")
-	source $XDG_CONFIG_HOME/vim/gvimrc
+	set guioptions=
 endif
 
 if has("win32")

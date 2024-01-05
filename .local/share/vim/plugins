@@ -4,12 +4,12 @@ tpope/vim-fugitive
 tpope/vim-surround
 tpope/vim-unimpaired
 tpope/vim-repeat
-natebosch/vim-lsc
-dradtke/vim-dap
 Bestoa/SearchComplete
 tpope/vim-projectionist
 junegunn/goyo.vim
+AndrewRadev/tagalong.vim
 
+#ap/vim-css-color
 #cfdrake/vim-pbxproj
 #ervandew/supertab
 #vim-scripts/vimacs

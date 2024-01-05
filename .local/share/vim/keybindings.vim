@@ -1,5 +1,4 @@
 " General keybindings
-nnoremap <leader>aa :argadd **<cr>
 nnoremap <leader>co :copen<cr>
 nnoremap <leader>cd :cdo<space>s/
 nnoremap <leader>cs :cdo<space>s/

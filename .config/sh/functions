@@ -1,48 +1,51 @@
-md() {
-	mkdir "$@" && cd "$@"
-}
+[ -n "$BASH" ] && is_bash=-f
+
+there() {
+	# Checks the availability of an executable
+    command -v "$@" >/dev/null 2>&1
+} && export $is_bash there
 
 open_project() {
 	# search only dirs
-	search_dir=${1:-.}
-	for i in $search_dir/*/; do
-		if [ -d "$i/.git" ]; then
-			echo "$i"
-		else
-			# if does not have .git, search the subdirs
-			open_project "$i"
-		fi
+	search_loc=${1:-.}/*
+	for i in $search_loc/.git/ $search_loc/*/.git/; do
+		echo "$i.."
 	done
+} && export $is_bash open_project
+
+open() {
+	case "$(uname -o)" in
+		*Linux*)xdg-open "$@" ;;
+		Darwin) command open "$@" ;;
+		*) start "$@" ;;
+	esac
 }
 
 attach() {
-	if there abduco && [ $# -eq 0 ]; then
+	command -v abduco >/dev/null || return
+	if [ $# -eq 0 ]; then
 		sesh_name=$(abduco -l | tail -n +2 | cut -f3 | $FUZZER)
 		test -z "$sesh_name" && return
 		abduco -a $sesh_name || abduco -c $sesh_name mtm;
+	else
+		abduco -a $1
 	fi
-	[ $# -gt 0 ] && abduco -a $1
-}
+} && export $is_bash attach
 
 # TODO make it non-interruptable
-insult() {
-	if there sl; then
-		sl else printf "You are a noob for typing '$1'\n"
-		sleep 5
-	fi
-}
+if ! there sl; then
+	sl() {
+		printf "You are a noob for typing '$1'\n"; sleep 5;
+	} && export $is_bash sl
+fi
 
 smartmake() {
     if there fmake && there errorformat; then
-        $(fmake) $* | errorformat
+        fmake $* | errorformat
     else
         make
     fi
-}
-
-thwart() {
-    alias $1="insult '$1'"
-}
+} && export $is_bash smartmake
 
 quickopen() {
 	if ! there "${FUZZER}"; then
@@ -73,25 +76,23 @@ quickopen() {
 	fi
 }
 
-cd_and_ls() {
-	cd $* && ls
-}
-
 download() {
-	# TODO use wget if curl not available
-	curl -fLO $*
+	case $1 in
+		git@*|*.git|https://*.git) git clone $* ;;
+		*) curl -fLO $* ;; # TODO use wget if curl not available
+	esac
 }
 
 find_() {
 	find . -name "*$**"
 }
 
-vim_plug() { export
-	VIM_PLUGINS_DIR="$XDG_DATA_HOME"/vim/pack/voom/opt export
-	VIM_DIR="$XDG_DATA_HOME"/vim voom $@
+vim_plug() {
+	VIM_PLUGINS_DIR="$XDG_DATA_HOME"/vim/pack/voom/opt \
+		VIM_DIR="$XDG_DATA_HOME"/vim voom $@
 }
 
 nvim_plug() {
-    export VIM_PLUGINS_DIR="$XDG_DATA_HOME"/nvim/pack/voom/opt
-    export VIM_DIR="$XDG_DATA_HOME"/nvim voom $@
+    VIM_PLUGINS_DIR="$XDG_DATA_HOME"/nvim/pack/voom/optj \
+    	VIM_DIR="$XDG_DATA_HOME"/nvim voom $@
 }

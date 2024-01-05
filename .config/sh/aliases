@@ -10,12 +10,15 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias doas=sudo
 alias qc='ssh $(ci)'
 
+# [helper_functions]
+cd_and_ls() { cd $* && ls; }
+thwart() { for t in $*; do there $t || alias $t="sl '$t'"; done }
+
 # [baseutils_conditioning]
-thwart sl && thwart ld && thwart lls &&  thwart sls && thwart lsl && thwart lss && thwart kls
-thwart cdd
-thwart mr
+thwart lls sls lsl lss kls cdd mr
 
 # [ip]
+# TODO make this cross-platform
 there ifconfig && alias lip="ifconfig | grep -w inet  | cut -d ' ' -f2"
 there curl && alias gip="curl ifconfig.co"
 
@@ -27,11 +30,9 @@ alias n='cd_and_ls'
 alias cf="quickopen cd d"
 alias ef="quickopen ${EDITOR} f"
 alias gf='$EDITOR $(git ls-files | ${FUZZER})'
-# TODO make it work for linux
 alias of="quickopen open f"
-# This won't work with dash
-# dash want's alias \-
-alias -- -='cd -'
+if [ -n "$BASH" ] || [ -n "$ZSH_VERSION" ]; then __is_bashlike=--; fi
+alias $__is_bashlike -='cd -'
 
 # [shorthands]
 alias a=attach
@@ -41,17 +42,18 @@ alias d='download'
 alias e='${EDITOR}'
 alias f=quickopen
 alias g=git
-alias l=lfcd
+# TODO Use nnncd
+alias l=nnn
 alias le=less
 alias m=smartmake
-alias v="$EDITOR"
 alias x=extract.sh
+there rc || alias rc='sudo systemctl'
 
 # [midlonghands]
 alias op='cd $(open_project "$HOME/repo" | fzf)'
 alias girl='grep -irl'
 alias gir='grep -ir'
 alias markdown=md2html
-alias fy='fzf | pbcopy'
+alias fy='fzf | clip'
 
 alias voom='VIM_DIR=$XDG_DATA_HOME/vim voom'
