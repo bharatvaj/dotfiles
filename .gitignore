@@ -8,8 +8,7 @@
 !.profile
 
 # Bash
-!.bash_profile
-!.bash_logout
+!.bashrc
 
 # Config
 !.config/
