@@ -12,6 +12,7 @@
 
 # Config
 !.config/
+.config/user-dirs.dirs
 
 !.local/
 

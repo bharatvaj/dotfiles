@@ -19,7 +19,7 @@ open() {
 		Darwin) command open "$@" ;;
 		*) start "$@" ;;
 	esac
-}
+} && export $is_bash open
 
 attach() {
 	command -v abduco >/dev/null || return
