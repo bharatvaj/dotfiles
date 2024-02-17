@@ -1,3 +1,4 @@
+command -v jq || exit 1
 export TERMUX_CONTACTS_LIST="$(termux-contact-list)"
 
 export CNA="$(echo "${TERMUX_CONTACTS_LIST}" | jq '.[] | .name' | fzf)"
