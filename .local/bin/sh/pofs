@@ -1,9 +1,0 @@
-#!/bin/sh -eu
-
-# reliable password fuzzy searcher
-
-cd "${PASSWORD_STORE_DIR}" || exit 1
-
-selection="$(find -L . -wholename "./*totp/*.gpg" | sed 's/.gpg$//g' | ${FUZZER} -q "$*")"
-
-test -z "${selection}" || pass otp "${selection}"

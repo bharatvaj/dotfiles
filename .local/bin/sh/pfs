@@ -6,5 +6,11 @@ cd "${PASSWORD_STORE_DIR}" || exit 1
 
 selection="$(find -L . -name '*.gpg' | sed 's/.gpg$//g' | ${FUZZER})"
 
-test -z "${selection}" || pass ${1} "${selection}"
+
+test -z "${selection}" || {
+	case ${selection} in
+		*totp/*) pass otp "${selection}" ;;
+		*) spm ${1:-"show"} "${selection}" ;;
+	esac
+}
 
