@@ -11,11 +11,8 @@ type ${PASSTOOL} 2>/dev/null || PASSTOOL=pass
 
 selection="$(find -L . -name '*.gpg' | sed 's/.gpg$//g' | ${FUZZER})"
 
-
 test -z "${selection}" || {
 	case ${selection} in
-		*totp/*) ${PASSTOOL} otp "${selection}" ;;
-		*) ${PASSTOOL} ${1:-"show"} "${selection}" ;;
+        *totp/*) pass ${1:-"otp"} "${selection}" ;;
+        ?*)pass ${1:-"show"} "${selection}" ;;
 	esac
-}
-
