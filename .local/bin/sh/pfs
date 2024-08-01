@@ -2,15 +2,20 @@
 
 # reliable password fuzzy searcher
 
+: ${PASSWORD_STORE_DIR?"Error var not set"}
 cd "${PASSWORD_STORE_DIR}" || exit 1
+
+export PASSWORD_STORE_KEY=bharatvaj@yahoo.com
+PASSTOOL=spm
+type ${PASSTOOL} 2>/dev/null || PASSTOOL=pass
 
 selection="$(find -L . -name '*.gpg' | sed 's/.gpg$//g' | ${FUZZER})"
 
 
 test -z "${selection}" || {
 	case ${selection} in
-		*totp/*) pass otp "${selection}" ;;
-		*) spm ${1:-"show"} "${selection}" ;;
+		*totp/*) ${PASSTOOL} otp "${selection}" ;;
+		*) ${PASSTOOL} ${1:-"show"} "${selection}" ;;
 	esac
 }
 
