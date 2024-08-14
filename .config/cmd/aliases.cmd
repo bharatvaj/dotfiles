@@ -1,5 +1,3 @@
-doskey v=nvim $*
-doskey vi=vim $*
 doskey n=cd $*
 doskey g=git $*
 doskey e=%EDITOR% $*
@@ -13,3 +11,4 @@ doskey rm=del $*
 doskey clear=cls
 doskey lynx=lynx -cfg %USERPROFILE%\.config\lynx\lynx.cfg $*
 doskey cat=type $*
+doskey hb=sh %USERPROFILE%\.local\bin\sh\hb $*
