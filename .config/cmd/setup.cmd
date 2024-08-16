@@ -9,7 +9,9 @@ rem Run this in powershell, before
     echo 	Set-ExecutionPolicy RemoteSigned -scope CurrentUser
     echo 	powershell -Command "Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')"
     rem Install only the absolute essentials
+    echo scoop config shim 71
     echo scoop install 7zip clink dos2unix grep gpg lf make mingit mpv sed sudo unzip vim
+    echo scoop reset -a
     exit 1
 )
 
@@ -28,7 +30,9 @@ if "%SCOOP%" == "" (
 
 mkdir %SYSTEMDRIVE%\bin
 copy %SCOOP%\apps\busybox\current\busybox.exe %SYSTEMDRIVE%\bin
-copy %SCOOP%\shims\sh.* %SYSTEMDRIVE%\bin
+copy %SCOOP%\shims\sh.exe %SYSTEMDRIVE%\bin
+echo path = "C:\bin\busybox.exe" > C:\bin\sh.shim
+echo args = sh -l >> C:\bin\sh.shim
 
 rem TODO Report this in scoop and remove this line
 del %SCOOP%\apps\gpg\current\bin\gpgconf.ctl
