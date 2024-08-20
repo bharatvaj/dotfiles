@@ -1,23 +1,15 @@
 @echo off
 
-cd %USERPROFILE%
+doskey n=cd $*
+doskey g=git $*
+doskey e=%EDITOR% $*
+doskey l=lfcd.cmd
+doskey ls=dir /B $*
+doskey m=make $*
+doskey pwd=cd
+doskey rm=del $*
+doskey clear=cls
+doskey cat=type $*
+doskey hb=sh %USERPROFILE%\.local\bin\sh\hb $*
 
-set XDG_ROOT=%1
-if "%XDG_ROOT%" == "" set XDG_ROOT=%USERPROFILE%
-set XDG_CONFIG_HOME=%XDG_ROOT%\.config
-set XDG_DATA_HOME=%XDG_ROOT%\.local\share
-set XDG_CACHE_HOME=%XDG_ROOT%\.cache
-set VISUAL=vim
-set EDITOR=%VISUAL%
-
-set GNUPGHOME=%XDG_DATA_HOME%/gnupg
-set GPGHOME=%XDG_DATA_HOME%/gnupg
-set PASSWORD_STORE_DIR=%XDG_DATA_HOME%/pass
-set PASS_BASE_DIR=%XDG_DATA_HOME%/pass
-
-set FUZZER=fzf
-
-set PATH=%PATH%;%USERPROFILE%\.local\bin\cmd;%USERPROFILE%\work\spm
-
-@call %XDG_CONFIG_HOME%\cmd\aliases.cmd
 if exist "%XDG_CONFIG_HOME%\cmd\userenv.cmd" @call %XDG_CONFIG_HOME%\cmd\userenv.cmd
