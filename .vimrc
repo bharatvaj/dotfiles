@@ -5,12 +5,14 @@ endif
 
 " reject netrw, embrace ls
 "let loaded_netrwPlugin = 1
+"let g:netrw_home = $XDG_DATA_HOME . "/vim"
 
 set complete-=i
 set foldmethod=marker
 set foldmarker={,}
 set foldlevel=20
 set foldopen-=search
+set background=dark
 
 " Debug
 let g:termdebug_config = {'sign': '>>', 'winbar': 0, 'wide':163}
@@ -58,7 +60,8 @@ set expandtab
 " Netrw customization
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-let g:netrw_fastbrowse= 2
+let g:netrw_fastbrowse = 2
+let g:netrw_dirhistmax = 0
 
 " Disable status
 set laststatus=1
@@ -169,3 +172,15 @@ source $XDG_CONFIG_HOME/vim/ftplugin/cpp.vim
 source $XDG_DATA_HOME/vim/plugin.vim
 
 let g:birck_default_chan="irc.libera.chat"
+
+" Map key chord `jk` to <Esc>
+let g:esc_j_lasttime = 0
+let g:esc_k_lasttime = 0
+function! JKescape(key)
+	if a:key == 'j' | let g:esc_j_lasttime = reltimefloat(reltime()) | endif
+	if a:key == 'k' | let g:esc_k_lasttime = reltimefloat(reltime()) | endif
+	let l:timediff = abs(g:esc_j_lasttime - g:esc_k_lasttime)
+	return (l:timediff <= 0.05 && l:timediff >=0.001) ? "\b\e" : a:key
+endfunction
+inoremap <expr> j JKescape('j')
+inoremap <expr> k JKescape('k')

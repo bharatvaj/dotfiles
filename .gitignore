@@ -18,7 +18,6 @@
 
 # Local shell scripts
 !.local/bin/
-# !.local/bin/**
 !.local/bin/cmd/
 !.local/bin/cmd/**
 !.local/bin/sh/
