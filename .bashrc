@@ -5,7 +5,4 @@
 
 PS1='\w> '
 
-set -o vi
-
-bind '"\C-P":"quickopen\n"'
 bind '"\C-T":"fg\n"'

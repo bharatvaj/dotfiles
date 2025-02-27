@@ -21,7 +21,7 @@ if &background == "dark"
 	hi! Special cterm=NONE ctermfg=LightMagenta guifg=NONE
 	hi! Identifier ctermfg=White guifg=White
 	hi! IncSearch ctermbg=Black ctermfg=Yellow guibg=Black guifg=Yellow
-	hi! Search ctermbg=LightBlue ctermfg=Black guibg=DarkGray guifg=Black
+	hi! Search ctermbg=DarkGray ctermfg=LightGray guibg=DarkGray guifg=Black
 	hi! Todo cterm=underline ctermbg=NONE ctermfg=LightYellow guibg=NONE guifg=LightYellow
 	hi! Comment ctermfg=DarkGray guifg=DarkGray
 	hi! Visual ctermbg=White ctermfg=Black guibg=White guifg=Black
