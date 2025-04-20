@@ -2,8 +2,10 @@
 
 c_os="$(uname -s)"
 
-if [ "$c_os" == "Windows_NT" ]; then
-	ffplay -f dshow -i video="Integrated Webcam"
-else
-	ffplay -f avfoundation -i 0:0 -video_size 1280x720 -framerate 30
-fi
+case "$c_os" in
+	Windows_NT)
+	ffplay -f dshow -i video="Integrated Webcam";;
+	Darwin)
+	ffplay -f avfoundation -i 0:0 -video_size 1280x720 -framerate 30;;
+*) ffplay /dev/video0
+esac

@@ -5,7 +5,6 @@
 : ${PASSWORD_STORE_DIR?"Error var not set"}
 cd "${PASSWORD_STORE_DIR}" || exit 1
 
-export PASSWORD_STORE_KEY=bharatvaj@yahoo.com
 PASSTOOL=spm
 type ${PASSTOOL} 2>/dev/null || PASSTOOL=pass
 
@@ -16,3 +15,4 @@ test -z "${selection}" || {
         *totp/*) pass ${1:-"otp"} "${selection}" ;;
         ?*)pass ${1:-"show"} "${selection}" ;;
 	esac
+}

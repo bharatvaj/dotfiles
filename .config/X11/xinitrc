@@ -1,8 +1,8 @@
 #!/bin/sh
 
-. $XDG_CONFIG_HOME/X11/keybindings
-
 WM=dwm
+
+xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
 
 __type $WM || (echo "$WM not found" && exit 1)
 

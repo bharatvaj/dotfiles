@@ -1,6 +1,7 @@
 @echo on
 rem TODO Make this work for Administrator accounts
 
+
 goto :main
 
 :set_var
@@ -55,6 +56,9 @@ call :set_var GNUPGHOME %XDG_DATA_HOME%\gnupg
 call :set_var GPGHOME %XDG_DATA_HOME%\gnupg
 call :set_var PASSWORD_STORE_DIR %XDG_DATA_HOME%\pass
 call :set_var PASS_BASE_DIR %XDG_DATA_HOME%\pass
+
+call :set_var LYNX_CFG %XDG_CONFIG_HOME%/lynx/lynx.cfg
+call :set_var LYNX_LSS %XDG_CONFIG_HOME%/lynx/lynx.lss
 
 call :set_var FUZZER fzf
 

@@ -13,14 +13,6 @@ open_project() {
 	done
 } && export $is_bash open_project
 
-open() {
-	case "$(uname -o)" in
-		*Linux*)xdg-open "$@" ;;
-		Darwin) command open "$@" ;;
-		*) start "$@" ;;
-	esac
-} && export $is_bash open
-
 attach() {
 	command -v abduco >/dev/null || return
 	if [ $# -eq 0 ]; then

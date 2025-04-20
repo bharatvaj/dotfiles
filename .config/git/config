@@ -42,7 +42,7 @@
 
 [init]
 	defaultBranch = main
-	templatedir = ~/.config/git/template
+	# templatedir = ~/.config/git/template
 
 [include]
 	path = ~/.config/git/user

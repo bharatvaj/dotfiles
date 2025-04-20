@@ -10,6 +10,7 @@ doskey pwd=cd
 doskey rm=del $*
 doskey clear=cls
 doskey cat=type $*
+doskey open=start $*
 doskey hb=sh %USERPROFILE%\.local\bin\sh\hb $*
 doskey d=curl -fLO $*
 doskey x=7z x $*
