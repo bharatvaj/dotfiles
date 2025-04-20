@@ -25,3 +25,5 @@
 !.local/bin/sh/**
 
 !.local/share/
+
+*.exe

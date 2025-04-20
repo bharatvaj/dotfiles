@@ -2,8 +2,8 @@
 nnoremap <leader>co :copen<cr>
 nnoremap <leader>cd :cdo<space>s/
 nnoremap <leader>cs :cdo<space>s/
-nnoremap <leader>ec :edit $HOME/.vimrc<cr>
-nnoremap <leader>ek :edit $XDG_DATA_HOME/vim/keybindings.vim<cr>
+nnoremap <leader>ec :vsplit $HOME/.vimrc<cr>
+nnoremap <leader>ek :vsplit $XDG_DATA_HOME/vim/keybindings.vim<cr>
 nnoremap <leader>et :set expandtab<cr>
 nnoremap <leader>fa :find *
 nnoremap <leader>ff :find *
@@ -21,6 +21,8 @@ nnoremap <leader>tt :tabnew<cr>
 nnoremap <leader>ta :tab *
 nnoremap <leader>vg :vimgrep<space>
 nnoremap <leader>/ :cdo %s/
+nnoremap <leader>cd :cd %:p:h<cr>
+nnoremap <leader>qd :cdo s/
 
 " Buffer Creation
 nnoremap <leader>sc :source $XDG_CONFIG_HOME/vim/vimrc<cr>
@@ -55,15 +57,14 @@ endfunction
 nnoremap <c-z> :call SaveAndSuspend()<cr>
 inoremap <c-z> :call SaveAndSuspend()<cr>
 
-nnoremap <c-f> :bnext<cr>
-nnoremap <c-b> :bprevious<cr>
-
 " Accessible completions
 inoremap <c-f> <c-x><c-f>
 inoremap <c-l> <c-x><c-l>
 " Emacs line navigation in insert mode
 inoremap <c-a> <c-o>0
 inoremap <c-e> <c-o>A
+inoremap <c-k> <c-o>D
+
 " Behave vim
 nnoremap Y y$
 nnoremap Q :noh<cr>
@@ -74,7 +75,7 @@ nnoremap <leader>oh :grepadd /:: %
 
 nnoremap <leader>fb :b *
 
-nnoremap <c-p> :call FZYFiles()<cr>
+nnoremap <c-/> :call FZYFiles()<cr>
 " TODO reflect on whether <leader><leader> is productive, I keep hitting it
 " accidentally
 "nnoremap <leader><leader> :Rg<cr>
@@ -125,7 +126,6 @@ nnoremap <CR> :noh<CR><CR>:<backspace>
 nnoremap <leader>cc :ChecklistToggleCheckbox<cr>
 nnoremap <leader>ct :ChecklistToggleCheckbox<cr>
 nnoremap <leader>ce :ChecklistEnableCheckbox<cr>
-"nnoremap <leader>cd :ChecklistDisableCheckbox<cr>
 
 let g:gutentags_file_list_command = 'rg --files'
 
@@ -145,31 +145,48 @@ fun! GotoWindow(id)
     call win_gotoid(a:id)
 endfun
 
+
+fun! StartDebugging()
+    doautocmd User DebuggingStarted
+    :call vimspector#Launch()<CR>
+endfun
+
+" Easy save
+nnoremap <esc>s :w<cr>
+
+" Fly through windows
+nnoremap <esc>h <c-w>h
+nnoremap <esc>j <c-w>j
+nnoremap <esc>k <c-w>k
+nnoremap <esc>l <c-w>l
+
 " Debugger remaps
-nnoremap <leader>dd :call vimspector#Launch()<CR>
+nnoremap <F5> :call StartDebugging()<cr>
 nnoremap <leader>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
 nnoremap <leader>dt :call GotoWindow(g:vimspector_session_windows.tagpage)<CR>
 nnoremap <leader>dv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
 nnoremap <leader>dw :call GotoWindow(g:vimspector_session_windows.watches)<CR>
 nnoremap <leader>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
 nnoremap <leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
-nnoremap <leader>de :call vimspector#Reset()<CR>
+nnoremap <S-F5> :call vimspector#Reset()<CR>
 
 nnoremap <leader>dtcb :call vimspector#CleanLineBreakpoint()<CR>
 
-nmap <leader>dl <Plug>VimspectorStepInto
-nmap <leader>dj <Plug>VimspectorStepOver
-nmap <leader>dk <Plug>VimspectorStepOut
-nmap <leader>d_ <Plug>VimspectorRestart
-nnoremap <leader>d<space> :call vimspector#Continue()<CR>
+fun! SetupDebuggingKeymaps()
+    nmap <c-n> <Plug>VimspectorStepOver
+    nmap <c-i> <Plug>VimspectorStepInto
+    nmap <m-i> <Plug>VimspectorStepOut
+    nmap <c-s-r> <Plug>VimspectorRestart
+    nmap <F5> :call vimspector#Continue()<CR>
+endfun
+
+augroup debugmode
+    autocmd User DebuggingStarted :call SetupDebuggingKeymaps()
+augroup END
 
 nmap <leader>drc <Plug>VimspectorRunToCursor
 nmap <leader>dbp <Plug>VimspectorToggleBreakpoint
 nmap <leader>dcbp <Plug>VimspectorToggleConditionalBreakpoint
-
-" nb
-" TODO open a fuzzy finder quickly. Even better use fuzzy finder without chdir
-nnoremap <leader>nb :chdir $NB_PATH<cr>
 
 nnoremap cn *``cgn
 nnoremap cN *``cgN

@@ -88,5 +88,6 @@ HISTTIMEFORMAT="%F %T "
 HISTCONTROL=erasedups
 
 . "${XDG_CONFIG_HOME}/sh/functions"
+. "${XDG_CONFIG_HOME}/sh/aliases"
 [ -f "${XDG_CONFIG_HOME}/sh/unstaged" ] && . "${XDG_CONFIG_HOME}/sh/unstaged"
 

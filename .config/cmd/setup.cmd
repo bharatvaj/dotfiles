@@ -62,7 +62,7 @@ call :add_path %USERPROFILE%\.local\bin\cmd
 
 rem Apply config patches
 rem TODO Use mklink instead of xcopy, it will prevent overriding changed files in the destination dir.
-xcopy /Y %USERPROFILE%\.config\cmd\patch %USERPROFILE%\ /S /E
+xcopy /Y %XDG_ROOT%\.config\cmd\patch %XDG_ROOT%\ /S /E
 
 mkdir %SYSTEMDRIVE%\bin
 if EXIST "%SCOOP%\apps\busybox\current\busybox.exe" (

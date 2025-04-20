@@ -1,13 +1,11 @@
 set packpath^=$XDG_DATA_HOME/vim
 
 let g:minisnip_dir=$XDG_DATA_HOME . '/vim/minisnip'
+source $XDG_DATA_HOME/vim/keybindings.vim
+set packpath^=$XDG_DATA_HOME/vim
 
-set nocursorline
 set background=dark
 
 source $XDG_DATA_HOME/vim/hyper-red.vim
 
-set noexpandtab
-
-set path+=**
-set wildignore+=**/out/**
+let g:birck_default_chan="irc.libera.chat"

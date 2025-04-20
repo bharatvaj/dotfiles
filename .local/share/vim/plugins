@@ -4,43 +4,53 @@ tpope/vim-fugitive
 tpope/vim-surround
 tpope/vim-unimpaired
 tpope/vim-repeat
-Bestoa/SearchComplete
 tpope/vim-projectionist
 junegunn/goyo.vim
 AndrewRadev/tagalong.vim
+jpalardy/vim-slime
+Shougo/vimproc.vim
+yuratomo/dbg.vim
+PreciousChicken/vim-groff-viewer
+hattya/vcvars.vim
+mbbill/undotree
+chrisbra/csv.vim
+ldrumm/compiler-explorer.vim
+vim-scripts/todo-txt.vim
+yegappan/mru
+907th/vim-auto-save
 
+#yegappan/searchcomplete
+# https://git.sr.ht/~torresjrjr/birck.vim
+# mfussenegger/nvim-dap
+# neovim/nvim-lspconfig
+# preservim/tagbar
+# puremourning/vimspector
+# rcarriga/nvim-dap-ui
+# terrortylor/nvim-comment
+# xolox/vim-easytags
+# xolox/vim-misc
 #ap/vim-css-color
+#Bestoa/SearchComplete
+#bfrg/vim-fzy
 #cfdrake/vim-pbxproj
-#ervandew/supertab
-#vim-scripts/vimacs
-#vim-scripts/SearchComplete
 #christoomey/vim-tmux-navigator
+#ervandew/supertab
 #evansalter/vim-checklist
 #ferranpm/vim-maildir
+#gfontenot/vim-xcode
 #https://github.com/bfrg/vim-jqplay
+#jerrymarino/xcodebuild.vim
 #joereynolds/vim-minisnip/
+#kana/vim-submode
+#keith/swift.vim
 #nachumk/systemverilog.vim
 #notmuch-vim/notmuch-vim
 #ntpeters/vim-better-whitespace.git
+#omniSharp/omnisharp-vim
 #radenling/vim-dispatch-neovim
 #tommcdo/vim-ninja-feet.git
 #torrancew/vim-openscad
-#yegappan/mru
-
 #vim-scripts/gitignore
-#kana/vim-submode
-#omniSharp/omnisharp-vim
-#bfrg/vim-fzy
-#jerrymarino/xcodebuild.vim
-#gfontenot/vim-xcode
-#keith/swift.vim
-
-# https://git.sr.ht/~torresjrjr/birck.vim
-# rcarriga/nvim-dap-ui
-# mfussenegger/nvim-dap
-# terrortylor/nvim-comment
-# neovim/nvim-lspconfig
-# puremourning/vimspector
-# xolox/vim-misc
-# xolox/vim-easytags
-# preservim/tagbar
+#vim-scripts/SearchComplete
+#vim-scripts/vimacs
+#https://git.sr.ht/~ackyshake/VimCompletesMe.vim

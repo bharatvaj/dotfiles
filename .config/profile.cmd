@@ -11,5 +11,7 @@ doskey rm=del $*
 doskey clear=cls
 doskey cat=type $*
 doskey hb=sh %USERPROFILE%\.local\bin\sh\hb $*
+doskey d=curl -fLO $*
+doskey x=7z x $*
 
 if exist "%XDG_CONFIG_HOME%\cmd\userenv.cmd" @call %XDG_CONFIG_HOME%\cmd\userenv.cmd

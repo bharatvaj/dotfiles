@@ -59,8 +59,12 @@ endfunction
 " Run Make
 
 function SaveAndBuild()
-		wall
+	wall
+	if exists(":Make")
 		Make
+	else
+		make
+	endif
 endfunction
 
 function QuickUnderline(n)
