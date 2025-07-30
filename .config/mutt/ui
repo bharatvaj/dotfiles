@@ -42,6 +42,7 @@ color signature lightmagenta default
 color bold black default
 color underline black default
 color normal default default
+color index brightred black ~D
 
 # Regex highlighting:
 color header blue default ".*"

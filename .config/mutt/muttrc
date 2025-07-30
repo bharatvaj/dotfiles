@@ -1,30 +1,29 @@
 set mbox_type = Maildir
 
 source ~/.local/share/mutt/accounts
-source ~/.local/share/mutt/mailboxes
 source ~/.config/mutt/keybindings
 source ~/.config/mutt/ui
-
 
 set header_cache = ~/.cache/mutt/headercache
 
 set imap_check_subscribed
 # mailbox settings
-set spoolfile = +
+set spoolfile = +INBOX
 set postponed = +Drafts
 set record = +Sent
-set trash = +Trash
 
 set auto_tag = yes
 
 auto_view text/html
-set mailcap_path = ~/.config/mutt/mailcap
-
 set mailcap_path = "~/.config/mutt/mailcap"
 set mime_type_query_command = "file --mime-type -b %s"
 set date_format="%y/%m/%d %I:%M%p"
 set index_format="%D %-15.15F %s (%-4.4c)"
-set sort = 'reverse-date'
+
+set strict_threads = yes
+set sort_aux = last-date-received
+set sort = reverse-threads
+
 set smtp_authenticators = 'gssapi:login'
 set rfc2047_parameters = yes
 set sleep_time = 0

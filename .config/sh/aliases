@@ -2,7 +2,6 @@
 alias abook='abook --config "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/abook/addressbook'
 alias abook='abook -C "$XDG_CONFIG_HOME"/abook/abookrc --datafile "$XDG_DATA_HOME"/abook/addressbook'
 alias dict='dict -c "$XDG_CONFIG_HOME"/dict/dictrc'
-there mbsync && alias mbsync='mbsync -c "$XDG_CONFIG_HOME"/isync/mbsyncrc'
 alias startx='startx "$XDG_CONFIG_HOME/X11/xinitrc" vt1'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
