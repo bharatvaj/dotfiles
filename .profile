@@ -43,7 +43,12 @@ PATH=${PATH}:${HOME}/.local/bin:${HOME}/.local/bin/sh:${XDG_DATA_HOME}/npm/bin:$
 command -v vim && VISUAL=vim && EDITOR=vim
 } >/dev/null
 
-FUZZER=$(command -v fzy)
+if [ $(uname -s) = "Windows_NT" ]; then
+    FUZZER=$(command -v wlines)
+else
+    FUZZER=$(command -v fzy)
+fi
+FM=vifm
 
 BROWSER=lynx
 SURFRAW_browser="$BROWSER"

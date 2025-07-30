@@ -3,6 +3,30 @@ function! Chomp(str)
   return substitute(a:str, '\n$', '', '')
 endfunction
 
+func! TryAndDelete()
+    try
+        source %
+        bdelete
+    catch
+        echom "Cannot source file '" .. expand('<afile>') .. "'"
+    endt
+endfunc
+
+func! OpenOnce(fi)
+    :exec "vsplit" a:fi
+    aug EphemeralBuffer
+        au!
+        au! BufWritePost <buffer> bdelete
+    aug END
+endfunc
+
+func! OpenSource(fi)
+    :exec "vsplit" a:fi
+    aug EphemeralBuffer
+        au! | au! BufWritePost <buffer> call TryAndDelete()
+    aug END
+endfunc
+
 " Find a file and pass it to cmd
 function! DmenuOpen(cmd)
   let fname = Chomp(system("git ls-files | dmenu-mac -i -l 20 -p " . a:cmd))
@@ -59,6 +83,7 @@ endfunction
 " Run Make
 
 function SaveAndBuild()
+    botright copen
 	wall
 	if exists(":Make")
 		Make
