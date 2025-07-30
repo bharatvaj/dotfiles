@@ -1,17 +1,3 @@
-" vim: filetype=vifm :
-" Sample configuration file for vifm (last updated: 3 April, 2023)
-" You can edit this file by hand.
-" The " character at the beginning of a line comments out the line.
-" Blank lines are ignored.
-" The basic format for each item is shown with an example.
-
-" ------------------------------------------------------------------------------
-" Main settings
-" ------------------------------------------------------------------------------
-
-" Command used to edit files in various contexts.  The default is vim.
-" If you would like to use another vi clone such as Elvis or Vile
-" you will need to change this setting.
 if executable('vim')
     set vicmd=vim
 elseif executable('nvim')
@@ -25,18 +11,8 @@ elseif $EDITOR != ''
     let &vicmd = $EDITOR
 endif
 
-" This makes vifm perform file operations on its own instead of relying on
-" standard utilities like `cp`.  While using `cp` and alike is a more universal
-" solution, it's also much slower when processing large amounts of files and
-" doesn't support progress measuring.
 set syscalls
 
-" Trash Directory
-" The default is to move files that are deleted with dd or :d to
-" the trash directory.  If you change this you will not be able to move
-" files by deleting them and then using p to put the file in the new location.
-" I recommend not changing this until you are familiar with vifm.
-" This probably shouldn't be an option.
 set trash
 
 " What should be saved automatically on restarting vifm.  Drop "savedirs"
@@ -58,7 +34,7 @@ set undolevels=100
 
 " Use Vim's format of help file (has highlighting and "hyperlinks").
 " If you would rather use a plain text help file set novimhelp.
-set vimhelp
+set novimhelp
 
 " If you would like to run an executable file when you
 " press Enter, l or Right Arrow, set this.
@@ -99,7 +75,7 @@ if !has('win')
 endif
 
 " Set custom status line look
-set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+set statusline="%A %10u:%-7g %15s %20d  "
 
 
 " ------------------------------------------------------------------------------
@@ -108,6 +84,7 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 
 " :mark mark /full/directory/path [filename]
 
+mark c ~/.config/vifm/
 mark b ~/.local/bin/
 mark h ~/
 mark l ~/AppData/Local
@@ -465,7 +442,7 @@ if has('win')
     nnoremap yp :!echo %"d:gs!\!/! %i | clip<cr>
     " Yank path to current file to Windows clipboard with forward slashes
     nnoremap yf :!echo %"c:gs!\!/! %i | clip<cr>
-elseif $WAYLAND_DISPLAY
+elseif $WAYLAND_DISPLAY + ''
     if executable('wl-copy')
         " Yank current directory path into primary and selection clipboards
         nnoremap yd :!echo -n %d | wl-copy %i &&
@@ -474,7 +451,7 @@ elseif $WAYLAND_DISPLAY
         nnoremap yf :!echo -n %c:p | wl-copy %i &&
                     \ echo -n %c:p | wl-copy -p %i<cr>
     endif
-elseif $DISPLAY
+elseif $DISPLAY + ''
     if executable('xclip')
         " Yank current directory path into the clipboard
         nnoremap yd :!echo %d | xclip %i<cr>
@@ -561,12 +538,7 @@ nnoremap q :quit<cr>
 " Activate screen/tmux support
 " screen!
 
-" ------------------------------------------------------------------------------
-" Icon decorations example
-" ------------------------------------------------------------------------------
-
-" https://github.com/cirala/vifm_devicons
-colorscheme istib-solarized-dark
+colorscheme Default
 
 command create :
 \|  let $last_char = expand(system("str=\"%a\"; echo \"${str: -1}\""))
@@ -587,3 +559,5 @@ windo set viewcolumns=-85%{name},15%{size}
 set millerview
 set milleroptions+=rpreview:all
 set dotdirs-=nonrootparent
+
+only
