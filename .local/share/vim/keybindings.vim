@@ -1,9 +1,16 @@
 " General keybindings
-nnoremap <leader>co :copen<cr>
-nnoremap <leader>cd :cdo<space>s/
+inoremap <C-{> <esc>:
+nnoremap <C-{> :
+
+nnoremap <C-/> :vim9cmd scope#fuzzy#Grep('git grep')<cr>
+nnoremap <C-`> :terminal<cr>
+
+nnoremap <F4> :call SaveAndBuild()<cr>
+
+nnoremap <leader>co :botright copen<cr>
 nnoremap <leader>cs :cdo<space>s/
-nnoremap <leader>ec :vsplit $HOME/.vimrc<cr>
-nnoremap <leader>ek :vsplit $XDG_DATA_HOME/vim/keybindings.vim<cr>
+nnoremap <leader>ec :call OpenSource("$XDG_HOME/.vimrc")<cr>
+nnoremap <leader>ek :call OpenSource("$XDG_DATA_HOME/vim/keybindings.vim")<cr>
 nnoremap <leader>et :set expandtab<cr>
 nnoremap <leader>fa :find *
 nnoremap <leader>ff :find *
@@ -22,13 +29,17 @@ nnoremap <leader>ta :tab *
 nnoremap <leader>vg :vimgrep<space>
 nnoremap <leader>/ :cdo %s/
 nnoremap <leader>cd :cd %:p:h<cr>
+nnoremap <leader>gcd :Gcd<cr>
 nnoremap <leader>qd :cdo s/
 
 " Buffer Creation
 nnoremap <leader>sc :source $XDG_CONFIG_HOME/vim/vimrc<cr>
 nnoremap <leader>ss :split<cr>
 nnoremap <leader>vv :vsplit<cr>
-nnoremap <leader>wd :call DiffWithSaved()<cr>
+
+nnoremap <leader>ds :call DiffWithSaved()<cr>
+" TODO Add du to diff with undo
+" nnoremap <leader>ds :call DiffWithSaved()<cr>
 
 fun! SaveAndSuspend()
     :w
@@ -58,12 +69,28 @@ nnoremap <c-z> :call SaveAndSuspend()<cr>
 inoremap <c-z> :call SaveAndSuspend()<cr>
 
 " Accessible completions
-inoremap <c-f> <c-x><c-f>
 inoremap <c-l> <c-x><c-l>
 " Emacs line navigation in insert mode
 inoremap <c-a> <c-o>0
 inoremap <c-e> <c-o>A
 inoremap <c-k> <c-o>D
+inoremap <c-y> <c-o>p
+inoremap <c-f> <Right>
+inoremap <c-b> <Left>
+
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+cnoremap <c-y> <c-r>"
+cnoremap <c-p> <c-f>
+cnoremap <c-f> <Right>
+cnoremap <c-b> <Left>
+
+nnoremap <c-x><c-f> :Explore<cr>/
+nnoremap <c-x><c-c> :q<cr>
+nnoremap <c-x><c-g> :G<cr>/
+nnoremap <c-x><c-s-g> :G<cr>
+nnoremap <c-x><c-d> :Debugger<cr>
+nnoremap <c-x><c-s> :w<cr>
 
 " Behave vim
 nnoremap Y y$
@@ -75,12 +102,9 @@ nnoremap <leader>oh :grepadd /:: %
 
 nnoremap <leader>fb :b *
 
-nnoremap <c-/> :call FZYFiles()<cr>
 " TODO reflect on whether <leader><leader> is productive, I keep hitting it
 " accidentally
 "nnoremap <leader><leader> :Rg<cr>
-" TODO setup this up with fzf
-nnoremap \g :Ggrep<cr>
 
 fun! SetupCommandAlias(from, to)
   exec 'cnoreabbrev <expr> '.a:from
@@ -98,7 +122,8 @@ nnoremap <leader>tl :call ToggleList()<CR>
 nnoremap <leader>nn :set number<cr>
 
 " development
-nnoremap <leader>bb :call SaveAndBuild()<CR>
+nnoremap <M-F9> :call SaveAndBuild()<cr>
+inoremap <M-F9> :call SaveAndBuild()<cr>
 nnoremap <leader>bc :Make clean<CR>
 
 nnoremap <leader>fmv :call FileMvHelper()<CR>
@@ -110,8 +135,8 @@ nnoremap <leader>qq :q<cr>
 
 " vim-fugitive
 nnoremap <leader>gb :G blame<cr>
-nnoremap <leader>gd :Gvdiff<CR>
-nnoremap <leader>gg :Ggrep<space>
+nnoremap <leader>dg :Gvdiff<CR>
+nnoremap <leader>gg :Ggrep -q <space>
 nnoremap <leader>gr :G reset %<cr>
 nnoremap <leader>gwq :Gwq<cr>
 nnoremap <leader>lg :Glgrep<space>
@@ -120,7 +145,7 @@ nnoremap <leader>lg :Glgrep<space>
 " Generate ctags
 nnoremap<leader>gt :!sh -c "ctags `git ls-files`"<CR>
 
-nnoremap <CR> :noh<CR><CR>:<backspace>
+nnoremap <C-L> :nohl<CR><C-L>
 
 " Markdown - Add checkbox mode?
 nnoremap <leader>cc :ChecklistToggleCheckbox<cr>
@@ -129,9 +154,6 @@ nnoremap <leader>ce :ChecklistEnableCheckbox<cr>
 
 let g:gutentags_file_list_command = 'rg --files'
 
-" vim-fugitive
-nnoremap <leader>gg :Ggrep<space>
-nnoremap <leader>lg :Glgrep<space>
 
 autocmd FileType markdown set cursorline
 
@@ -148,7 +170,7 @@ endfun
 
 fun! StartDebugging()
     doautocmd User DebuggingStarted
-    :call vimspector#Launch()<CR>
+    :Termdebug .\payredu.exe<cr>
 endfun
 
 " Easy save
@@ -166,18 +188,21 @@ nnoremap <leader>dc :call GotoWindow(g:vimspector_session_windows.code)<CR>
 nnoremap <leader>dt :call GotoWindow(g:vimspector_session_windows.tagpage)<CR>
 nnoremap <leader>dv :call GotoWindow(g:vimspector_session_windows.variables)<CR>
 nnoremap <leader>dw :call GotoWindow(g:vimspector_session_windows.watches)<CR>
-nnoremap <leader>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
+" nnoremap <leader>ds :call GotoWindow(g:vimspector_session_windows.stack_trace)<CR>
 nnoremap <leader>do :call GotoWindow(g:vimspector_session_windows.output)<CR>
 nnoremap <S-F5> :call vimspector#Reset()<CR>
 
 nnoremap <leader>dtcb :call vimspector#CleanLineBreakpoint()<CR>
 
 fun! SetupDebuggingKeymaps()
-    nmap <c-n> <Plug>VimspectorStepOver
+    nmap <> <Plug>VimspectorStepOver
     nmap <c-i> <Plug>VimspectorStepInto
     nmap <m-i> <Plug>VimspectorStepOut
     nmap <c-s-r> <Plug>VimspectorRestart
-    nmap <F5> :call vimspector#Continue()<CR>
+    nmap <F9> :Break<cr>
+    nmap <C-S-F9> :Clear<CR>
+    nmap <F5> :Continue<CR>
+    nmap <S-F5> :Finish<CR>
 endfun
 
 augroup debugmode
@@ -193,4 +218,18 @@ nnoremap cN *``cgN
 let g:mc = "y/\\V\<C-r>=escape(@\", '/')\<CR>\<CR>"
 vnoremap <expr> cn g:mc . "``cgn"
 
+let g:ctrlp_map = '<F2>'
+nnoremap <F1> :CtrlPBuffer<cr>
+inoremap <F1> :CtrlPBuffer<cr>
+nnoremap <S-F1> :CtrlPMRU<cr>
+inoremap <S-F1> :CtrlPMRU<cr>
+"
+" TODO setup this up with fzf
+nnoremap <F2> :vim9cmd scope#fuzzy#GitFile()<cr>
+nnoremap <S-F2> :vim9cmd scope#fuzzy#File()<cr>
 
+nnoremap <F3> :vim9cmd call scope#fuzzy#Quickfix()<cr>
+
+if has('macunix')
+    :imap <D-V> ^O"+p
+en

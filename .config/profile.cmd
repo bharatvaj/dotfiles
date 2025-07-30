@@ -3,7 +3,7 @@
 doskey n=cd $*
 doskey g=git $*
 doskey e=%EDITOR% $*
-doskey l=lfcd.cmd
+doskey l=vifm .
 doskey ls=dir /B $*
 doskey m=make $*
 doskey pwd=cd
@@ -14,5 +14,9 @@ doskey open=start $*
 doskey hb=sh %USERPROFILE%\.local\bin\sh\hb $*
 doskey d=curl -fLO $*
 doskey x=7z x $*
+
+set FM=vifm
+
+IF /I x"%COMSPEC%"==x%CMDCMDLINE% (cd /D %USERPROFILE%)
 
 if exist "%XDG_CONFIG_HOME%\cmd\userenv.cmd" @call %XDG_CONFIG_HOME%\cmd\userenv.cmd

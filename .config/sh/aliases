@@ -43,14 +43,15 @@ alias e='${EDITOR}'
 alias f=quickopen
 alias g=git
 # TODO Use nnncd
-alias l=nnn
+alias l='vifm .'
 alias le=less
 alias m=smartmake
 alias x=extract.sh
 there rc || alias rc='sudo systemctl'
 
 # [midlonghands]
-alias op='cd $(open_project "$HOME/repo" | fzf)'
+alias or='open_project ~/repo'
+alias orr='open_project ~/resrepo'
 alias girl='grep -irl'
 alias gir='grep -ir'
 alias markdown=md2html

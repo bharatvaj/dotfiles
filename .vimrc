@@ -1,12 +1,25 @@
+" Handle missing XDG_s gracefully
+if !exists("$XDG_HOME")
+    let $XDG_HOME = has("win32") ? expand("$USERPROFILE") : expand("$HOME")
+endif
+if !exists("$XDG_DATA_HOME") | let $XDG_DATA_HOME=expand("$XDG_HOME/.local/share") | endif
+if !exists("$XDG_CACHE_HOME") | let $XDG_CACHE_HOME=expand("$XDG_HOME/.cache") | endif
+
+if !exists("$VIM") | let $VIM=expand("$XDG_DATA_HOME/vim") | endif
+
+if has("&viminfofile") | set viminfofile=$XDG_CACHE_HOME/vim/viminfo | endif
+
+set rtp+=C:/Users/bhara/.local/share/vim
+
+filetype plugin indent on
 syntax on
 
-" Handle XDG_ missing gracefully
-if empty("$XDG_CACHE_HOME")
-	let $XDG_CACHE_HOME=$HOME/.cache
-endif
-if has("&viminfofile")
-    set viminfofile=$XDG_CACHE_HOME/vim/viminfo
-endif
+set packpath^=$XDG_DATA_HOME/vim
+
+source $XDG_DATA_HOME/vim/keybindings.vim
+source $XDG_DATA_HOME/vim/hyper-red.vim
+
+let g:birck_default_chan="irc.libera.chat"
 
 " General
 set ai
@@ -35,8 +48,6 @@ set hlsearch
 set incsearch
 set nowrapscan
 
-" Pro tab
-filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -54,9 +65,11 @@ let g:netrw_liststyle = 3
 let g:netrw_fastbrowse= 2
 let g:netrw_dirhistmax = 0
 let g:netrw_preview = 1
-let g:netrw_winsize = 20
+let g:netrw_winsize = 30
 
-source $XDG_DATA_HOME/vim/vimrc
+set updatetime=100
+
+
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 let g:loaded_vimballPlugin = 1
@@ -65,10 +78,11 @@ let g:loaded_getscriptPlugin = 1
 
 let maplocalleader=" "
 set complete-=i
-set foldmethod=marker
+set foldmethod=marker             
 set foldmarker={,}
 set foldlevel=20
 set foldopen-=search
+
 
 " Debug
 let g:termdebug_config = {'sign': '>>', 'winbar': 0, 'wide':163}
@@ -91,29 +105,7 @@ function! FZYFiles() abort
 	endtry
 endfunction
 
-let g:lsc_server_commands = {'cpp': 'clangd --log=error'}
-let g:lsc_auto_map = {
-    \ 'GoToDefinition': '<C-]>',
-    \ 'GoToDefinitionSplit': ['<C-W>]', '<C-W><C-]>'],
-    \ 'FindReferences': 'gr',
-    \ 'FindImplementations': 'gI',
-    \ 'FindCodeActions': 'ga',
-    \ 'Rename': 'gR',
-    \ 'ShowHover': v:true,
-    \ 'DocumentSymbol': 'go',
-    \ 'WorkspaceSymbol': 'gS',
-    \ 'SignatureHelp': 'gm',
-    \ 'Completion': 'completefunc',
-    \}
-let g:lsc_enable_autocomplete  = v:true
-let g:lsc_enable_diagnostics   = v:true
-let g:lsc_reference_highlights = v:false
-let g:lsc_trace_level          = 'off'
-
 set synmaxcol=128
-set runtimepath^='$XDG_CONFIG_HOME/vim'
-set runtimepath+='$XDG_DATA_HOME/vim'
-set runtimepath+='$XDG_CONFIG_HOME/vim/after'
 
 let g:netrw_home = $XDG_DATA_HOME . "/vim"
 call mkdir($XDG_DATA_HOME . "/vim/spell", 'p')
@@ -124,32 +116,81 @@ set directory=$XDG_CACHE_HOME/vim/swap   | call mkdir(&directory, 'p')
 set undodir=$XDG_CACHE_HOME/vim/undo     | call mkdir(&undodir,   'p')
 
 function! s:load_plugins(t) abort
-	packadd vim-tmux-navigator
 	packadd vim-commentary
 	packadd vim-surround
 	packadd vim-ninja-feet
 	packadd vim-fugitive
 	packadd vim-unimpaired
 	packadd vim-better-whitespace
-	packadd notmuch-vim
 	packadd vim-dispatch
-	packadd termdebug
-	let g:termdebug_wide=163
-	let g:notmuch_use_fzf = 1
-	let g:notmuch_open_command = 'fzf'
-	let g:notmuch_fzf_command = 'fzf --reverse'
-	let g:notmuch_use_conversation_view = 1
-	let sendmail_path = systemlist('sed -n "s/^set sendmail=\(.*\)$/\1/p; $!d" ~/.mailrc')
-	if len(sendmail_path) > 0
-		let g:notmuch_sendmail=sendmail_path[0]
-	endif
-endfunction
-augroup user_cmds
-	autocmd!
-	autocmd VimEnter * call timer_start(20, function('s:load_plugins'))
-augroup END
+	packadd ctrlp.vim
+    packadd conflict-marker.vim
+    packadd mru
 
-source $XDG_CONFIG_HOME/vim/ftplugin/cpp.vim
+    call s:plugin_post_conf()
+endfunction
+
+
+func! s:plugin_post_conf()
+    let g:ctrlp_by_filename = 1
+    let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
+
+    let g:ctrlp_prompt_mappings = {
+            \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
+            \'PrtSelectMove("k")':   ['<c-p>', '<up>'], 
+            \ 'PrtHistory(-1)':       ['<c-j>'],
+            \ 'PrtHistory(1)':        ['<c-k>'],
+            \ }
+
+    if executable('ag')
+        " Use Ag over Grep
+        set grepprg=ag\ --nogroup\ --nocolor
+
+        " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+        let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    endif
+
+    packadd termdebug
+    let g:termdebug_wide=163
+
+    if !has("win32")
+        packadd vim-tmux-navigator
+        packadd notmuch-vim
+        let g:notmuch_use_fzf = 1
+        let g:notmuch_open_command = 'fzf'
+        let g:notmuch_fzf_command = 'fzf --reverse'
+        let g:notmuch_use_conversation_view = 1
+        let sendmail_path = systemlist('sed -n "s/^set sendmail=\(.*\)$/\1/p; $!d" ~/.mailrc')
+        if len(sendmail_path) > 0
+            let g:notmuch_sendmail=sendmail_path[]
+        endif
+    endif
+
+    let g:lsc_server_commands = {'cpp': 'clangd --log=error'}
+    let g:lsc_auto_map = {
+        \ 'GoToDefinition': '<C-]>',
+        \ 'GoToDefinitionSplit': ['<C-W>]', '<C-W><C-]>'],
+        \ 'FindReferences': 'gr',
+        \ 'FindImplementations': 'gI',
+        \ 'FindCodeActions': 'ga',
+        \ 'Rename': 'gR',
+        \ 'ShowHover': v:true,
+        \ 'DocumentSymbol': 'go',
+        \ 'WorkspaceSymbol': 'gS',
+        \ 'SignatureHelp': 'gm',
+        \ 'Completion': 'completefunc',
+        \}
+    let g:lsc_enable_autocomplete  = v:true
+    let g:lsc_enable_diagnostics   = v:true
+    let g:lsc_reference_highlights = v:false
+    let g:lsc_trace_level          = 'off'
+endfunc
+
+aug user_cmds
+	au!
+	au VimEnter * call timer_start(20, function('s:load_plugins'))
+aug END
+
 source $XDG_DATA_HOME/vim/plugin.vim
 
 if has("gui")
@@ -157,9 +198,11 @@ if has("gui")
 	set mouse=a
 	if has("win32")
 		set guifont=FixedSys:h11:cANSI:qDRAFT
-		colorscheme default
-		set background=light
 	endif
+    " TODO Implement fg or reverse <c-z>
+    nnoremap <c-z> :term<cr><c-w>o
+    inoremap <c-z> :term<cr><c-w>o
+    tnoremap <c-z> <c-w>:hide edit #<cr>
 endif
 
 if has("win32")
@@ -171,14 +214,13 @@ else
 	set shell=sh
 endif
 
-" Map key chord `jk` to <Esc>
-let g:esc_j_lasttime = 0
-let g:esc_k_lasttime = 0
-function! JKescape(key)
-	if a:key == 'j' | let g:esc_j_lasttime = reltimefloat(reltime()) | endif
-	if a:key == 'k' | let g:esc_k_lasttime = reltimefloat(reltime()) | endif
-	let l:timediff = abs(g:esc_j_lasttime - g:esc_k_lasttime)
-	return (l:timediff <= 0.05 && l:timediff >=0.001) ? "\b\e" : a:key
-endfunction
-inoremap <expr> j JKescape('j')
-inoremap <expr> k JKescape('k')
+source $XDG_DATA_HOME/vim/hyper-red.vim
+
+let g:table_mode_toggle_map = 'mm'
+let g:table_mode_corner='|'
+
+if !exists('g:undotree_WindowLayout')
+	let g:undotree_WindowLayout = 4
+	let g:undotree_ShortIndicators = 1
+endif
+

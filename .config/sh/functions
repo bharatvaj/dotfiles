@@ -7,10 +7,12 @@ there() {
 
 open_project() {
 	# search only dirs
-	search_loc=${1:-.}/*
-	for i in $search_loc/.git/ $search_loc/*/.git/; do
-		echo "$i.."
-	done
+	search_loc=${1:-.}
+    cd "${search_loc}"
+    projdir=$(ls -d */.git | sed 's/.git$//g' | $FUZZER)
+    if [ -d "${projdir}" ]; then
+        cd "${projdir}"
+    fi
 } && export $is_bash open_project
 
 attach() {
