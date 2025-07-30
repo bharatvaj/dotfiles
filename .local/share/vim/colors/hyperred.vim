@@ -1,8 +1,11 @@
-" Hyper Red
+" Vim color file
+" Name: hyperred.vim
+"
 " TODO handle tCo less than 16 case
 " TODO handle light theme
 " Probably use a autogroup for handling tCo count change
-" Do it in lua
+
+highlight clear
 
 if version > 580
 	hi clear
@@ -10,6 +13,8 @@ if version > 580
 		syntax reset
 	endif
 endif
+
+let g:colors_name = "hyperred""
 
 hi! VertSplit term=NONE cterm=NONE gui=NONE
 hi! SignColumn ctermbg=NONE guibg=NONE

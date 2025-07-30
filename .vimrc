@@ -9,7 +9,10 @@ if !exists("$VIM") | let $VIM=expand("$XDG_DATA_HOME/vim") | endif
 
 if has("&viminfofile") | set viminfofile=$XDG_CACHE_HOME/vim/viminfo | endif
 
-set rtp+=C:/Users/bhara/.local/share/vim
+set rtp+=$XDG_DATA_HOME/vim
+
+set background=dark
+colorscheme hyperred
 
 filetype plugin indent on
 syntax on
@@ -17,7 +20,6 @@ syntax on
 set packpath^=$XDG_DATA_HOME/vim
 
 source $XDG_DATA_HOME/vim/keybindings.vim
-source $XDG_DATA_HOME/vim/hyper-red.vim
 
 let g:birck_default_chan="irc.libera.chat"
 
@@ -162,7 +164,7 @@ func! s:plugin_post_conf()
         let g:notmuch_use_conversation_view = 1
         let sendmail_path = systemlist('sed -n "s/^set sendmail=\(.*\)$/\1/p; $!d" ~/.mailrc')
         if len(sendmail_path) > 0
-            let g:notmuch_sendmail=sendmail_path[]
+            "let g:notmuch_sendmail=sendmail_path[]
         endif
     endif
 
@@ -213,8 +215,6 @@ if has("win32")
 else
 	set shell=sh
 endif
-
-source $XDG_DATA_HOME/vim/hyper-red.vim
 
 let g:table_mode_toggle_map = 'mm'
 let g:table_mode_corner='|'
