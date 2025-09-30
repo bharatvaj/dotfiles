@@ -1,35 +1,44 @@
+907th/vim-auto-save
+AndrewRadev/tagalong.vim
+chrisbra/csv.vim
+dhruvasagar/vim-table-mode
+epheien/termdbg
+hattya/vcvars.vim
+ldrumm/compiler-explorer.vim
+mbbill/undotree
+PreciousChicken/vim-groff-viewer
+Shougo/vimproc.vim
+https://sr.ht/~ackyshake/VimCompletesMe.vim
+yegappan/mru
+torrancew/vim-openscad
+axvr/zepl.vim
+#dense-analysis/ale
+prabirshrestha/vim-lsp
+mattn/vim-lsp-settings
+prabirshrestha/asyncomplete.vim
+
+[opt]
+tpope/vim-obsession
 tpope/vim-commentary
+tpope/vim-dadbod
 tpope/vim-dispatch
 tpope/vim-fugitive
+tpope/vim-projectionist
+tpope/vim-repeat
 tpope/vim-surround
 tpope/vim-unimpaired
-tpope/vim-repeat
-tpope/vim-projectionist
-junegunn/goyo.vim
-AndrewRadev/tagalong.vim
-jpalardy/vim-slime
-Shougo/vimproc.vim
-yuratomo/dbg.vim
-PreciousChicken/vim-groff-viewer
-hattya/vcvars.vim
-mbbill/undotree
-chrisbra/csv.vim
-ldrumm/compiler-explorer.vim
 vim-scripts/todo-txt.vim
-yegappan/mru
-907th/vim-auto-save
+yuratomo/dbg.vim
+mhinz/vim-signify
+junegunn/gv.vim
+vifm/vifm.vim
+ctrlpvim/ctrlp.vim
+axvr/org.vim
+rhysd/conflict-marker.vim
+jpalardy/vim-slime
+junegunn/goyo.vim
+ap/vim-css-color
 
-#yegappan/searchcomplete
-# https://git.sr.ht/~torresjrjr/birck.vim
-# mfussenegger/nvim-dap
-# neovim/nvim-lspconfig
-# preservim/tagbar
-# puremourning/vimspector
-# rcarriga/nvim-dap-ui
-# terrortylor/nvim-comment
-# xolox/vim-easytags
-# xolox/vim-misc
-#ap/vim-css-color
 #Bestoa/SearchComplete
 #bfrg/vim-fzy
 #cfdrake/vim-pbxproj
@@ -38,19 +47,30 @@ yegappan/mru
 #evansalter/vim-checklist
 #ferranpm/vim-maildir
 #gfontenot/vim-xcode
+#https://git.sr.ht/~ackyshake/VimCompletesMe.vim
+#https://git.sr.ht/~torresjrjr/birck.vim
 #https://github.com/bfrg/vim-jqplay
 #jerrymarino/xcodebuild.vim
 #joereynolds/vim-minisnip/
 #kana/vim-submode
 #keith/swift.vim
+#mfussenegger/nvim-dap
 #nachumk/systemverilog.vim
+#neovim/nvim-lspconfig
 #notmuch-vim/notmuch-vim
 #ntpeters/vim-better-whitespace.git
 #omniSharp/omnisharp-vim
+#preservim/tagbar
+#puremourning/vimspector
 #radenling/vim-dispatch-neovim
+#rcarriga/nvim-dap-ui
+#terrortylor/nvim-comment
 #tommcdo/vim-ninja-feet.git
-#torrancew/vim-openscad
+#tpope/vim-vinegar
 #vim-scripts/gitignore
 #vim-scripts/SearchComplete
 #vim-scripts/vimacs
-#https://git.sr.ht/~ackyshake/VimCompletesMe.vim
+#xolox/vim-easytags
+#xolox/vim-misc
+#yegappan/searchcomplete
+# psliwka/vim-smoothie # smooth scrolling for vim, it is good, but I personally don't need smooth scrolling

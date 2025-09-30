@@ -14,6 +14,7 @@ doskey open=start $*
 doskey hb=sh %USERPROFILE%\.local\bin\sh\hb $*
 doskey d=curl -fLO $*
 doskey x=7z x $*
+doskey dot=git --git-dir="%USERPROFILE%\.dotfiles" --work-tree="%USERPROFILE%" $*
 
 set FM=vifm
 

@@ -1,3 +1,9 @@
+let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰', '│', '─']
+let g:ale_floating_window_border = repeat([''], 8)
+let g:ale_c_parse_makefile = 1
+let g:ale_c_always_make = 1
+let g:ale_completion_enabled = 1
+let g:ale_fixers = { 'c': 'astyle' }
 " Handle missing XDG_s gracefully
 if !exists("$XDG_HOME")
     let $XDG_HOME = has("win32") ? expand("$USERPROFILE") : expand("$HOME")
@@ -11,6 +17,7 @@ if has("&viminfofile") | set viminfofile=$XDG_CACHE_HOME/vim/viminfo | endif
 
 set rtp+=$XDG_DATA_HOME/vim
 
+set termguicolors
 set background=dark
 colorscheme hyperred
 
@@ -32,6 +39,7 @@ set nocompatible
 set noexpandtab
 set nofixendofline
 set shortmess=Iat
+if has("signs") | set signcolumn=yes | endif
 
 " Turn backup off
 "set nobackup
@@ -152,6 +160,7 @@ func! s:plugin_post_conf()
         let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
     endif
 
+
     packadd termdebug
     let g:termdebug_wide=163
 
@@ -168,24 +177,6 @@ func! s:plugin_post_conf()
         endif
     endif
 
-    let g:lsc_server_commands = {'cpp': 'clangd --log=error'}
-    let g:lsc_auto_map = {
-        \ 'GoToDefinition': '<C-]>',
-        \ 'GoToDefinitionSplit': ['<C-W>]', '<C-W><C-]>'],
-        \ 'FindReferences': 'gr',
-        \ 'FindImplementations': 'gI',
-        \ 'FindCodeActions': 'ga',
-        \ 'Rename': 'gR',
-        \ 'ShowHover': v:true,
-        \ 'DocumentSymbol': 'go',
-        \ 'WorkspaceSymbol': 'gS',
-        \ 'SignatureHelp': 'gm',
-        \ 'Completion': 'completefunc',
-        \}
-    let g:lsc_enable_autocomplete  = v:true
-    let g:lsc_enable_diagnostics   = v:true
-    let g:lsc_reference_highlights = v:false
-    let g:lsc_trace_level          = 'off'
 endfunc
 
 aug user_cmds
@@ -207,9 +198,14 @@ if has("gui")
     tnoremap <c-z> <c-w>:hide edit #<cr>
 endif
 
+set shellslash
+
 if has("win32")
 	set shell=cmd
 	set shellquote=\" 
+    aug scriptingshellslash
+        au FileType dosbatch,ps1 set noshellslash
+    aug END
 	" shellxquote must be a literal space character.
 	set shellxquote=  
 else
@@ -224,3 +220,25 @@ if !exists('g:undotree_WindowLayout')
 	let g:undotree_ShortIndicators = 1
 endif
 
+"let g:lsc_server_commands = {
+"            \ 'c': {
+"            \    'command': 'clangd',
+"            \    },
+"            \}
+"let g:lsc_auto_map = {
+"            \ 'GoToDefinition': '<C-]>',
+"            \ 'GoToDefinitionSplit': ['<C-W>]', '<C-W><C-]>'],
+"            \ 'FindReferences': 'gr',
+"            \ 'FindImplementations': 'gI',
+"            \ 'FindCodeActions': 'ga',
+"            \ 'Rename': 'gR',
+"            \ 'ShowHover': v:true,
+"            \ 'DocumentSymbol': 'go',
+"            \ 'WorkspaceSymbol': 'gS',
+"            \ 'SignatureHelp': 'gm',
+"            \ 'Completion': 'completefunc',
+"            \}
+"let g:lsc_enable_autocomplete  = v:true
+"let g:lsc_enable_diagnostics   = v:true
+"let g:lsc_reference_highlights = v:false
+"let g:lsc_trace_level          = 'off'

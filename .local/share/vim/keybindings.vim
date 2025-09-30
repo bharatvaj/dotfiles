@@ -94,13 +94,26 @@ nnoremap <c-x><c-s> :w<cr>
 
 " Behave vim
 nnoremap Y y$
-nnoremap Q :noh<cr>
+nmap Q gzip
+
+if has("win32")
+    " TODO Check if alt is allowed along with win32 check?
+    nnoremap ë :cprev<cr>
+    nnoremap ê :cnext<cr>
+endif
+
+nnoremap <A-k> :cprev<cr>
+nnoremap <A-j> :cnext<cr>
 
 " development
 nnoremap <leader>oc :grepadd /:: %
 nnoremap <leader>oh :grepadd /:: %
 
+nnoremap <S-Insert> :set paste | :norm <C-R>+
+
 nnoremap <leader>fb :b *
+
+vnoremap <tab> >>
 
 " TODO reflect on whether <leader><leader> is productive, I keep hitting it
 " accidentally

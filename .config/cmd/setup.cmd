@@ -105,8 +105,9 @@ if EXIST %SCOOP%\apps\gpg\current\bin\gpgconf.ctl (
 
 call :add_path "%XDG_ROOT%\scoop\shims"
 rem Always use \\ infront of '.' (causes issue with findstr)
-call :add_path "%XDG_ROOT%\\.local\bin\cmd"
+call :add_path "%XDG_ROOT%\.local\bin\cmd"
 call :add_path "%SYSTEMDRIVE%\bin"
+call :add_path "%APPDATA%\Python\Python313\Scripts"
 
 set CLINK_EXE="%XDG_ROOT%\scoop\shims\clink.exe"
 
