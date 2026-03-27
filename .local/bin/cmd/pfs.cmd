@@ -15,7 +15,7 @@ if not exist "%PASSWORD_STORE_DIR%" (
     exit /b 1
 )
 
-for /f %%i in ('"gopass ls -f | %FUZZER%"') do (
+for /f %%i in ('"%PASSTOOL% ls -f | %FUZZER%"') do (
     set selected_pass=%%i
 )
 
@@ -25,12 +25,12 @@ if "%selected_pass%" equ "" (
 
 if "%1" equ "" (
     if "%selected_pass:~0,5%" equ "totp/" (
-        gopass otp -c %selected_pass%
+        %PASSTOOL% otp %selected_pass%
     ) else (
-        gopass show -c %selected_pass%
+        %PASSTOOL% show %selected_pass%
     )
 ) else (
-    gopass %1 %selected_pass%
+    %PASSTOOL% %selected_pass%
 )
 
 endlocal

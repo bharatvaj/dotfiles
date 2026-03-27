@@ -1,9 +1,23 @@
 let g:ale_floating_window_border = ['│', '─', '╭', '╮', '╯', '╰', '│', '─']
 let g:ale_floating_window_border = repeat([''], 8)
-let g:ale_c_parse_makefile = 1
-let g:ale_c_always_make = 1
 let g:ale_completion_enabled = 1
-let g:ale_fixers = { 'c': 'astyle' }
+let g:ale_fixers = { 'c': [ 'astyle'] }
+let g:ale_linters = { 'javascript': ['quicklintjs'] }
+let g:ale_lint_on_enter = 1
+let g:ale_disable_lsp = 0
+
+let g:ale_lint_delay = 0
+let g:ale_lint_on_text_changed = 'always'
+if exists('#ALEEvents')
+  call ale#events#Init()
+endif
+
+"let g:lsp_use_native_client = 1
+"let g:lsp_diagnostics_virtual_text_enabled = 0
+"let g:lsp_diagnostics_enabled  = 1
+"let g:lsp_diagnostics_echo_cursor  = 1
+
+
 " Handle missing XDG_s gracefully
 if !exists("$XDG_HOME")
     let $XDG_HOME = has("win32") ? expand("$USERPROFILE") : expand("$HOME")
@@ -16,10 +30,6 @@ if !exists("$VIM") | let $VIM=expand("$XDG_DATA_HOME/vim") | endif
 if has("&viminfofile") | set viminfofile=$XDG_CACHE_HOME/vim/viminfo | endif
 
 set rtp+=$XDG_DATA_HOME/vim
-
-set termguicolors
-set background=dark
-colorscheme hyperred
 
 filetype plugin indent on
 syntax on
@@ -73,7 +83,6 @@ set nospell
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_fastbrowse= 2
-let g:netrw_dirhistmax = 0
 let g:netrw_preview = 1
 let g:netrw_winsize = 30
 
@@ -115,7 +124,7 @@ function! FZYFiles() abort
 	endtry
 endfunction
 
-set synmaxcol=128
+set synmaxcol=1000
 
 let g:netrw_home = $XDG_DATA_HOME . "/vim"
 call mkdir($XDG_DATA_HOME . "/vim/spell", 'p')
@@ -137,11 +146,10 @@ function! s:load_plugins(t) abort
     packadd conflict-marker.vim
     packadd mru
 
-    call s:plugin_post_conf()
+    call s:plugin_post_load()
 endfunction
 
-
-func! s:plugin_post_conf()
+func! s:plugin_post_load()
     let g:ctrlp_by_filename = 1
     let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 
@@ -196,6 +204,10 @@ if has("gui")
     nnoremap <c-z> :term<cr><c-w>o
     inoremap <c-z> :term<cr><c-w>o
     tnoremap <c-z> <c-w>:hide edit #<cr>
+else
+    set termguicolors
+    set background=dark
+    colorscheme hyperred
 endif
 
 set shellslash
@@ -208,37 +220,28 @@ if has("win32")
     aug END
 	" shellxquote must be a literal space character.
 	set shellxquote=  
+    set guicursor=a:blinkon0
 else
 	set shell=sh
 endif
-
-let g:table_mode_toggle_map = 'mm'
-let g:table_mode_corner='|'
 
 if !exists('g:undotree_WindowLayout')
 	let g:undotree_WindowLayout = 4
 	let g:undotree_ShortIndicators = 1
 endif
 
-"let g:lsc_server_commands = {
-"            \ 'c': {
-"            \    'command': 'clangd',
-"            \    },
-"            \}
-"let g:lsc_auto_map = {
-"            \ 'GoToDefinition': '<C-]>',
-"            \ 'GoToDefinitionSplit': ['<C-W>]', '<C-W><C-]>'],
-"            \ 'FindReferences': 'gr',
-"            \ 'FindImplementations': 'gI',
-"            \ 'FindCodeActions': 'ga',
-"            \ 'Rename': 'gR',
-"            \ 'ShowHover': v:true,
-"            \ 'DocumentSymbol': 'go',
-"            \ 'WorkspaceSymbol': 'gS',
-"            \ 'SignatureHelp': 'gm',
-"            \ 'Completion': 'completefunc',
-"            \}
-"let g:lsc_enable_autocomplete  = v:true
-"let g:lsc_enable_diagnostics   = v:true
-"let g:lsc_reference_highlights = v:false
-"let g:lsc_trace_level          = 'off'
+if &term =~ 'xterm' || &term == 'win32'
+	" Use DECSCUSR escape sequences
+	let &t_SI = "\e[6 q"    " blink bar
+	let &t_SR = "\e[4 q"    " blink underline
+	let &t_EI = "\e[2 q"    " blink block
+	let &t_ti ..= "\e[2 q"   " blink block
+	let &t_te .= "\e[0 q"   " default (depends on terminal, normally blink block)
+endif
+
+let g:autojump_executable='autojump'
+let g:autojum_vim_command='j'
+
+if filereadable("$XDG_DATA_HOME/.config/vim/unstaged.vim")
+	source "$XDG_DATA_HOME/.config/vim/unstaged.vim"
+endif

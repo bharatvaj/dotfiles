@@ -28,11 +28,12 @@
 	reso = remote set-url origin
 	rev = remote --verbose
 	sm = submodule
-	st = status
+	st = status -s -b
 	suir = submodule update --init --recursive
 	wt = worktree
 	wta = worktree add
 	ctags = !.git/hooks/ctags
+	summary = !git-summary
 
 [push]
 	autoSetupRemote = true

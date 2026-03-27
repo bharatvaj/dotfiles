@@ -1,23 +1,24 @@
 @echo off
 
-doskey n=cd $*
-doskey g=git $*
+doskey cat=type $*
+doskey clear=cls
+doskey d=curl -fLO $*
+doskey dot=git --git-dir="%USERPROFILE%\.local\share\wt\dotfiles.git" $*
 doskey e=%EDITOR% $*
+doskey g=git $*
+doskey hb=sh %USERPROFILE%\.local\bin\sh\hb $*
 doskey l=vifm .
 doskey ls=dir /B $*
 doskey m=make $*
+doskey n=cd $*
+doskey open=start $*
 doskey pwd=cd
 doskey rm=del $*
-doskey clear=cls
-doskey cat=type $*
-doskey open=start $*
-doskey hb=sh %USERPROFILE%\.local\bin\sh\hb $*
-doskey d=curl -fLO $*
 doskey x=7z x $*
-doskey dot=git --git-dir="%USERPROFILE%\.dotfiles" --work-tree="%USERPROFILE%" $*
-
+doskey killall=taskkill /f /im $*
 set FM=vifm
 
-IF /I x"%COMSPEC%"==x%CMDCMDLINE% (cd /D %USERPROFILE%)
+rem FIXME Enabling this causes right click menus like "Open command prompt" not to work
+rem IF /I x"%COMSPEC%"==x%CMDCMDLINE% (cd /D %USERPROFILE%)
 
-if exist "%XDG_CONFIG_HOME%\cmd\userenv.cmd" @call %XDG_CONFIG_HOME%\cmd\userenv.cmd
+if exist "%XDG_CONFIG_HOME%\cmd\unstaged.cmd" @call %XDG_CONFIG_HOME%\cmd\unstaged.cmd

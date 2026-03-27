@@ -109,8 +109,6 @@ nnoremap <A-j> :cnext<cr>
 nnoremap <leader>oc :grepadd /:: %
 nnoremap <leader>oh :grepadd /:: %
 
-nnoremap <S-Insert> :set paste | :norm <C-R>+
-
 nnoremap <leader>fb :b *
 
 vnoremap <tab> >>

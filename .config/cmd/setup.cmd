@@ -46,24 +46,34 @@ goto :eof
 
 if "%~1" == "" (
     call :set_var XDG_ROOT %USERPROFILE%
+    call :set_var SCOOP %SYSTEMROOT:~0,2%\ProgramData\scoop
 ) else (
-    call :set_var XDG_ROOT "%~1"
+    call :set_var XDG_ROOT %~1
+    call :set_var SCOOP %XDG_ROOT%\scoop
 )
+echo SCOOP is "%SCOOP%"
+
 call :set_var XDG_CONFIG_HOME %XDG_ROOT%\.config
 call :set_var XDG_DATA_HOME %XDG_ROOT%\.local\share
 call :set_var XDG_CACHE_HOME %XDG_ROOT%\.cache
-if "%SCOOP_DIR%"=="" set "SCOOP_DIR=%XDG_ROOT%\scoop"
 
-if not exist "%SCOOP_DIR%\shims\scoop.cmd" (
+if not exist "%SCOOP%\apps\scoop\current\bin\scoop.ps1" (
 
     rem Run this in powershell to install scoop and run this script again:
     rem Set-ExecutionPolicy RemoteSigned -scope CurrentUser
     rem echo powershell -Command "Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')"
+    rem TODO Autorun? Print the current settings like Mode: USER or Mode: Admin
     echo If you want to install scoop globally run the contents of
-    echo ^%XDG_ROOT^%\.config\cmd\global_scoop.ps1
+    echo %XDG_ROOT%\.config\cmd\global_scoop.ps1
     
     rem Install only the absolute essentials
-    rem scoop install 7zip clink dos2unix grep gpg lf make mingit mpv sed sudo unzip vim
+    rem TODO Fix global install apps like gpg and firefox, by making it use the XDG_ROOT
+    rem set base="7zip clink dos2unix grep make mingit mpv sed sudo unzip vim"
+    rem set full="%cmd% git-annex firefox"
+    rem TODO Use a parameter to mention this rather hardcoding this value
+    rem scoop install %full%
+    scoop config shim kiennq
+
     goto :EOF
 )
 
@@ -75,12 +85,13 @@ call :set_var GPGHOME %XDG_DATA_HOME%\gnupg
 call :set_var PASSWORD_STORE_DIR %XDG_DATA_HOME%\pass
 call :set_var PASS_BASE_DIR %XDG_DATA_HOME%\pass
 
-call :set_var LYNX_CFG %XDG_CONFIG_HOME%/lynx/lynx.cfg
-call :set_var LYNX_LSS %XDG_CONFIG_HOME%/lynx/lynx.lss
+call :set_var LYNX_CFG %XDG_CONFIG_HOME%\lynx\lynx.cfg
+call :set_var LYNX_LSS %XDG_CONFIG_HOME%\lynx\lynx.lss
 
 call :set_var VIFM %XDG_CONFIG_HOME%\vifm
 
-call :set_var FUZZER fzf
+call :set_var FUZZER wlines
+call :set_var ChocolateyToolsLocation %SYSTEMROOT:~0,2%\ProgramData\Tools
 
 rem Apply config patches
 rem TODO Use mklink instead of xcopy, it will prevent overriding changed files in the destination dir.
@@ -90,7 +101,7 @@ if not exist "%SYSTEMDRIVE%\bin" ( mkdir %SYSTEMDRIVE%\bin )
 
 if EXIST "%SCOOP%\apps\busybox\current\busybox.exe" (
     copy "%SCOOP%\apps\busybox\current\busybox.exe" %SYSTEMDRIVE%\bin
-    copy "%SCOOP%\apps\scoop\current\supporting\shims\71\shim.exe" %SYSTEMDRIVE%\bin\sh.exe
+    copy "%SCOOP%\apps\scoop\current\supporting\shims\kiennq\shim.exe" %SYSTEMDRIVE%\bin\sh.exe
     call :update_shim C:\bin\sh.shim "C:\bin\busybox.exe" "sh -l"
 )
 
@@ -103,13 +114,11 @@ if EXIST %SCOOP%\apps\gpg\current\bin\gpgconf.ctl (
     del %SCOOP%\apps\gpg\current\bin\gpgconf.ctl
 )
 
-call :add_path "%XDG_ROOT%\scoop\shims"
+call :add_path "%SCOOP%\shims"
 rem Always use \\ infront of '.' (causes issue with findstr)
 call :add_path "%XDG_ROOT%\.local\bin\cmd"
 call :add_path "%SYSTEMDRIVE%\bin"
 call :add_path "%APPDATA%\Python\Python313\Scripts"
-
-set CLINK_EXE="%XDG_ROOT%\scoop\shims\clink.exe"
 
 if errorlevel 0 (
     echo Setting up clink
