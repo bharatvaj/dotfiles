@@ -11,6 +11,15 @@ goto :main
     set "%~1=%_tail%"
 goto :eof
 
+:create_dir
+setlocal
+    if not exist "%~1\" (
+        echo mkdir "%~1"
+        mkdir "%~1"
+    )
+endlocal
+goto :eof
+
 :add_path
     setlocal EnableDelayedExpansion
 
@@ -45,17 +54,18 @@ goto :eof
 @call %~dp0\..\profile.cmd %1
 
 if "%~1" == "" (
-    call :set_var XDG_ROOT %USERPROFILE%
+    call :set_var XDG_HOME %USERPROFILE%
     call :set_var SCOOP %SYSTEMROOT:~0,2%\ProgramData\scoop
 ) else (
-    call :set_var XDG_ROOT %~1
-    call :set_var SCOOP %XDG_ROOT%\scoop
+    call :set_var XDG_HOME %~1
+    call :set_var SCOOP %XDG_HOME%\scoop
 )
 echo SCOOP is "%SCOOP%"
 
-call :set_var XDG_CONFIG_HOME %XDG_ROOT%\.config
-call :set_var XDG_DATA_HOME %XDG_ROOT%\.local\share
-call :set_var XDG_CACHE_HOME %XDG_ROOT%\.cache
+call :set_var XDG_CACHE_HOME %XDG_HOME%\.cache
+call :set_var XDG_CONFIG_HOME %XDG_HOME%\.config
+call :set_var XDG_DATA_HOME %XDG_HOME%\.local\share
+call :set_var XDG_STATE_HOME %XDG_HOME%\.local\state
 
 if not exist "%SCOOP%\apps\scoop\current\bin\scoop.ps1" (
 
@@ -64,10 +74,10 @@ if not exist "%SCOOP%\apps\scoop\current\bin\scoop.ps1" (
     rem echo powershell -Command "Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')"
     rem TODO Autorun? Print the current settings like Mode: USER or Mode: Admin
     echo If you want to install scoop globally run the contents of
-    echo %XDG_ROOT%\.config\cmd\global_scoop.ps1
+    echo %XDG_HOME%\.config\cmd\global_scoop.ps1
     
     rem Install only the absolute essentials
-    rem TODO Fix global install apps like gpg and firefox, by making it use the XDG_ROOT
+    rem TODO Fix global install apps like gpg and firefox, by making it use the XDG_HOME
     rem set base="7zip clink dos2unix grep make mingit mpv sed sudo unzip vim"
     rem set full="%cmd% git-annex firefox"
     rem TODO Use a parameter to mention this rather hardcoding this value
@@ -93,9 +103,21 @@ call :set_var VIFM %XDG_CONFIG_HOME%\vifm
 call :set_var FUZZER wlines
 call :set_var ChocolateyToolsLocation %SYSTEMROOT:~0,2%\ProgramData\Tools
 
+rem XDG Dirs
+call :create_dir "%XDG_HOME%"
+call :create_dir "%XDG_CACHE_HOME%"
+call :create_dir "%XDG_CONFIG_HOME%"
+call :create_dir "%XDG_DATA_HOME%"
+call :create_dir "%XDG_STATE_HOME%"
+
+rem Vim Dirs
+call :create_dir "%XDG_STATE_HOME%\vim"
+call :create_dir "%XDG_STATE_HOME%\vim\backup"
+call :create_dir "%XDG_STATE_HOME%\vim\swap"
+
 rem Apply config patches
 rem TODO Use mklink instead of xcopy, it will prevent overriding changed files in the destination dir.
-xcopy /S /E /Y %XDG_ROOT%\.config\cmd\patch %XDG_ROOT%\
+xcopy /S /E /Y %XDG_HOME%\.config\cmd\patch %XDG_HOME%\
 
 if not exist "%SYSTEMDRIVE%\bin" ( mkdir %SYSTEMDRIVE%\bin )
 
@@ -116,7 +138,7 @@ if EXIST %SCOOP%\apps\gpg\current\bin\gpgconf.ctl (
 
 call :add_path "%SCOOP%\shims"
 rem Always use \\ infront of '.' (causes issue with findstr)
-call :add_path "%XDG_ROOT%\.local\bin\cmd"
+call :add_path "%XDG_HOME%\.local\bin\cmd"
 call :add_path "%SYSTEMDRIVE%\bin"
 call :add_path "%APPDATA%\Python\Python313\Scripts"
 

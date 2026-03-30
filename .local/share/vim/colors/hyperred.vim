@@ -50,8 +50,8 @@ else
 	hi! ColorColumn guifg=Black ctermfg=Black guibg=LightGray ctermbg=LightGray
 	hi! Folded guifg=Blue ctermfg=Blue guibg=NONE ctermbg=NONE cterm=bold
 	hi! FoldColumn guifg=Blue ctermfg=Blue guibg=NONE ctermbg=NONE cterm=bold
-	hi! DiffChange guifg=NONE ctermfg=LightYellow guibg=LightYellow ctermbg=NONE
-	hi! DiffText guifg=NONE ctermfg=LightBlue guibg=LightBlue ctermbg=Yellow cterm=bold
+	hi! DiffChange guifg=NONE ctermfg=LightBlue guibg=LightBlue ctermbg=NONE
+	hi! DiffText guifg=NONE ctermfg=LightYellow guibg=LightYellow ctermbg=Yellow cterm=bold
 	hi! DiffAdd guibg=LightGreen ctermbg=LightGreen guifg=NONE ctermfg=NONE
 	hi! DiffDelete guifg=Red ctermfg=Red guibg=NONE ctermbg=NONE
 	hi! LineNr cterm=NONE gui=NONE guibg=NONE ctermbg=NONE guifg=LightGray ctermfg=LightGray
@@ -65,7 +65,7 @@ else
 	hi! Todo gui=underline,bold cterm=underline,bold ctermfg=White ctermbg=Red guifg=White guibg=Red
 	hi! Statement ctermfg=DarkRed guifg=DarkRed
 	hi! Comment ctermfg=DarkGray guifg=DarkGray
-	hi! Special cterm=bold gui=bold ctermbg=NONE ctermfg=LightBlue guibg=NONE guifg=LightBlue
+	hi! Special cterm=bold gui=bold ctermbg=NONE ctermfg=DarkBlue guibg=NONE guifg=Blue
 	hi! SpecialKey cterm=NONE ctermfg=Gray guifg=Gray
 	hi! NonText cterm=NONE ctermfg=LightGray guifg=LightGray
 	hi! Type gui=bold ctermfg=DarkYellow guifg=DarkYellow

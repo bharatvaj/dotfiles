@@ -28,7 +28,7 @@ g.netrw_banner = 0
 g.netrw_liststyle = 3
 
 vim.cmd([[
-	source $XDG_DATA_HOME/vim/plugin.vim
+	source $XDG_CONFIG_HOME/vim/plugin.vim
 ]])
 
 function load_plugns()

@@ -3,7 +3,10 @@
 doskey cat=type $*
 doskey clear=cls
 doskey d=curl -fLO $*
-doskey dot=git --git-dir="%USERPROFILE%\.local\share\wt\dotfiles.git" $*
+
+doskey dot=mklink /J "%XDG_HOME%\.git" "%XDG_DATA_HOME%\wt\dotfiles.git"
+doskey undot=rmdir "%XDG_HOME%\.git"
+
 doskey e=%EDITOR% $*
 doskey g=git $*
 doskey hb=sh %USERPROFILE%\.local\bin\sh\hb $*

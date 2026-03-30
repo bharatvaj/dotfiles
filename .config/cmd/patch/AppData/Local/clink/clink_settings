@@ -1,0 +1,73 @@
+# name: Strips CR and LF chars on paste
+# type: enum
+# options: delete,space,ampersand,crlf
+clink.paste_crlf = space
+
+clink.autostart = %USERPROFILE%\.config\profile.cmd
+clink.autoupdate = off
+clink.logo = none
+clink.default_bindings = bash
+
+# name: Auto-answer terminate prompt
+# type: enum
+# options: off,answer_yes,answer_no
+cmd.auto_answer = on
+
+# name: Pressing Ctrl-D exits session
+# type: boolean
+cmd.ctrld_exits = True
+
+# color
+color.arg = bold
+color.arginfo = yellow
+color.cmd = bold
+color.cmdredir = bold
+color.cmdsep = bold
+color.comment_row = bright white on cyan
+color.description = bright cyan
+color.doskey = bold cyan
+color.filtered = bold
+color.flag = default
+color.interact = bold
+color.message = default
+color.unexpected = default
+
+# name: Controls how duplicate entries are handled
+# type: enum
+# options: add,ignore,erase_prev
+history.dupe_mode = erase_prev
+
+# name: Sets how command history expansion is applied
+# type: enum
+# options: off,on,not_squoted,not_dquoted,not_quoted
+history.expand_mode = not_quoted
+
+# name: Skip adding lines prefixed with whitespace
+# type: boolean
+history.ignore_space = False
+
+history.max_lines = 10000
+
+history.save = True
+
+history.shared = False
+
+# name: Controls VT emulation
+# type: enum
+# options: native,emulate,auto
+terminal.emulation = auto
+
+# name: Esc sends a literal escape character
+# type: boolean
+terminal.raw_esc = False
+
+# name: Support Windows' Ctrl-Alt substitute for AltGr
+# type: boolean
+terminal.use_altgr_substitute = True
+
+exec.cwd = 1
+exec.dirs = 1
+exec.enable = 1
+exec.path = 1
+exec.space_prefix = 1
+

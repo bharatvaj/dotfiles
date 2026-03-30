@@ -557,7 +557,10 @@ nnoremap <space> :select<cr><down>
 "windo set viewcolumns=-{name},6{size},11{perms}
 windo set viewcolumns=-85%{name},15%{size}
 set millerview
-set milleroptions+=rpreview:all
+set milleroptions+=rpreview:dirs
 set dotdirs-=nonrootparent
+
+"fileviewer <text/*> head -n %ph %c
+"fileviewer !<text/*> file %c
 
 only

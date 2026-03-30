@@ -58,4 +58,5 @@ alias fy='fzf | clip'
 alias o='xdg-open'
 
 alias voom='VIM_DIR=$XDG_DATA_HOME/vim voom'
-alias dot='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias dot="ln -s \"$XDG_DATA_HOME/wt/dotfiles.git\" \"$XDG_HOME/.git\""
+alias undot="rm \"$XDG_HOME/.git\""

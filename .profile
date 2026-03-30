@@ -1,12 +1,12 @@
 #!/bin/sh
-: ${XDG_ROOT:=$HOME}
+: ${XDG_HOME:=$HOME}
 
 set -a
 # XDG
-XDG_CONFIG_HOME="$XDG_ROOT/.config"
-XDG_DATA_HOME="$XDG_ROOT/.local/share"
-XDG_CACHE_HOME="$XDG_ROOT/.cache"
-XDG_STATE_HOME="$XDG_ROOT/.local/state"
+XDG_CONFIG_HOME="$XDG_HOME/.config"
+XDG_DATA_HOME="$XDG_HOME/.local/share"
+XDG_CACHE_HOME="$XDG_HOME/.cache"
+XDG_STATE_HOME="$XDG_HOME/.local/state"
 
 ABDUCO_SOCKET_DIR="$XDG_STATE_HOME"/abuco
 HISTFILE="$XDG_STATE_HOME"/history

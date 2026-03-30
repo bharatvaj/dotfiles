@@ -1,4 +1,4 @@
-[ -z "$XDG_ROOT" ] && . ./.profile
+[ -z "$XDG_HOME" ] && . ./.profile
 [ -f "$XDG_CONFIG_HOME/sh/unstaged" ] && . "$XDG_CONFIG_HOME/sh/unstaged"
 [ -f "$XDG_CONFIG_HOME/bash_unstaged" ] && . "$XDG_CONFIG_HOME/bash_unstaged"
 . "${XDG_CONFIG_HOME}/sh/aliases"

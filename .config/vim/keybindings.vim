@@ -244,3 +244,6 @@ nnoremap <F3> :vim9cmd call scope#fuzzy#Quickfix()<cr>
 if has('macunix')
     :imap <D-V> ^O"+p
 en
+
+"inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
+
