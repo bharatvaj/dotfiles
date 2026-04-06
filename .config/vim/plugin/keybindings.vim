@@ -9,8 +9,6 @@ nnoremap <F4> :call SaveAndBuild()<cr>
 
 nnoremap <leader>co :botright copen<cr>
 nnoremap <leader>cs :cdo<space>s/
-nnoremap <leader>ec :call OpenSource("$XDG_HOME/.vimrc")<cr>
-nnoremap <leader>ek :call OpenSource("$XDG_DATA_HOME/vim/keybindings.vim")<cr>
 nnoremap <leader>et :set expandtab<cr>
 nnoremap <leader>fa :find *
 nnoremap <leader>ff :find *
@@ -246,4 +244,3 @@ if has('macunix')
 en
 
 "inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
-

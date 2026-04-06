@@ -563,4 +563,9 @@ set dotdirs-=nonrootparent
 "fileviewer <text/*> head -n %ph %c
 "fileviewer !<text/*> file %c
 
+if has('win')
+    set shell=cmd.exe
+    set shellcmdflag=/c
+endif
+
 only

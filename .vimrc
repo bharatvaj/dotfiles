@@ -1,25 +1,25 @@
-" Handle missing XDG_s gracefully
-if isdirectory($XDG_CONFIG_HOME)
-	let $vcache = expand((empty($XDG_CACHE_HOME) ? "~/.cache"       : "$XDG_CACHE_HOME")  . "/vim")
-	let $vdata  = expand((empty($XDG_DATA_HOME)  ? "~/.local/share" : "$XDG_DATA_HOME")   . "/vim")
-	let $vstate = expand((empty($XDG_STATE_HOME) ? "~/.local/state" : "$XDG_STATE_HOME")  . "/vim")
+" Handle missing XDGs gracefully
+let $vconfig = expand((empty($XDG_CONFIG_HOME) ? "~/.config"       : "$XDG_CONFIG_HOME")  . "/vim")
+let $vcache = expand((empty($XDG_CACHE_HOME) ? "~/.cache"       : "$XDG_CACHE_HOME")  . "/vim")
+let $vdata  = expand((empty($XDG_DATA_HOME)  ? "~/.local/share" : "$XDG_DATA_HOME")   . "/vim")
+let $vstate = expand((empty($XDG_STATE_HOME) ? "~/.local/state" : "$XDG_STATE_HOME")  . "/vim")
 
-
+if isdirectory($vstate)
 	set viminfofile=$vstate/viminfo
-	if expand($XDG_HOME) == expand("~")
-		set backupdir-=.
-		set directory-=.
-	else
-		set backupdir=$vstate/backup
-		set directory=$vstate/swap
-	endif
+	set backupdir=$vstate/backup
+	set directory=$vstate/swap
 	set undodir=$vstate/undo
-
 	set viewdir=$vstate/view
-	set rtp+=$vdata
-	set packpath^=$vdata
-
 	let g:netrw_home = expand($vstate . "/netrw")
+endif
+
+if isdirectory($vdata)
+	set packpath+=$vdata
+	set rtp+=$vdata
+endif
+
+if isdirectory($vconfig)
+	set rtp+=$vconfig
 endif
 
 filetype plugin indent on
@@ -37,6 +37,7 @@ set nofixendofline
 set nosol
 set scrolloff=0
 set shortmess=Iat
+set wrap
 
 if has("signs") | set signcolumn=yes | endif
 
@@ -97,7 +98,7 @@ if has("gui")
 	set guioptions=
 	set mouse=a
 	if has("win32")
-		set guifont=FixedSys:h11:cANSI:qDRAFT
+		set guifont=FixedSys:h14:cANSI:qDRAFT
 	endif
     " TODO Implement fg or reverse <c-z>
     nnoremap <c-z> :term<cr><c-w>o
@@ -112,16 +113,11 @@ endif
 set shellslash
 
 if has("win32")
-	set shell=cmd
-	set shellquote=\" 
-    aug scriptingshellslash
-        au FileType dosbatch,ps1 set noshellslash
-    aug END
-	" shellxquote must be a literal space character.
-	set shellxquote=  
-    set guicursor=a:blinkon0
-else
-	set shell=sh
+	set shell=cmd.exe
+	aug scriptingshellslash
+		au FileType dosbatch,ps1 set noshellslash
+	aug END
+	set guicursor=a:blinkon0
 endif
 
 if &term =~ 'xterm' || &term == 'win32'
@@ -133,11 +129,3 @@ if &term =~ 'xterm' || &term == 'win32'
 	let &t_te .= "\e[0 q"   " default (depends on terminal, normally blink block)
 endif
 
-if isdirectory($XDG_CONFIG_HOME)
-	source "$XDG_CONFIG_HOME/vim/plugin.vim"
-	source "$XDG_CONFIG_HOME/vim/keybindings.vim"
-endif
-
-if filereadable("$XDG_CONFIG_HOME/vim/unstaged.vim")
-	source "$XDG_CONFIG_HOME/vim/unstaged.vim"
-endif

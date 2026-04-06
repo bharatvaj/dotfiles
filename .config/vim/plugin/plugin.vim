@@ -3,37 +3,17 @@ function! Chomp(str)
   return substitute(a:str, '\n$', '', '')
 endfunction
 
-func! TryAndDelete()
-    try
-        source %
-        bdelete
-    catch
-        echom "Cannot source file '" .. expand('<afile>') .. "'"
-    endt
-endfunc
 
-func! OpenOnce(fi)
-    :exec "vsplit" a:fi
-    aug EphemeralBuffer
-        au!
-        au! BufWritePost <buffer> bdelete
-    aug END
-endfunc
-
-func! OpenSource(fi)
-    :exec "vsplit" a:fi
-    aug EphemeralBuffer
-        au! | au! BufWritePost <buffer> call TryAndDelete()
-    aug END
-endfunc
-
+let g:fuzzer_exe="wlines.exe"
+"let g:fuzzer_args="-i -l 20 "
+let g:fuzzer_args=""
 " Find a file and pass it to cmd
 function! DmenuOpen(cmd)
-  let fname = Chomp(system("git ls-files | dmenu-mac -i -l 20 -p " . a:cmd))
+  let fname = Chomp(system("git ls-files | " . g:fuzzer_exe." ".g:fuzzer_args))
   if empty(fname)
     return
   endif
-  execute a:cmd . " " . fname
+  execute a:cmd." ".l:fname
 endfunction
 
 " find file in git repo
@@ -117,6 +97,7 @@ endfunction
 
 function! s:load_plugins(t) abort
 	call s:plugin_pre_load()
+
 	packadd vim-commentary
 	packadd vim-surround
 	packadd vim-ninja-feet
@@ -136,17 +117,22 @@ func! s:plugin_pre_load()
 	let g:ale_floating_window_border = repeat([''], 8)
 	let g:ale_completion_enabled = 1
 	let g:ale_fixers = { 'c': [ 'astyle'] }
-	let g:ale_linters = { 'javascript': ['quicklintjs'] }
+	let g:ale_linters = {
+		\ 'javascript': ['quicklintjs'],
+		\ 'sh': ['shellcheck']
+		\}
 	let g:ale_lint_on_enter = 1
 	let g:ale_disable_lsp = 0
 
 	let g:ale_lint_delay = 0
 	let g:ale_lint_on_text_changed = 'always'
-	let g:birck_default_chan="irc.libera.chat"
 
-	if exists('#ALEEvents')
-	  call ale#events#Init()
-	endif
+	let g:ale_set_highlights=0
+	let g:ale_open_list = 1
+	let g:ale_linters_explicit = 1
+	let g:ale_disable_lsp = 0
+
+	let g:birck_default_chan="irc.libera.chat"
 
 	"let g:lsp_use_native_client = 1
 	"let g:lsp_diagnostics_virtual_text_enabled = 0
@@ -160,7 +146,7 @@ func! s:plugin_post_load()
 
     let g:ctrlp_prompt_mappings = {
             \ 'PrtSelectMove("j")':   ['<c-n>', '<down>'],
-            \'PrtSelectMove("k")':   ['<c-p>', '<up>'], 
+            \'PrtSelectMove("k")':   ['<c-p>', '<up>'],
             \ 'PrtHistory(-1)':       ['<c-j>'],
             \ 'PrtHistory(1)':        ['<c-k>'],
             \ }
@@ -223,4 +209,3 @@ function! FZYFiles() abort
 		call delete(l:tempname)
 	endtry
 endfunction
-

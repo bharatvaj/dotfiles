@@ -1,5 +1,5 @@
 #!/bin/sh
-: ${XDG_HOME:=$HOME}
+: "${XDG_HOME:=$HOME}"
 
 set -a
 # XDG
@@ -32,7 +32,7 @@ PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 W3M_DIR="$XDG_DATA_HOME"/w3m
 
 # Local executables
-PATH=${PATH}:${HOME}/.local/bin:${HOME}/.local/bin/sh:${XDG_DATA_HOME}/npm/bin:${XDG_DATA_HOME}/.cargo/bin:${GOPATH}/bin:${XDG_DATA_HOME}/gem/bin
+PATH=$PATH:$HOME/.local/bin:$HOME/.local/bin/sh:$XDG_DATA_HOME/npm/bin:$XDG_DATA_HOME/.cargo/bin:$GOPATH/bin:$XDG_DATA_HOME/gem/bin
 
 # Setup editor
 # TODO until I grok the shell and able to control the clipboard and
@@ -43,10 +43,10 @@ PATH=${PATH}:${HOME}/.local/bin:${HOME}/.local/bin/sh:${XDG_DATA_HOME}/npm/bin:$
 command -v vim && VISUAL=vim && EDITOR=vim
 } >/dev/null
 
-if [ $(uname -s) = "Windows_NT" ]; then
-    FUZZER=$(command -v wlines)
+if [ "$(uname -s)" = "Windows_NT" ]; then
+    FUZZER=wlines.exe
 else
-    FUZZER=$(command -v fzy)
+    FUZZER=fzy
 fi
 FM=vifm
 
@@ -67,6 +67,6 @@ set +a
 HISTTIMEFORMAT="%F %T "
 HISTCONTROL=erasedups
 
-. "${XDG_CONFIG_HOME}/sh/functions"
-. "${XDG_CONFIG_HOME}/sh/aliases"
-[ -f "${XDG_CONFIG_HOME}/sh/unstaged" ] && . "${XDG_CONFIG_HOME}/sh/unstaged"
+. "$XDG_CONFIG_HOME/sh/functions"
+. "$XDG_CONFIG_HOME/sh/aliases"
+[ -f "$XDG_CONFIG_HOME/sh/unstaged" ] && . "$XDG_CONFIG_HOME/sh/unstaged"

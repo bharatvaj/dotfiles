@@ -1,41 +1,27 @@
-# Ignore everything by default.
-*
+vifm/*
+!vifm/vifmrc
+!vifm/colorscheme/*
 
-!.gitignore
-!X11/
-!X11/Xresources
-!X11/keybindings
-!X11/xinitrc
-!alacritty/
-!alacritty/**
-!clink
-!clink/clink_settings
-!cmd/
-!cmd/
-!git/
-!git/config
-!i3
-!lf
-!lf/**
-!lynx/
-!lynx/lynx.cfg
-!lynx/lynx.lss
-!mutt/
-!mutt/**
-!nvim/
-!nvim/init.lua
-!nvim/lua/keybindings.lua
-!sh/
-!sh/**
-!tmux/
-!tmux/tmux.conf
-!user-dirs.dirs
-!vim/
-!vim/**
-!wgetrc
+# Yet to understand
+git/gitk
+git-annex
 
-alacritty/light-theme.yml
-alacritty/mac.yml
-alacritty/unstaged.yml
-alacritty/windows.yml
-cmd/userenv.bat
+# Not used much
+micro
+nushell
+
+# Too specific for general sharing
+mpd
+inkscape
+scoop
+openfortivpn
+darktable
+
+# XDG violators but useful
+mypaint
+
+# XDG violators and not used
+configstore
+.android
+gtk-2.0
+gtk-3.0

@@ -103,6 +103,9 @@ call :set_var VIFM %XDG_CONFIG_HOME%\vifm
 call :set_var FUZZER wlines
 call :set_var ChocolateyToolsLocation %SYSTEMROOT:~0,2%\ProgramData\Tools
 
+rem GUI
+call :set_var GIMP2_DIRECTORY %XDG_DATA_HOME%\GIMP\2.8
+
 rem XDG Dirs
 call :create_dir "%XDG_HOME%"
 call :create_dir "%XDG_CACHE_HOME%"

@@ -1,28 +1,39 @@
 # Ignore everything by default.
-*
+*/
+
+# UNIX
+.lesshst
+.python_history
+.ash_history
+.bash_history
+
+# Windows
+NTUSER.DAT*
+ntuser.ini
+
+# Mac
+.DS_Store
 
 # Git
-!.gitignore
+.gitconfig
 
-# Shell
-!.profile
-
-# Bash
-!.bashrc
+# Not used
+.npmrc
 
 # Config
 !.config/
-.config/user-dirs.dirs
+!.config/**
 
 !.local/
-
 # Local shell scripts
-!.local/bin/
-!.local/bin/cmd/
-!.local/bin/cmd/**
-!.local/bin/sh/
-!.local/bin/sh/**
-
+#!.local/bin/
+#!.local/bin/cmd/
+#!.local/bin/cmd/**
+#!.local/bin/sh/
+#!.local/bin/sh/**
 !.local/share/
 
 *.exe
+
+unstaged
+unstaged.*
