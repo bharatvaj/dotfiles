@@ -19,9 +19,12 @@ doskey pwd=cd
 doskey rm=del $*
 doskey x=7z x $*
 doskey killall=taskkill /f /im $*
-set FM=vifm
+doskey ?=lynx -cfg "%XDG_CONFIG_HOME%\lynx\lynx.cfg" $*
 
-rem FIXME Enabling this causes right click menus like "Open command prompt" not to work
-rem IF /I x"%COMSPEC%"==x%CMDCMDLINE% (cd /D %USERPROFILE%)
+rem FIXME This has the draw back that, if scripts are launched in %WINDIR%\System32,
+rem like "Open command prompt" or make, it will just cd into %USERPROFILE%
+IF /I "%CD%"=="%WINDIR%\System32" (cd /D "%USERPROFILE%")
+
+set FM=vifm
 
 if exist "%XDG_CONFIG_HOME%\cmd\unstaged.cmd" @call %XDG_CONFIG_HOME%\cmd\unstaged.cmd

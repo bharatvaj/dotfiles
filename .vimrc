@@ -5,10 +5,10 @@ let $vdata  = expand((empty($XDG_DATA_HOME)  ? "~/.local/share" : "$XDG_DATA_HOM
 let $vstate = expand((empty($XDG_STATE_HOME) ? "~/.local/state" : "$XDG_STATE_HOME")  . "/vim")
 
 if isdirectory($vstate)
-	set viminfofile=$vstate/viminfo
-	set backupdir=$vstate/backup
-	set directory=$vstate/swap
-	set undodir=$vstate/undo
+	set viminfofile^=$vstate/viminfo
+	set backupdir^=$vstate/backup
+	set directory^=$vstate/swap
+	set undodir^=$vstate/undo
 	set viewdir=$vstate/view
 	let g:netrw_home = expand($vstate . "/netrw")
 endif
@@ -70,8 +70,9 @@ set nospell
 
 " Netrw customization
 let g:netrw_banner = 0
-let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
 let g:netrw_fastbrowse= 2
+let g:netrw_liststyle = 3
 let g:netrw_preview = 1
 let g:netrw_winsize = 30
 

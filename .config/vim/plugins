@@ -24,6 +24,8 @@ torrancew/vim-openscad
 tpope/vim-sensible
 tpope/vim-sleuth
 tpope/vim-speeddating
+tpope/vim-unimpaired
+tpope/vim-vinegar
 travisjeffery/vim-auto-mkdir
 will133/vim-dirdiff
 
@@ -61,12 +63,12 @@ will133/vim-dirdiff
 #rcarriga/nvim-dap-ui
 #terrortylor/nvim-comment
 #tommcdo/vim-ninja-feet
-#tomtom/tlib_vim
-#tomtom/ttodo_vim
-#tpope/vim-vinegar
+#tomtom/tlib_vim # dependency of ttodo_vim
+#tomtom/ttodo_vim # research ongoing
 #vim-scripts/SearchComplete
 #vim-scripts/gitignore
 #vim-scripts/vimacs
 #xolox/vim-easytags
 #xolox/vim-misc
 #yegappan/searchcomplete
+#weynhamz/vim-plugin-minibufexpl # shows all the buffers atop, but I don't need it most of the time as I just use :ls, or browes with :Ex or do fuzzy search these days

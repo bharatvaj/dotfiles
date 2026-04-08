@@ -20,6 +20,7 @@ innounp
 jdupes
 jq
 less
+lftp
 lynx
 m4
 make
@@ -44,4 +45,3 @@ yarn
 zbar
 zbar-vfw
 zip
-

@@ -122,6 +122,7 @@ rem Apply config patches
 rem TODO Use mklink instead of xcopy, it will prevent overriding changed files in the destination dir.
 xcopy /S /E /Y %XDG_HOME%\.config\cmd\patch %XDG_HOME%\
 
+rem Install "UNIX" interface
 if not exist "%SYSTEMDRIVE%\bin" ( mkdir %SYSTEMDRIVE%\bin )
 
 if EXIST "%SCOOP%\apps\busybox\current\busybox.exe" (
@@ -130,11 +131,8 @@ if EXIST "%SCOOP%\apps\busybox\current\busybox.exe" (
     call :update_shim C:\bin\sh.shim "C:\bin\busybox.exe" "sh -l"
 )
 
-if EXIST "%SCOOP%\apps\lynx\current\lynx.exe" (
-    call :update_shim "%SCOOP%\shims\lynx.shim" "%SCOOP%\apps\lynx\current\lynx.exe" "-cfg %XDG_CONFIG_HOME%\lynx\lynx.cfg"
-)
-
 rem TODO Report this in scoop and remove this line
+rem TODO Or use custom installer for gpg
 if EXIST %SCOOP%\apps\gpg\current\bin\gpgconf.ctl (
     del %SCOOP%\apps\gpg\current\bin\gpgconf.ctl
 )

@@ -15,7 +15,7 @@ if not exist "%PASSWORD_STORE_DIR%" (
     exit /b 1
 )
 
-for /f %%i in ('"%PASSTOOL% ls -f | %FUZZER%"') do (
+for /f %%i in ('"%PASSTOOL% ls -f | %FUZZER%" %FUZZER_ARGS%') do (
     set selected_pass=%%i
 )
 
