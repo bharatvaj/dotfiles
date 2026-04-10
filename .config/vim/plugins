@@ -18,6 +18,7 @@ kristijanhusak/vim-dadbod-ui
 ldrumm/compiler-explorer.vim
 ledger/vim-ledger
 mbbill/undotree
+neilhwatson/vim_cf3
 prabirshrestha/asyncomplete.vim
 taoso/mru.vim
 torrancew/vim-openscad
