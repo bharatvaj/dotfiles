@@ -127,10 +127,14 @@ func! s:plugin_pre_load()
 	let g:ale_lint_delay = 0
 	let g:ale_lint_on_text_changed = 'always'
 
-	let g:ale_set_highlights=0
-	let g:ale_open_list = 1
-	let g:ale_linters_explicit = 1
 	let g:ale_disable_lsp = 0
+	let g:ale_linters_explicit = 1
+	let g:ale_open_list = 1
+	let g:ale_virtualtext_cursor = 0
+
+	if !has("gui_running")
+		let g:ale_set_highlights=0
+	endif
 
 	let g:birck_default_chan="irc.libera.chat"
 

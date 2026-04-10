@@ -96,7 +96,6 @@ set foldopen-=search
 set synmaxcol=1000
 
 if has("gui_running")
-	echom "GUI"
 	set guioptions=
 	set mouse=a
 	if has("win32")
