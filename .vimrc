@@ -95,7 +95,8 @@ set foldopen-=search
 
 set synmaxcol=1000
 
-if has("gui")
+if has("gui_running")
+	echom "GUI"
 	set guioptions=
 	set mouse=a
 	if has("win32")
@@ -105,10 +106,8 @@ if has("gui")
     nnoremap <c-z> :term<cr><c-w>o
     inoremap <c-z> :term<cr><c-w>o
     tnoremap <c-z> <c-w>:hide edit #<cr>
-else
-    set termguicolors
-    set background=dark
-    colorscheme hyperred
+elseif has("win32") " console and win32
+	set termguicolors
 endif
 
 set shellslash
