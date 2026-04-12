@@ -28,6 +28,7 @@ XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 #XSERVERRC="$XDG_CONFIG_HOME"/X11/xserverrc
 
 GNUPGHOME="$XDG_DATA_HOME/gnupg"
+SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
 PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass
 W3M_DIR="$XDG_DATA_HOME"/w3m
 

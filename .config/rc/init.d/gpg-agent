@@ -1,0 +1,6 @@
+#!/sbin/openrc-run
+
+command="/usr/bin/gpg-agent"
+command_args="--daemon"
+
+export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
