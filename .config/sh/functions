@@ -76,3 +76,12 @@ download() {
 	esac
 }
 
+tpm() {
+		case "$1" in
+			copy) shift; tpm-copy "$@" ;;
+			generate) shift; tpm-generate "$@" ;;
+			otp) shift; tpm-otp "$@" ;;
+			ls) tpm-ls ;;
+			*) command tpm "$@" ;;
+		esac
+}
