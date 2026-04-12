@@ -68,8 +68,9 @@ will133/vim-dirdiff
 #tomtom/ttodo_vim # research ongoing
 #vim-scripts/SearchComplete
 #vim-scripts/gitignore
+#vim-scripts/mru.vim
 #vim-scripts/vimacs
+#weynhamz/vim-plugin-minibufexpl # shows all the buffers atop, but I don't need it most of the time as I just use :ls, or browes with :Ex or do fuzzy search these days
 #xolox/vim-easytags
 #xolox/vim-misc
 #yegappan/searchcomplete
-#weynhamz/vim-plugin-minibufexpl # shows all the buffers atop, but I don't need it most of the time as I just use :ls, or browes with :Ex or do fuzzy search these days
