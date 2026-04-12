@@ -174,10 +174,10 @@ func! s:plugin_post_load()
         let g:notmuch_open_command = 'fzf'
         let g:notmuch_fzf_command = 'fzf --reverse'
         let g:notmuch_use_conversation_view = 1
-        let sendmail_path = systemlist('sed -n "s/^set sendmail=\(.*\)$/\1/p; $!d" ~/.mailrc')
-        if len(sendmail_path) > 0
-            "let g:notmuch_sendmail=sendmail_path[]
-        endif
+        "let sendmail_path = systemlist('sed -n "s/^set sendmail=\(.*\)$/\1/p; $!d" ~/.mailrc')
+        "if len(sendmail_path) > 0
+        "    "let g:notmuch_sendmail=sendmail_path[]
+        "endif
     endif
 
 endfunc
