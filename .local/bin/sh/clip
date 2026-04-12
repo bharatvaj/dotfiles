@@ -2,3 +2,13 @@
 
 # TODO cross-platform clipborad
 # Use OS-specific, should work both on console and X
+os="$(uname -s)"
+if [ "$os" = "Darwin" ]; then
+    pbcopy
+elif [ "$os" = "Windows_NT" ]; then
+    command clip
+elif command -v xclip >/dev/null; then
+    xclip
+elif command -v xsel >/dev/null; then
+    xclip
+fi

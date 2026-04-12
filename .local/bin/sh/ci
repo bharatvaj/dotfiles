@@ -1,8 +1,0 @@
-#!/bin/sh
-# ci - computer index
-
-s_db="$XDG_DATA_HOME/personal/systems.json"
-
-s_system=$(jq -r 'keys[]' "$s_db" | fzf)
-s_addr=$(jq -r ".$s_system" "$s_db")
-echo $s_addr

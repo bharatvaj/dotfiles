@@ -48,6 +48,7 @@ if [ "$(uname -s)" = "Windows_NT" ]; then
 else
     FUZZER=fzy
 fi
+# TODO Use nnncd
 FM=vifm
 
 BROWSER=lynx

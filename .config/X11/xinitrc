@@ -2,10 +2,10 @@
 
 WM=dwm
 
-xrdb -merge $XDG_CONFIG_HOME/X11/Xresources
+xrdb -merge "$XDG_CONFIG_HOME/X11/Xresources"
 
-__type $WM || (echo "$WM not found" && exit 1)
-
-__type slstatus && exec slstatus &
+there $WM || (echo "$WM not found" && exit 1)
+there slstatus && exec slstatus &
+there setxkbmap -option caps:escape
 
 exec $WM
