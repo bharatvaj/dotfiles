@@ -5,4 +5,5 @@
 
 PS1='\w> '
 
-bind '"\C-T":"fg\n"'
+stty susp undef
+bind '"\C-z":"fg\015"'

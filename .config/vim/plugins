@@ -28,6 +28,7 @@ tpope/vim-speeddating
 tpope/vim-unimpaired
 tpope/vim-vinegar
 travisjeffery/vim-auto-mkdir
+vim-scripts/todo-txt.vim
 will133/vim-dirdiff
 
 #Bestoa/SearchComplete
@@ -64,8 +65,8 @@ will133/vim-dirdiff
 #rcarriga/nvim-dap-ui
 #terrortylor/nvim-comment
 #tommcdo/vim-ninja-feet
-#tomtom/tlib_vim # dependency of ttodo_vim
-#tomtom/ttodo_vim # research ongoing
+#tomtom/tlib_vim
+#tomtom/ttodo_vim # Cannot get higlighting to work out of the box
 #vim-scripts/SearchComplete
 #vim-scripts/gitignore
 #vim-scripts/mru.vim
