@@ -1,17 +1,15 @@
+# helper functions
+
 [ -n "$BASH" ] && is_bash=-f
 
 there() {
 	# Checks the availability of an executable
-	command -v "$@" >/dev/null 2>&1
+	if ! command -v "$@" >/dev/null; then
+		for f in "$@"; do
+			test -f "$f" || test -d "$f" || return 1
+		done
+	fi
 } && export $is_bash there
-
-open_project() {
-	# search only dirs
-	search_loc=${1:-.}/*
-	for i in $search_loc/.git/ $search_loc/*/.git/; do
-		echo "$i.."
-	done
-} && export $is_bash open_project
 
 open_project() {
 	# search only dirs
@@ -77,11 +75,16 @@ download() {
 }
 
 tpm() {
-		case "$1" in
-			copy) shift; tpm-copy "$@" ;;
-			generate) shift; tpm-generate "$@" ;;
-			otp) shift; tpm-otp "$@" ;;
-			ls) tpm-ls ;;
-			*) command tpm "$@" ;;
-		esac
+	case "$1" in
+		copy) shift; tpm-copy "$@" ;;
+		generate) shift; tpm-generate "$@" ;;
+		otp) shift; tpm-otp "$@" ;;
+		ls) tpm-ls ;;
+		*) command tpm "$@" ;;
+	esac
 }
+
+cd_and_ls() { cd $* && ls; }
+
+multimap() { c=$1; shift; for t in $*; do there $t || alias $t="$c '$t'"; done }
+

@@ -6,14 +6,10 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 # [misc]
 # alias doas=sudo
-alias qc="ssh \"\$(sed -n -e '/\*.*/d' -e '/^Host/s/^Host //p' $XDG_HOME/.ssh/config | $FUZZER)\""
-
-# [helper_functions]
-cd_and_ls() { cd $* && ls; }
-thwart() { for t in $*; do there $t || alias $t="sl '$t'"; done }
-
-# [baseutils_conditioning]
-thwart lls sls lsl lss kls cdd mr
+# ssh workflow
+alias qc="there \"$XDG_HOME/.ssh/config\" && ssh \"\$(sed -n -e '/\*.*/d' -e '/^Host/s/^Host //p' \"$XDG_HOME/.ssh/*config\" | $FUZZER)\""
+# thwart - baseutils_conditioning
+multimap sl lls sls lsl lss kls cdd mr
 
 # [ip]
 # TODO make this cross-platform

@@ -9,7 +9,7 @@ doskey undot=rmdir "%XDG_HOME%\.git"
 
 doskey e=%EDITOR% $*
 doskey g=git $*
-doskey hb=sh %USERPROFILE%\.local\bin\sh\hb $*
+doskey hb=sh "%XDG_HOME%\.local\bin\sh\hb" $*
 doskey l=vifm .
 doskey ls=dir /B $*
 doskey m=make $*
@@ -17,12 +17,12 @@ doskey n=cd $*
 doskey open=start $*
 doskey pwd=cd
 doskey rm=del $*
-doskey x=7z x $*
+doskey x=sh "%XDG_HOME%\.local\bin\sh\extract.sh" $*
 doskey killall=taskkill /f /im $*
 doskey ?=lynx -cfg "%XDG_CONFIG_HOME%\lynx\lynx.cfg" $*
 
 rem FIXME This has the draw back that, if scripts are launched in %WINDIR%\System32,
-rem like "Open command prompt" or make, it will just cd into %USERPROFILE%
+rem like "Open command prompt" or in any way, it will just cd into %USERPROFILE%
 IF /I "%CD%"=="%WINDIR%\System32" (cd /D "%USERPROFILE%")
 
 set FM=vifm
